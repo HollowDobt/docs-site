@@ -1,0 +1,15 @@
+baseURL = 'https://hollowlib.top/'
+languageCode = 'en-us'
+title = "Hollow 的 Docs"
+
+[params]
+    BookTheme = 'dark'
+    BookRepo = 'https://github.com/alex-shpak/hugo-book'
+    BookCommitPath = 'commit'
+    BookEditPath = 'edit/master/example'
+    BookDateFormat = '2006 Jan-2'
+    BookComments = true
+    BookServiceWorker = true
+
+[markup.goldmark.renderer]
+  unsafe = true
