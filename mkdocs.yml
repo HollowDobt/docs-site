@@ -32,6 +32,10 @@ theme:
 extra_css:
   - styles/fonts.css
   - styles/extra.css
+  - static/dist/output/css
+
+extra_javascript:
+  - https://unpkg.com/lucide@latest
 
 
 extra:
@@ -52,7 +56,7 @@ extra:
       link: https://github.com/hollowdobt
       name: Hollow's Github
     - icon: fontawesome/solid/paper-plane
-      link: mailto:hollowdobt@qq.com
+      link: mailto:rxq@hollowlib.top
       name: Hollow's Email
 
 plugins:
