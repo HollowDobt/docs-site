@@ -1,0 +1,19 @@
+/* 英文字体默认使用 Quicksand */
+html, body, .md-typeset {
+  font-family: "Quicksand", "LXGW WenKai", sans-serif;
+}
+
+/* 中文字体强制优先级匹配 */
+body * {
+  font-family: "Quicksand", "LXGW WenKai", sans-serif;
+}
+
+/* 代码字体 */
+code, pre, .md-typeset code, .md-typeset pre {
+  font-family: "Fira Mono", monospace !important;
+}
+
+body[data-md-color-scheme="slate"] {
+  background-color: #1A1A1E !important;
+}
+

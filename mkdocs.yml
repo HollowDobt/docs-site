@@ -1,1 +1,71 @@
-site_name: My Docs
+site_name: Hollow's Library
+site_url: https://docs.hollowlib.top
+theme:
+  name: material
+  logo: assets/favicon.png
+  favicon: assets/favicon.png
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.path
+    - navigation.prune
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - toc.integrate
+    - search.suggest
+    - search.share
+    - content.action.edit
+
+
+  palette:
+    scheme: slate
+    primary: black
+    accent: cyan
+
+  icon:
+    repo: fontawesome/brands/git-alt
+
+extra_css:
+  - styles/fonts.css
+  - styles/extra.css
+
+
+extra:
+  consent:
+    title: Cookie consent
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+
+  analytics:
+    provider: google
+    property: G-TCDSJEFYY3
+
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/hollowdobt
+      name: Hollow's Github
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:hollowdobt@qq.com
+      name: Hollow's Email
+
+plugins:
+  - search
+  - tags
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - git-committers:
+      repository: hollowdobt/docs-site
+      branch: main
+  - git-authors
+
+copyright: Copyright &copy; 2025 - today Hollow Dobt
+repo_url: https://github.com/hollowdobt/docs-site
+repo_name: hollowdobt/docs-site
+edit_uri: edit/main/docs/
