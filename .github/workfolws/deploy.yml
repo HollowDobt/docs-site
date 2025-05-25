@@ -1,0 +1,54 @@
+name: Auto Deploy to pages branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. 拉取代码
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 获取完整历史，方便部署分支操作
+
+      # 2. 安装 Python 和 MkDocs
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: pip install mkdocs
+
+      # 3. 构建 MkDocs 并修复 404 页面
+      - name: Build the site
+        run: |
+          mkdocs build
+          cp site/static/404.html site/404.html
+
+      # 4. 将构建产物部署到 pages 分支
+      - name: Deploy to pages branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # 保存当前目录
+          REMOTE_REPO="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
+
+          # 清理旧部署目录（如果存在）
+          rm -rf ../output-dir
+          mkdir ../output-dir
+          cp -r site/* ../output-dir/
+
+          cd ../output-dir
+          git init
+          git remote add origin $REMOTE_REPO
+          git checkout -b pages
+          git add .
+          git commit -m "Deploy: ${{ github.sha }}"
+          git push --force origin pages
