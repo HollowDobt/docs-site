@@ -20,7 +20,6 @@ theme:
     - search.share
     - content.action.edit
 
-
   palette:
     scheme: slate
     primary: black
@@ -32,16 +31,15 @@ theme:
 extra_css:
   - styles/fonts.css
   - styles/extra.css
-  - static/dist/output/css
+  - static/dist/output.css
 
 extra_javascript:
   - https://unpkg.com/lucide@latest
 
-
 extra:
   consent:
     title: Cookie consent
-    description: >- 
+    description: >-
       We use cookies to recognize your repeated visits and preferences, as well
       as to measure the effectiveness of our documentation and whether users
       find what they're searching for. With your consent, you're helping us to
