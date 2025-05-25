@@ -11,6 +11,12 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
 中文测试
 
+有朋自远方来, 不亦乐乎?
+
+海内存知己,
+天涯若比邻.
+
+
 ## Project layout
 
     mkdocs.yml    # The configuration file.
