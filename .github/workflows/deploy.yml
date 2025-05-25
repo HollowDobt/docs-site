@@ -55,5 +55,5 @@ jobs:
           git remote add origin $REMOTE_REPO
           git checkout -b pages
           git add .
-          git commit -m "Deploy: ${{ github.sha }}"
+          git commit -m "Deploy: ${{ github.sha }}" || echo "Nothing to commit"
           git push --force origin pages
