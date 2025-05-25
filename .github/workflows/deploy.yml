@@ -39,21 +39,26 @@ jobs:
       # 4. 将构建产物部署到 pages 分支
       - name: Deploy to pages branch
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          set -eux  # 遇错立即退出，打印每条命令
 
-          # 保存当前目录
           REMOTE_REPO="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
 
-          # 清理旧部署目录（如果存在）
           rm -rf ../output-dir
           mkdir ../output-dir
           cp -r site/* ../output-dir/
 
           cd ../output-dir
           git init
-          git remote add origin $REMOTE_REPO
           git checkout -b pages
+
+          # 设置 Git 用户信息（必须在 init 之后！）
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
           git add .
-          git commit -m "Deploy: ${{ github.sha }}" || echo "Nothing to commit"
-          git push --force origin pages
+
+          # 如果没有变化可提交，也继续执行
+          git commit -m "Deploy: ${{ github.sha }}" || echo "⚠️ Nothing to commit"
+
+          git remote add origin $REMOTE_REPO
+          git push --force origin pages || echo "⚠️ Nothing to push"
