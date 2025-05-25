@@ -28,15 +28,24 @@ theme:
   icon:
     repo: fontawesome/brands/git-alt
 
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+
 extra_css:
   - styles/fonts.css
   - styles/extra.css
   - static/dist/output.css
+  - https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css
 
 extra_javascript:
   - https://unpkg.com/lucide@latest
+  - https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js
+  - js/math.js
 
 extra:
+  math: true
   consent:
     title: Cookie consent
     description: >-
@@ -71,3 +80,4 @@ copyright: Copyright &copy; 2025 - today Hollow Dobt
 repo_url: https://github.com/hollowdobt/docs-site
 repo_name: hollowdobt/docs-site
 edit_uri: edit/main/docs/
+

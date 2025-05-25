@@ -16,6 +16,12 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 海内存知己,
 天涯若比邻.
 
+Katex Test:
+$$
+\frac{1}{2}=0.5 \\
+\sqrt{a^2} = \left |a  \right | 
+$$
+
 
 ## Project layout
 

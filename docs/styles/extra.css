@@ -13,6 +13,13 @@ code, pre, .md-typeset code, .md-typeset pre {
   font-family: "Fira Mono", monospace !important;
 }
 
+.katex, .katex * {
+  font-family: KaTeX_Main, Times New Roman, serif !important;
+  font-style: normal;
+  font-weight: normal;
+}
+
+
 body[data-md-color-scheme="slate"] {
   background-color: #1A1A1E !important;
 }
