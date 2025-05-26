@@ -58,7 +58,7 @@ jobs:
           git add .
 
           # 如果没有变化可提交，也继续执行
-          git commit -m "Deploy: ${{ github.sha }}" || echo "⚠️ Nothing to commit"
+          git commit -m "Deploy: ${{ github.sha }}" || echo "WARNING: Nothing to commit"
 
           git remote add origin $REMOTE_REPO
-          git push --force origin pages || echo "⚠️ Nothing to push"
+          git push --force origin pages || echo "WARNING: Nothing to push"

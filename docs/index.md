@@ -1,31 +1,7 @@
-# Welcome to MkDocs
+# 欢迎来到Hollow的图书馆~
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+这是我的文档站, 当然我更希望来访的旅人可以称之为图书馆~ 这里有我的课程记录和算法笔记, 其中课程记录有我的一小部分我觉得很重要但是很稀有的文档内容, 算法笔记则是我在漫长的算法学习中遇到的有趣, 困扰我的题目, 和一些 oi-wiki 对初学者不友好的算法原理解释.
 
-## Commands
+## 引导/目录/Contents
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-中文测试
-
-有朋自远方来, 不亦乐乎?
-
-海内存知己,
-天涯若比邻.
-
-Katex Test:
-$$
-\frac{1}{2}=0.5 \\
-\sqrt{a^2} = \left |a  \right | 
-$$
-
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+* [微积分(甲) II](./微积分甲 II/index.md)
