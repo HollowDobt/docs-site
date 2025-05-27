@@ -30,19 +30,20 @@ theme:
 
 markdown_extensions:
   - pymdownx.arithmatex:
-      generic: true
+      generic: false         # ✅ 修复关键点
+      inline_syntax: ['dollar', 'round']
+      block_syntax: ['dollar', 'latex']
 
 extra_css:
   - styles/fonts.css
   - styles/extra.css
   - static/dist/output.css
-  - https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css
 
 extra_javascript:
   - https://unpkg.com/lucide@latest
-  - https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js
-  - https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js
-  - js/math.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
+  - js/math.js                # ✅ 加载顺序正确：math.js 配置在 MathJax 之后运行
 
 extra:
   math: true
