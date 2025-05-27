@@ -52,3 +52,10 @@ pre,
 body[data-md-color-scheme="slate"] {
   background-color: #1a1a1e !important;
 }
+
+/* Adomition 公式 */
+.md-typeset .admonition,
+.md-typeset details.admonition {
+  font-size: 0.85rem; /* 默认大概是 0.85rem，可调大些 */
+  line-height: 1.5;
+}
