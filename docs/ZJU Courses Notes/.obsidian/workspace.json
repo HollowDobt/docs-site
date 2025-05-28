@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "641798f90094281e",
@@ -169,5 +170,8 @@
     }
   },
   "active": "610b5e7a9d2d5f77",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "截屏2025-05-28 09.17.27.png",
+    "截屏2025-05-28 09.12.20.png"
+  ]
 }
