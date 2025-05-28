@@ -38,6 +38,7 @@ markdown_extensions:
 extra_css:
   - styles/fonts.css
   - styles/extra.css
+  - styles/giscus.css
   - static/dist/output.css
   - https://unpkg.com/katex@0/dist/katex.min.css
 

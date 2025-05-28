@@ -1,4 +1,11 @@
-document.addEventListener("DOMContentLoaded", function () {
+function loadGiscus() {
+  const existing = document.getElementById("giscus-container");
+  if (existing) existing.remove(); // 移除旧评论区
+
+  const commentContainer = document.createElement("div");
+  commentContainer.id = "giscus-container";
+  commentContainer.style.marginTop = "3rem";
+
   const giscus = document.createElement("script");
   giscus.src = "https://giscus.app/client.js";
   giscus.setAttribute("data-repo", "HollowDobt/docs-site");
@@ -16,8 +23,22 @@ document.addEventListener("DOMContentLoaded", function () {
   giscus.setAttribute("crossorigin", "anonymous");
   giscus.async = true;
 
-  const commentContainer = document.createElement("div");
-  commentContainer.id = "giscus-container";
-  document.querySelector("main").appendChild(commentContainer);
-  commentContainer.appendChild(giscus);
+  const target =
+    document.querySelector(".md-content") || document.querySelector("main");
+  if (target) {
+    target.appendChild(commentContainer);
+    commentContainer.appendChild(giscus);
+  }
+}
+
+// 页面首次加载
+document.addEventListener("DOMContentLoaded", loadGiscus);
+
+// 监听 MkDocs Material 的局部页面切换事件
+document.addEventListener("DOMContentLoaded", function () {
+  if (typeof document$ !== "undefined") {
+    document$.subscribe(() => {
+      loadGiscus();
+    });
+  }
 });
