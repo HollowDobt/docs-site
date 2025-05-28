@@ -46,7 +46,7 @@ extra_javascript:
   - javascripts/katex.js
   - https://unpkg.com/katex@0/dist/katex.min.js
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
-
+  - javascripts/giscus.js
 
 extra:
   math: true
@@ -84,4 +84,3 @@ copyright: Copyright &copy; 2025 - today Hollow Dobt
 repo_url: https://github.com/hollowdobt/docs-site
 repo_name: hollowdobt/docs-site
 edit_uri: edit/main/docs/
-
