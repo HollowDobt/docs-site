@@ -1,44 +1,40 @@
-function loadGiscus() {
-  const existing = document.getElementById("giscus-container");
-  if (existing) existing.remove(); // 移除旧评论区
+function renderGiscus() {
+  const old = document.querySelector("#giscus-container");
+  if (old) old.remove(); // 移除旧容器
 
-  const commentContainer = document.createElement("div");
-  commentContainer.id = "giscus-container";
-  commentContainer.style.marginTop = "3rem";
+  const container = document.createElement("div");
+  container.id = "giscus-container";
 
-  const giscus = document.createElement("script");
-  giscus.src = "https://giscus.app/client.js";
-  giscus.setAttribute("data-repo", "HollowDobt/docs-site");
-  giscus.setAttribute("data-repo-id", "R_kgDOOvKsgw");
-  giscus.setAttribute("data-category", "Comments");
-  giscus.setAttribute("data-category-id", "DIC_kwDOOvKsg84CqrwA");
-  giscus.setAttribute("data-mapping", "pathname");
-  giscus.setAttribute("data-strict", "0");
-  giscus.setAttribute("data-reactions-enabled", "1");
-  giscus.setAttribute("data-emit-metadata", "1");
-  giscus.setAttribute("data-input-position", "top");
-  giscus.setAttribute("data-theme", "dark_high_contrast");
-  giscus.setAttribute("data-lang", "zh-CN");
-  giscus.setAttribute("data-loading", "lazy");
-  giscus.setAttribute("crossorigin", "anonymous");
-  giscus.async = true;
+  const script = document.createElement("script");
+  script.src = "https://giscus.app/client.js";
+  script.async = true;
+  script.setAttribute("data-repo", "HollowDobt/docs-site");
+  script.setAttribute("data-repo-id", "R_kgDOOvKsgw");
+  script.setAttribute("data-category", "Comments");
+  script.setAttribute("data-category-id", "DIC_kwDOOvKsg84CqrwA");
+  script.setAttribute("data-mapping", "pathname");
+  script.setAttribute("data-strict", "0");
+  script.setAttribute("data-reactions-enabled", "1");
+  script.setAttribute("data-emit-metadata", "1");
+  script.setAttribute("data-input-position", "top");
+  script.setAttribute("data-theme", "dark_high_contrast");
+  script.setAttribute("data-lang", "zh-CN");
+  script.setAttribute("data-loading", "lazy");
+  script.setAttribute("crossorigin", "anonymous");
 
-  const target =
-    document.querySelector(".md-content") || document.querySelector("main");
+  const target = document.querySelector(".md-content");
   if (target) {
-    target.appendChild(commentContainer);
-    commentContainer.appendChild(giscus);
+    target.appendChild(container);
+    container.appendChild(script);
   }
 }
 
-// 页面首次加载
-document.addEventListener("DOMContentLoaded", loadGiscus);
+// 第一次加载时执行
+document.addEventListener("DOMContentLoaded", renderGiscus);
 
-// 监听 MkDocs Material 的局部页面切换事件
-document.addEventListener("DOMContentLoaded", function () {
-  if (typeof document$ !== "undefined") {
-    document$.subscribe(() => {
-      loadGiscus();
-    });
-  }
-});
+// MkDocs Material 页面切换后重新加载 Giscus
+if (typeof document$ !== "undefined") {
+  document$.subscribe(() => {
+    renderGiscus();
+  });
+}
