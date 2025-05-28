@@ -2,6 +2,7 @@ site_name: Hollow's Library
 site_url: https://docs.hollowlib.top
 theme:
   name: material
+  custom_dir: overrides
   logo: assets/favicon.png
   favicon: assets/favicon.png
   features:
@@ -38,7 +39,6 @@ markdown_extensions:
 extra_css:
   - styles/fonts.css
   - styles/extra.css
-  - styles/giscus.css
   - static/dist/output.css
   - https://unpkg.com/katex@0/dist/katex.min.css
 
@@ -47,7 +47,6 @@ extra_javascript:
   - javascripts/katex.js
   - https://unpkg.com/katex@0/dist/katex.min.js
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
-  - javascripts/giscus.js
 
 extra:
   math: true
