@@ -11,6 +11,7 @@ theme:
     - navigation.instant.progress
     - navigation.tracking
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.path
     - navigation.prune
     - navigation.top
