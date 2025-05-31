@@ -1,13 +1,15 @@
+@import url("https://cdn.bootcdn.net/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css");
+
 /* 英文字体默认使用 Quicksand */
 html,
 body,
 .md-typeset {
-  font-family: "Quicksand", "LXGW WenKai", sans-serif;
+  font-family: "Quicksand", "LXGW WenKai Screen", sans-serif;
 }
 
 /* 中文字体强制优先级匹配 */
 body * {
-  font-family: "Quicksand", "LXGW WenKai", sans-serif;
+  font-family: "Quicksand", "LXGW WenKai Screen", sans-serif;
 }
 
 /* 代码字体 */
@@ -53,7 +55,7 @@ body[data-md-color-scheme="slate"] {
   background-color: #1a1a1e !important;
 }
 
-/* Adomition 公式 */
+/* Adomition Fonts */
 .md-typeset .admonition,
 .md-typeset details.admonition {
   font-size: 0.85rem; /* 默认大概是 0.85rem，可调大些 */

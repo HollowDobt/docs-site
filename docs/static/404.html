@@ -52,6 +52,9 @@
         margin-bottom: 2rem;
       }
 
+      /* ——— 以下代码替换原来 .btn 和 .btn:hover ——— */
+
+      /* 按钮默认样式：bg-white/10 + shadow */
       .btn {
         display: inline-flex;
         align-items: center;
@@ -60,17 +63,39 @@
         font-size: 0.875rem;
         font-weight: 500;
         color: #ffffff;
-        background-color: rgba(255, 255, 255, 0.08);
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.1
+        ); /* Tailwind 的 bg-white/10 */
         border-radius: 9999px;
         text-decoration: none;
-        transition: all 0.2s ease-in-out;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        /* 只对背景色和阴影做过渡 */
+        transition:
+          background-color 0.2s ease-in-out,
+          box-shadow 0.2s ease-in-out;
+        /* 对应 Tailwind 的 shadow */
+        box-shadow:
+          0 1px 3px rgba(0, 0, 0, 0.1),
+          0 1px 2px rgba(0, 0, 0, 0.06);
       }
 
+      /* 悬停时：bg-white/20 + shadow-lg */
       .btn:hover {
-        background-color: rgba(255, 255, 255, 0.16);
-        transform: scale(1.05);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.2
+        ); /* Tailwind 的 bg-white/20 */
+
+        /* 对应 Tailwind 的 shadow-lg：0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05) */
+        box-shadow:
+          0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+        color: #ffffff; /* 保持文字/图标白色 */
       }
 
       .footer {
