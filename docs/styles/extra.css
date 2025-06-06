@@ -1,23 +1,11 @@
+/* 霞鹜文楷通过 @font-face 引入 CDN 字体 */
+@import url('https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-web/style.css');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
 @import url("https://cdn.bootcdn.net/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css");
 
-/* 英文字体默认使用 Quicksand */
-html,
-body,
-.md-typeset {
-  font-family: "Quicksand", "LXGW WenKai Screen", sans-serif;
-}
-
-/* 中文字体强制优先级匹配 */
-body * {
-  font-family: "Quicksand", "LXGW WenKai Screen", sans-serif;
-}
-
-/* 代码字体 */
-code,
-pre,
-.md-typeset code,
-.md-typeset pre {
-  font-family: "Fira Mono", monospace !important;
+:root {
+  --md-text-font: "LXGW WenKai Screen";
+  --md-code-font: "Ubuntu Mono";
 }
 
 .katex,
@@ -30,17 +18,14 @@ pre,
   font-weight: normal;
 }
 
-/* 提高正文文字颜色的亮度 */
 .md-typeset {
   color: #e0e0e0; /* 默认是 #b0b0b0 左右，略微提升 */
 }
 
-/* 高亮中文或暗色环境下的段落 */
 .md-typeset p {
   color: #e6e6e6;
 }
 
-/* 代码块文字更亮一些 */
 .md-typeset code,
 .md-typeset pre {
   color: #f8f8f2;
@@ -55,9 +40,9 @@ body[data-md-color-scheme="slate"] {
   background-color: #1a1a1e !important;
 }
 
-/* Adomition Fonts */
 .md-typeset .admonition,
 .md-typeset details.admonition {
   font-size: 0.85rem; /* 默认大概是 0.85rem，可调大些 */
   line-height: 1.5;
 }
+

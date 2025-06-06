@@ -20,6 +20,8 @@ theme:
     - search.suggest
     - search.share
     - content.action.edit
+    - content.code.copy
+    - content.code.select
 
   palette:
     scheme: slate
@@ -38,6 +40,13 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
+  - pymdownx.highlight:
+      use_pygments: true
+      anchor_linenums: true
+      linenums: true
+      pygments_style: one-dark
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
 
 extra_css:
   - styles/fonts.css
