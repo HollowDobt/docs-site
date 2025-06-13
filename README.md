@@ -7,4 +7,4 @@ Record my daily notes, including:
 
 ## How can I contribute to this project?
 
-Raise an issue on the website I deploy, send me an email or PR. I will review and modify it regularly. However, because I am usually very busy, it may take a month to reply to your feedback.
+Raise an discussion on the website I deploy, send me an email or PR. I will review and modify it regularly. However, because I am usually very busy, it may take a month to reply to your feedback.
