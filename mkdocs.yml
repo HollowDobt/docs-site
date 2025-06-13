@@ -51,17 +51,16 @@ markdown_extensions:
 extra_css:
   - styles/fonts.css
   - styles/extra.css
+  - https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css
   - static/dist/output.css
-  - https://unpkg.com/katex@0/dist/katex.min.css
 
 extra_javascript:
   - https://unpkg.com/lucide@latest
   - javascripts/katex.js
-  - https://unpkg.com/katex@0/dist/katex.min.js
-  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js
 
 extra:
-  math: true
   consent:
     title: Cookie consent
     description: >-

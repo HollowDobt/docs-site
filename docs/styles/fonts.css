@@ -1,8 +1,0 @@
-/* 引入 Google Fonts 的 Quicksand 和 Fira Mono */
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Fira+Mono&display=swap');
-
-/* 霞鹜文楷通过 @font-face 引入 CDN 字体 */
-@import url('https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-web/style.css');
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Fira+Mono&display=swap');
-
-
