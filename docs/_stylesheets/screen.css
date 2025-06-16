@@ -1,0 +1,16 @@
+/* 修改pc端屏幕分辨率 */
+.md-grid {
+  max-width: 1440px; 
+}
+
+/* 修改一般背景 */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #17181C;
+}
+
+/* 修改显示文字颜色与大小 */
+[data-md-color-scheme="slate"] .md-typeset {
+  color: #fff !important;
+  font-size: 0.85rem;
+}
+

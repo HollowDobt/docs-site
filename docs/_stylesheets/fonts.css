@@ -1,0 +1,18 @@
+@import url("../_assets/fonts/wenkai/style.css");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap");
+
+:root {
+	--md-text-font: "LXGW WenKai";
+	--md-code-font: "Fira Mono";
+}
+
+/* Admonition-title & contents settings */
+.md-typeset .admonition-title {
+	font-family: "LXGW WenKai";
+	line-height: 1.5;
+	vertical-align: middle;
+}
+.md-typeset .admonition {
+	font-family: "LXGW WenKai";
+	line-heigth: 1.6;
+}

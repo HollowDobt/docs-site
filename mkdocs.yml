@@ -1,42 +1,71 @@
+## Info
 site_name: Hollow's Library
 site_url: https://docs.hollowlib.top
+site_description: Flowers' Fade, Leaves' Birth.
+site_author: Hollow Dobt
+copyright: Copyright &copy; 2025 - today Hollow Dobt
+repo_url: https://github.com/hollowdobt/docs-site
+repo_name: hollowdobt/docs-site
+edit_uri: edit/main/docs/
+
+## Style
 theme:
   name: material
   custom_dir: overrides
-  logo: assets/favicon.png
-  favicon: assets/favicon.png
-  features:
-    - navigation.instant
-    - navigation.instant.prefetch
-    - navigation.instant.progress
-    - navigation.tracking
-    - navigation.tabs
-    - navigation.tabs.sticky
-    - navigation.path
-    - navigation.prune
-    - navigation.top
-    - navigation.footer
-    - toc.follow
-    - search.suggest
-    - search.share
-    - content.action.edit
-    - content.code.copy
-    - content.code.select
+  logo: _assets/favicon.png
+  favicon: _assets/favicon.png
 
+  # 界面永久夜间模式, 减少作者图片设置等工作量(hhh)
   palette:
     scheme: slate
     primary: black
-    accent: cyan
-
+    accent: teal
+  
   icon:
-    repo: fontawesome/brands/git-alt
+    # 仓库图标
+    repo: fontawesome/brands/github-alt
+    # 标签(tags)图标注册
+    tag: 
+      learn: fontawesome/solid/book
+  
+  # material 特性启用
+  features:
+    # 导航栏类
+    - navigation.top
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.footer
+    - navigation.expand
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tracking
+    - naviagtion.prune
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.preview
+    # 搜索类
+    - search.suggest
+    - search.highlight
+    - search.share
+    # Contents 访问者操作
+    - content.tabs.link
+    - content.tooltips
+    - content.code.copy
+    - content.code.annotate
+    - content.action.edit
+    - content.action.view
+    # 目录
+    - toc.follow
 
+## Markdown文件编辑加强
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
+  ### Admonitions
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  ###
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
@@ -49,18 +78,20 @@ markdown_extensions:
   - pymdownx.snippets
 
 extra_css:
-  - styles/fonts.css
-  - styles/extra.css
-  - https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css
+  - _stylesheets/extra.css
   - static/dist/output.css
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
 
 extra_javascript:
-  - https://unpkg.com/lucide@latest
-  - javascripts/katex.js
-  - https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js
-  - https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js
+  # - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - _javascripts/math.js
+
 
 extra:
+  # 图标返回到标签页面
+  homepage: https://docs.hollowlib.top
   consent:
     title: Cookie consent
     description: >-
@@ -77,21 +108,16 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/hollowdobt
       name: Hollow's Github
-    - icon: fontawesome/solid/paper-plane
+    - icon: fontawesome/solid/envelope
       link: mailto:rxq@hollowlib.top
       name: Hollow's Email
 
 plugins:
-  - search
-  - tags
+  - search # 启用搜索
+  - tags   # 启用标签
   - git-revision-date-localized:
       enable_creation_date: true
   - git-committers:
       repository: hollowdobt/docs-site
       branch: main
   - git-authors
-
-copyright: Copyright &copy; 2025 - today Hollow Dobt
-repo_url: https://github.com/hollowdobt/docs-site
-repo_name: hollowdobt/docs-site
-edit_uri: edit/main/docs/

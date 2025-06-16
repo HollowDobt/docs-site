@@ -1,12 +1,12 @@
 # 微积分(甲) II 复习笔记
 > 注意, 这是复习笔记, 不适合刚学新课的同学看. 不然很多地方缺少证明都看不懂. 一般大家说微积分 II难, 主要都是针对以前, 尤其是 22-23 届的期末考题(那是真的考的又偏又怪, 而且计算量巨大). 现在来看, 微积分以后期末考试的难度应该会趋于正常, 不会再出现类似的让人做到有跳楼冲动的题目了.
 
-这个笔记是参考一位[神秘学长](https://github.com/GooduckZ)和[卢兴江老师的梳理ppt]完成的, 你可以把它看做手写笔记的markdown版本. 因为当时我上的是卢兴江老师的课, 所以章节目录可能和苏德矿老师的有些不一样. 不过放心, 内容都是一样的.
+这个笔记是参考一位[神秘学长](https://github.com/GooduckZ)和[卢兴江老师的梳理ppt]完成的, 你可以把它看做手写笔记的markdown版本. 因为当时我上的是卢兴江老师的课, 所以章节目录可能和苏德矿老师的有些不一样. 不内容都是一样的.
 
 ## Chap I 级数
 ---
 ### 1. 1 敛散性
-- (#)级数收敛的必要条件: 若$\sum_{n=1}^{\infty}a_n=c$, 则$\lim\limits_{n\to\infty}a_n=0$. 换言之, 存在下面关系:
+- (#)级数收敛的必要条件: 若 $\sum_{n=1}^{\infty}a_n=c$, 则$\lim\limits_{n\to\infty}a_n=0$ . 换言之, 存在下面关系:
 $$
 \sum_{n=1}^{\infty}a_n=c\Longrightarrow \lim\limits_{n\rightarrow\infty}a_n=0
 $$
@@ -167,7 +167,8 @@ $$
 x=\frac{\iiint\limits_{V}x\rho(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}{\iiint\limits_{V}\rho(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}
 $$
 注意我们求得的是以原点作为参考系的位矢.
-- 转动惯量公式: 
+- 转动惯量公式
+
 $$
 \sum_{i=1}^{n}\rho (x,y,z)\Delta V d^2=\iiint\limits_{V}d^2(x,y,z)\rho \mathrm{d}x\mathrm{d}y\mathrm{d}z
 $$
@@ -234,11 +235,41 @@ $$
 对向量场$A=(P(x,y,z),Q(x,y,z),R(x,y,z))$:
 - 散度(数量): $div\ A=\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}$. 实际上散度这么算不难理解, 这和我们在高斯公式中做的事情其实是完全一样的(就是高斯公式中的被积函数). 从这里我们也可以推出, 散度为零时是**无源场**.
 - 旋度(向量): 
+
 $$
-rot\ A=\begin{vmatrix}
-i &j  &k \\
-\frac{\partial}{\partial x}  &\frac{\partial}{\partial y}  &\frac{\partial}{\partial z} \\
-P  &Q  &R
+rot\ A=
+\begin{vmatrix}
+i & j & k \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+P & Q & R
 \end{vmatrix}
 $$
+
+
+$$
+rot\, A =
+\begin{vmatrix}
+i & j & k \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+P & Q & R
+\end{vmatrix}
+$$
+
+
+$$
+\begin{vmatrix}
+a & b & c \\
+d & e & f \\
+g & h & i
+\end{vmatrix}
+$$
+
+
 实际上和 stokes 公式很像, 只不过少了$\mathrm{d}x\mathrm{d}y$等项. 我们称旋度为$0$的场为**无旋场**.
+
+# 1
+## 1
+### 1
+#### 1
+##### 1
+###### 1
