@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "Code New Roman";
-  src: url("./Code\ New\ Roman.woff") format("woff");
-  font-display: swap;
+    font-family: "Code New Roman";
+    src: url("./JetBrainsMono-Regular.woff2") format("woff2");
+    font-display: swap;
 }
