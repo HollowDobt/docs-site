@@ -1,4 +1,5 @@
 @import url("../_assets/fonts/wenkai/style.css");
+@import url("../_assets/fonts/code-new-roman/code-new-roman.css");
 @import url("https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap");
 
 :root {
@@ -15,4 +16,8 @@
 .md-typeset .admonition {
 	font-family: "LXGW WenKai";
 	line-heigth: 1.6;
+}
+
+.md-typeset code, .md-typeset pre, .md-typeset pre code {
+	font-family: "Code New Roman";
 }
