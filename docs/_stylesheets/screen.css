@@ -14,3 +14,7 @@
   font-size: 0.85rem;
 }
 
+/* 增大段落之间的空白间距 */
+.md-typeset p {
+  margin-bottom: 0.7em;
+}
