@@ -83,6 +83,8 @@ AI 的局限绝大多数起源于幸存者偏差现象. 我们无意识或者有
 	其次对于蚁群算法, 蒙特卡洛树算法和最大最小搜索算法, 虽然有了随机化模拟, 但是不会更新模型的内部参数, 因此也不属于机器学习的范畴.
 
 - 机器学习的五个要素: 数据, 模型, 训练, 预测, 评估
+- 机器学习的三个核心要素: 数据, 模型, 算法. 机器学习过程: 训练, 预测, 评估
+- 深度学习的三个要素: 数据, 算法, 算力
 
 实际上就是我们获得机器学习类模型的几个动作.
 
@@ -121,6 +123,23 @@ $$
 
 (ps: 半监督学习了解即可)
 
+### 2. 4 线性回归与最小二乘法
+
+线性回归模型是最简单的监督学习模型. 其核心是使误差最小化. 其具体计算原理是将误差的平方和 $\sum_{i=1}^{n}e_i^2=\sum_{i=1}^{n}(y_i-(ax_i+b))^2$ 最小化. 如何最小化呢? 答案就是求偏导确定零点, 解这个方程
+
+$$
+\left\{\begin{matrix}
+\frac{\partial f}{\partial a} = 0  \\
+\frac{\partial f}{\partial b} = 0 
+\end{matrix}\right.
+$$
+
+化简即可得到
+
+$$
+a=\frac{n\sum_{i=1}^{n}x_iy_i-\sum_{i=1}^{n}x_i\sum_{i=1}^{n}y_i}{n\sum_{i=1}^{n}x_i^2-(\sum_{i=1}^{n}x_i)^2}
+$$
+
 
 ## Chap III 无监督学习: 回归与分类模型
 ---
@@ -141,10 +160,10 @@ $$
 平均绝对百分比误差(mean absolute percentage error).
 
 $$
-MAPE=\frac{1}{N}\sum_{i=1}^{N}\left|\frac{Y_i-Y'_i}{Y_i}\right|
+MAPE=\frac{1}{N}\sum_{i=1}^{N}\left|\frac{Y_i-Y'_i}{Y_i}\right|\times 100
 $$
 
-均方根对数误差(mean squared log error).
+均方对数误差(mean squared log error).
 
 $$
 MSLE=\frac{1}{N}\sum_{i=1}^{N}(\log \frac{Y'_i+1}{Y_i+1})^2
@@ -153,6 +172,12 @@ $$
 #### 3. 1. 2 分类损失函数
 !!! note
 	个人认为没必要记. 太难记住了.
+
+- 二进制交叉熵
+
+$$
+Loss=-\frac{1}{N}\sum_{i=1}^{N}[Y_i\times \log Y_i'+(1-Y_i)]
+$$
 
 #### 3. 1. 3 一般终止条件
 - 损失函数值足够小
@@ -189,6 +214,9 @@ $$
 
 参考演示网站: <http://alekseynp.com/viz/k-means.html>
 
+!!! note
+	**KNN** (**最近邻**), 是一种**监督学习**, 其功能一般是在使用 k-means 聚类之后获取新的输入, 找出与它距离最近的几个样本, 根据最近邻样本的类别的多数判别新输入的类型.
+
 ### 3. 3 降维: 主成分分析(PCA)
 目标: 在降维得到的新坐标系中实现数据波动(例如方差)的最大化.
 
@@ -202,12 +230,17 @@ $$
 ## Chap IV 深度学习(Deep Learning)导论
 ---
 
+!!! abstract
+	一个简单的神经元只能完成一个简单的反射. 甚至, 它只能表示 0 和 1. 但是, 当足够多的神经元联结在一起时, 奇妙的事便会发生. 
+	
+	本章节中的"深度"是在强调神经网络组织的"深度", 或者说层的数量. 这就是"多层人工神经网络".
+
 ### 4. 1 多层人工神经网络与深度学习
 
 !!! note
 	深度学习**既不指监督学习或无监督学习, 也不指强化学习**. 其本身是前面几种学习类型, 也就是机器学习的实现方式.
 
-深度学习(Deep Learning, 简称 DL)是机器学习的一个子集, 它使用**多层人工神经网络**来精准完成图像检测等任务. 通过**多层表示+高阶特征提取**完成如图像识别, 语音识别等各种任务, 具有较强的**特征鲁棒性(抗干扰)**.
+深度学习(Deep Learning, 简称 DL)是机器学习的一个子集, 它使用**多层人工神经网络**(特别强调隐藏层的深度)来精准完成图像检测等任务. 通过**多层表示+高阶特征提取**完成如图像识别, 语音识别等各种任务, 具有较强的**特征鲁棒性(抗干扰能力)**.
 
 ![](https://HollowDobt.github.io/picx-images-hosting/output-(8).2h8kgtg188.webp)
 
@@ -259,6 +292,9 @@ $$
 Y=f(\sum_{i=1}^{n}(w_ix_i+b))
 $$
 
+!!! note
+	没有激活函数的感知机本质上是一个线性二分类机器, 无法处理 XOR 类型的问题. 因为 XOR 的结果无法用一条直线分隔开, 所以无解.
+
 #### 4. 2. 2 多层感知机(MLP)
 
 多层感知机(Multi-Layer Perceptron, 简称 MLP)的目的是解决非线性问题. 一个多层感知机至少包括三层: 输入层, 隐藏层, 输出层. 这是一个典型的前馈神经网络.
@@ -278,11 +314,27 @@ $$
 f(x)=\frac{1}{1+e^{-x}}
 $$
 
-- Softmax 函数, 最常用于分类问题和图像识别等, 其作用是将任意$n$ 维实数向量归一化为同阶向量.
+- Softmax 函数, 最常用于分类问题和图像识别等, 其作用是将任意$n$ 维实数向量归一化为同阶向量(Softmax 归一化后不但分量全部在 $[0,1]$, 而且分量的和也为 $1$).
 
 $$
 f(x_i)=\frac{e^{x_i}}{\sum_{i=1}^{n}e^{x_i}}
 $$
+
+!!! note 
+	对于向量 $X$ 常用的几种归一化方法(所谓的归一化, 就是让向量的各个分量的取值在 $[0,1]$ 之间)
+	
+	
+	最小-最大归一化
+	
+	$$
+	x'=\frac{x-x_{min}}{x_{max}-x_{min}}
+	$$
+	
+	L2 归一化
+	
+	$$
+	x'=\frac{x}{X^2}
+	$$
 
 !!! question
 	对于输入 $X=[2,0.7,-1.5,-0.9]$, 计算其 Softmax 输出.
@@ -321,6 +373,7 @@ BP 算法的劣势
 - 收敛速度缓慢(大量参数导数计算和权重与偏置值的更新)
 - 隐藏层缺少理论指导, 需要不断设计隐藏层和隐藏节点数试凑达到最佳效果
 - 学习新样本可能遗忘旧样本(每次更新都是按照新数据进行的, 这种情况很容易发生)
+- 计算复杂度高
 
 ### 4. 4 梯度下降: GD
 在我们**通过反向传播算法得到梯度之后**, 按照公式 $w_i\longrightarrow w_i-\eta \times \frac{\partial L}{\partial w_i}$ 不断更新本层的权重和偏置. 其中 $\eta$ 是学习率(步长).
@@ -439,7 +492,7 @@ optimizer = optim.Adam(model.parameters(),
 
 对于模型设计, 我们主要讨论的是深度学习. 深度学习利用深层神经网络, 实现层级的特征抽象提取和表示学习. 现在最有名的基于 Transformer 架构的各类大模型, 就是典型的深度学习模型.
 
-如果你是一位资深的 AI 用户, 你会发现几乎所有的 AI 都可以做到和你对话. 这本身就是件很了不起的事. 这一点归功于**预训练模型**. 预训练模型在深度学习模型的基础上, 使用大数据得到基本通用知识, 再迁移到各种具体任务中使用专业数据集进一步训练.
+如果你是一位资深的 AI 用户, 你会发现几乎所有的 AI 都可以做到和你对话. 这一点归功于**预训练模型**. 预训练模型在深度学习模型的基础上, 使用大数据得到基本通用知识, 再迁移到各种具体任务中使用专业数据集进一步训练.
 
 而当预训练模型被调教好后, 我们就得到了**生成式大模型**. 生成式大模型就是根据上下文自动生成相对高质量内容的**大规模人工神经网络**. 这其中我们最为熟悉, 最常用的便是**生成式大语言模型**.
 
@@ -502,7 +555,7 @@ CNN 通过**独热码**(One-Hot Code)来表示物质的性质. 在分类中, 我
 首先在原有的输入两边加上 $P$ 个 $0$, 输入的长度变为 $I+2\times P$, 而后我们使用卷积核($K\times 1$)按照步长($S$)在输入上移动. 我们知道, 假设 $S=1$ 的时候我们最终可以得到 $I+2\times P - K + 1$ 个完整的卷积输出, 而在 $S=2$ 的时候可以得到 $\frac{I+2\times P-K}{S}+1$ 个完整输出. 利用数学归纳法可以确定最终公式为
 
 $$
-Output=floor(\frac{Input+Padding\times 2-KernelSize}{Stride}+1)
+Output=floor(\frac{Input+Padding\times 2-KernelSize}{Stride})+1
 $$
 
 最终输出还应该加上卷积核, 也就是通道的数目. 例如, 这一层卷积核有 10 个, 那么通道就有 10 个.
@@ -562,7 +615,10 @@ NLP 是人工智能领域的掌上明珠, 同时也是许多人投身于人工�
 - 基于规则算法(语法解析器, 类似于程序语言的编译器)
 - 统计语言模型(例如 CBOW(Continuous Bag-of-Words), Skip-Gram等等, 根据语义相似度推断)
 - 序列生成模型(例如 RNN, Transformer. 前者缺少长距离记忆能力, 计算无法并行; 而后者不但支持长距离全局记忆能力, 而且可以并行计算)
-- 预训练-微调模型(一般首先进行无监督预训练, 而后确定任务对预训练大模型进行微调)
+- 预训练-微调模型(一般首先进行无监督(或者自监督)预训练, 而后确定任务对预训练大模型进行微调(一般是监督学习))
+
+!!! note
+	CBOW 和 Skip-Gram 是两个截然处理顺序相反的模型. 前者是在已知 $a_{i-2}, a_{i-1}, a_{i+1}, a_{i+2}$ 的前提下预测 $a_i$, 后者是在已知 $a_i$ 的前提下预测其他几个.
 
 ### 6. 2 分词
 
@@ -611,7 +667,7 @@ $$
 狭义定义
 
 $$
-E=\frac{A\cap B}{A\cup B}
+E=\frac{\left|A\cap B\right|}{\left|A\cup B\right|}
 $$
 
 !!! question
@@ -634,7 +690,7 @@ $$
 	考虑以下两个文本的 Jaccard 相似度. 文本 1: "我爱天安门", 文本 2: "天安门雄伟壮阔让人不得不爱".(不考虑词频)
 
 !!! success
-	文本 1 集合为 $A=\{我,爱,天,安,门\}$, 文本 2 集合为 $B=\{天,安,门,雄,伟,壮,阔,让,人,不,得,爱\}$. 因此我们找到交集: $\{爱, 天, 安, 门\}$, 找到并集数目: 根据公式 $A\cup B=A+B-A\cap B$ 知并集的数目为(注意写集合时排除重复元素"不")13. 最终计算结果为 $\frac{4}{13}$.
+	文本 1 集合为 $A=$ {我,爱,天,安,门}, 文本 2 集合为 $B=$ {天,安,门,雄,伟,壮,阔,让,人,不,得,爱}. 因此我们找到交集: {爱, 天, 安, 门}, 找到并集数目: 根据公式 $A\cup B=A+B-A\cap B$ 知并集的数目为(注意写集合时排除重复元素"不")13. 最终计算结果为 $\frac{4}{13}$.
 
 !!! note
 	**词袋模型**, 是一种自然语言处理和信息检索中的常用文本表示方法. 它将文本表示为一个词的集合, 忽略顺序和语法结构, 只关注词语的出现频率或其他统计量.
@@ -652,7 +708,10 @@ Transformer 架构由编码器和解码器两部分组成. 其工作流程大致
 
 - 输入一个句子, 获取句子中的每个单词的表示向量 $X$, $X$ 由单词的词嵌入(Words Embedding)和单词位置的 Embedding 相加得到.
 - 将得到的单词表示为向量矩阵, 将矩阵传入到编码器中, 经过处理后得到所有单词的编码信息矩阵 $C$
-- 将矩阵 $C$ 传入到解码器中, 解码器会通过前面 $i$ 个词翻译第 $i+1$ 个词, 同时会掩蔽 $i+1$ 后面的所有词.
+- 将矩阵 $C$ 传入到解码器中, **解码器**会通过前面 $i$ 个词翻译第 $i+1$ 个词, 同时会掩蔽 $i+1$ 后面的所有词.
+
+!!! note
+	在 Transformer 架构下的编码器 BERT 不会掩蔽掉后面的值, 但是 解码器 GPT 会掩蔽掉.
 
 #### 6. 4. 2 自注意力机制
 
@@ -668,6 +727,8 @@ Transformer 架构由编码器和解码器两部分组成. 其工作流程大致
 
 ## Chap VII AIGC 与 LLM
 ---
+
+### 7. 1 绪论
 AIGC(AI Generated Content), 这些年发展速度之快已经远超大家的想象. 甚至有的人已经怀疑现在基于 LLM 的 AI 在某种程度上已经可以称为真正的"智能"了.
 
 - 区别: 传统搜索引擎与 AIGC
@@ -678,6 +739,8 @@ AIGC 会生成全新的内容, 而传统搜索引擎做不到.
 
 原创性几乎为 0, 可解释性奇差无比(概率模型, 没有明确的因果链), 语义理解长度有限, 长文本内容和大幅度时间跨度难以解析.
 
+
+### 7. 2 名词解释
 - LLM: 大语言模型(Large Language Model), 其特征表现为训练数据大, 参数规模大, 耗资巨大. 
 - 涌现能力: 当一种系统在复杂度增加到某一临界点时, 会出现其子系统或小规模版本中未曾存在的行为或特性.
 - GAI: 生成式人工智能(Generated AI), 指生成全新内容的 AI. 需要注意的是, GAI 采用自回归生成技术, 有随机性(同一提示文本不同回答); 同时 GAI 不是搜索引擎(虽然很多人这么用就是了).
@@ -687,6 +750,162 @@ AIGC 会生成全新的内容, 而传统搜索引擎做不到.
 - CLIP: 即视觉语言预训练模型(Constructive Language-Image Pre-training), 由 Open AI 提出的一个跨模态模型, 可以将图像和文本嵌入到同一个向量空间(隐空间)中进行比较和对齐. 其训练方式是用大量的"图对文"数据将图映射成文的向量.
 - 扩散模型: 即先加噪声模糊化, 然后让机器学习如何修复图像可以尽可能地使图像接近原本的样子. 分为前向过程("打马赛克", 扩散过程)和反向过程("去马赛克"). U-net 是其中最常用的一个模型.
 - 多模态大语言模型(MLLM): 可以给以任意形式的输入, 可以给出任意形式的输出. 这就是最完美的多模态大语言模型.
+
+### 7. 3 大语言模型的特征
+
+- 参数规模巨大
+- 涌现能力: 随着模型规模提升模型性能显著上升
+- 数据驱动
+- 端到端学习: 不需要人工特征工程或者规则设计, 让 AI 自行完成学习
+- 上下文感知
+- 通用性
+
+
+## 附则 I python 基础与机器学习常用 python 库
+---
+- scikit-learn: 深度学习库, 主要分为四种算法: 分类, 回归, 聚类, 降维
+
+```python
+from sklearn.datasets import load_iris
+
+iris = load_iris()
+print("鸢尾花数据返回值: \n", iris.keys())
+
+X = iris.data
+y = iris.target
+
+# 数据标准化
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# PCA(主成分降维)
+pca = PCA()
+X_pca = pca.fit_transform
+```
+
+- python 关键字"真"
+
+```python
+True
+```
+
+- Tensorflow 
+
+```python
+# 导入必要的库
+import tensorflow as tf
+from tensorflow.keras import layers, models
+
+# 初始化一个顺序模型（前馈神经网络）
+model = models.Sequential()  # 初始化模型
+
+# ---- 卷积神经网络部分 ----
+# 增加卷积运算层1，卷积核数量=32，卷积核大小3x3，激活函数relu
+# input_shape=(32, 32, 3) 表示输入为32x32像素的彩色图片（3通道）
+model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(32, 32, 3)))
+# 增加池化层1，池化窗口2x2，减少特征图尺寸
+model.add(layers.MaxPooling2D((2, 2)))
+
+# 增加卷积运算层2，卷积核数量=64，卷积核大小3x3，激活函数relu
+model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+# 增加池化层2
+model.add(layers.MaxPooling2D((2, 2)))
+
+# 增加卷积运算层3，卷积核数量=64，卷积核大小3x3，激活函数relu
+model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+
+# ---- 全连接层（MLP）部分 ----
+# 把多维特征图展平为一维向量，便于输入全连接层
+model.add(layers.Flatten())
+# 增加全连接层（Dense），64个神经元，激活函数relu
+model.add(layers.Dense(64, activation='relu'))
+# 增加输出层，10个神经元（如10分类），激活函数softmax用于多分类输出
+model.add(layers.Dense(10, activation='softmax'))
+
+# ---- 模型汇总与编译 ----
+# 输出模型结构信息
+model.summary()
+
+# 编译模型，指定损失函数、优化器和评估指标
+model.compile(optimizer='adam',                # 优化器
+              loss='sparse_categorical_crossentropy', # 损失函数（适合多分类标签为整数的情况）(稀疏分类交叉熵)
+              metrics=['accuracy'])            # 评估指标
+
+# 你的模型已经准备好，可以用 model.fit() 进行训练
+# 例如：
+# model.fit(x_train, y_train, epochs=10, batch_size=32, validation_data=(x_val, y_val))
+```
+
+```python
+# 导入必要的库
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import LSTM, Dense
+
+def model1():
+    model = Sequential()  # 初始化一个顺序模型
+
+    # 第一层 LSTM，128 单元，激活函数 relu，输入形状 (n_input, 1)
+    # dropout 和 recurrent_dropout 都为 0.5，用于防止过拟合(表示每个时间步输入的特征都有 0.5 的概率被屏蔽)
+    # return_sequences=True 表示输出整个序列，为后续 LSTM 层做输入
+    model.add(LSTM(
+        128, 
+        activation='relu', 
+        dropout=0.5, 
+        recurrent_dropout=0.5,
+        input_shape=(n_input, 1),
+        return_sequences=True
+    ))
+
+    # 第二层 LSTM，64 单元，同样设置 dropout，输出序列
+    model.add(LSTM(
+        64, 
+        dropout=0.5, 
+        recurrent_dropout=0.5, 
+        activation='relu', 
+        return_sequences=True
+    ))
+
+    # 第三层 LSTM，只用 1 个单元（通常用于输出最后一个序列特征）
+    # return_sequences=False 表示只输出最后一个时间步的结果
+    model.add(LSTM(
+        1, 
+        dropout=0.5, 
+        recurrent_dropout=0.5, 
+        activation='relu', 
+        return_sequences=False
+    ))
+
+    # 添加一个全连接层（Dense），用于输出预测结果
+    model.add(Dense(1))
+
+    # 编译模型，优化器为 adam，损失函数为均方误差 mse，评估指标为 accuracy
+    model.compile(optimizer='adam', loss='mse', metrics=['accuracy'])
+
+    return model
+
+def model2():
+    model = Sequential()  # 初始化模型
+
+    # 只有一层 LSTM，50 单元，激活函数 relu，输入形状 (n_input, 1)
+    model.add(LSTM(
+        50, 
+        activation='relu', 
+        input_shape=(n_input, 1)
+    ))
+
+    # 添加全连接层，输出预测值
+    model.add(Dense(1))
+
+    # 编译模型
+    model.compile(optimizer='adam', loss='mse', metrics=['accuracy'])
+
+    return model
+```
+
+
+## 附则 II 补充相关知识
+---
+GNN: 生成式对抗网络. 其思想是让图灵测试自动化, 让机器人判断对方是不是机器人. 其训练方式是同时投入真数据和伪装数据给判断方, 让判断方判别真假, 并逐步增强其辨别真假的能力; 同时让生成方不断生成更逼真的伪装数据. 结束条件为达到纳什均衡(0.5).
 
 ---
 [^1]: AlexNet (2012), The input to the network is a 224×224 RGB image. <https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf>
