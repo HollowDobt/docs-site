@@ -1,6 +1,8 @@
 # 人工智能基础 A
 !!! abstract "Abstract"
-	作为一门只有两学分的课, 平时需要完成的任务堪比五学分的专业课; 老师是根本不专业甚至不怎么会用电脑但是喜欢 PUA 人的, 讲课是完全讲不来的, 课后作业的难度是逆天的, 作业的引导是极其糟糕的, 在 word 上提供的 python 代码缩进是被毁掉的, 跨平台是一点不做的, 课程内容是极其庞大的. 如果你没有预置必修这门课, 一定要退掉, 浪费时间浪费精力影响心情还什么都学不到. 想认认真真学人工智能千万不能选这门课.
+	想认认真真学人工智能千万不能选这门课. 想要水学分的也千万别选这门课. 哦, 是必修啊, 那没事儿了.
+	
+	这篇文档除了书本上的相关知识, 还有大量的补充和实践代码, 感兴趣的同学可以仔细阅读. 比较详细的代码我索引到了专门的人工智能章节. 对于期末考试, 个人认为主要看看历年卷记忆相关公式即可. 如果你想考比较高的分数, 你需要掌握这里面大部分框架的原理, 实现等等.
 
 ## Chap I 人工智能起源
 ---
@@ -43,7 +45,6 @@ AI 的局限绝大多数起源于幸存者偏差现象. 我们无意识或者有
 
 !!! note
 	最典型的例子莫过于二战时期的飞机弹痕, 当时大家都只关注到了飞回来的飞机, 没有关注中途被击落的飞机. 如果当时没有统计学家 Abraham Wald 提出的意见, 盟军将会像 AI 一样做出错误的决策.
-
 
 ## Chap II 机器学习
 ---
@@ -210,7 +211,7 @@ $$
 - 达到迭代次数.
 - 前后两次迭代中, 聚类的质心位置基本不变, 趋于稳定.
 
-![](https://HollowDobt.github.io/picx-images-hosting/output-(7).6bhbzlxxng.webp)
+![](https://files.hollowlib.top/output-(7).6bhbzlxxng.webp)
 
 参考演示网站: <http://alekseynp.com/viz/k-means.html>
 
@@ -224,7 +225,7 @@ $$
 
 在代数上, 就是将多个数据分组组合成一个新的特征, 提取最大波动的几个特征作为主特征.
 
-![](https://HollowDobt.github.io/picx-images-hosting/output-(6).99tm343gpz.webp)
+![](https://files.hollowlib.top/output-(6).99tm343gpz.webp)
 
 
 ## Chap IV 深度学习(Deep Learning)导论
@@ -242,7 +243,7 @@ $$
 
 深度学习(Deep Learning, 简称 DL)是机器学习的一个子集, 它使用**多层人工神经网络**(特别强调隐藏层的深度)来精准完成图像检测等任务. 通过**多层表示+高阶特征提取**完成如图像识别, 语音识别等各种任务, 具有较强的**特征鲁棒性(抗干扰能力)**.
 
-![](https://HollowDobt.github.io/picx-images-hosting/output-(8).2h8kgtg188.webp)
+![](https://files.hollowlib.top/output-(8).2h8kgtg188.webp)
 
 深度学习的几个特征:
 
@@ -406,7 +407,7 @@ BP 算法的劣势
 
 !!! success
 	(好像 admonition 里面打不了表格...)首先求导得到梯度: $y=2x$, 而后逐步计算: $y_1=2\times 8=16$, 因此更新 $x_1=x-\eta\cdot y_1=8-0.1\times 16=6.4$. 类似地, 我们进一步计算 $x_2=6.4-0.1\times (6.4\times 2)= 5,12$, ... 使用图表示为一个梯度下降的过程.
-	![](https://HollowDobt.github.io/picx-images-hosting/output-(6).361u1nkymc.webp)
+	![](https://files.hollowlib.top/output-(6).361u1nkymc.webp)
 
 ### 4. 5 梯度下降算法的改进: 优化器
 #### 4. 5. 1 随机梯度下降法(SGD)
@@ -513,7 +514,7 @@ optimizer = optim.Adam(model.parameters(),
 
 !!! note
 	人工智能领域的卷积运算一般是按照卷积核确定的权重进行加权求和. 其加权计算过程如图所示
-	![](https://HollowDobt.github.io/picx-images-hosting/反色_卷积示意_清晰版.7snh2lmf2v.webp)
+	![](https://files.hollowlib.top/%E5%8F%8D%E8%89%B2_%E5%8D%B7%E7%A7%AF%E7%A4%BA%E6%84%8F_%E6%B8%85%E6%99%B0%E7%89%88.7snh2lmf2v.webp)
 
 用于卷积运算的神经网络层成为卷积层.
 
