@@ -1,48 +1,16 @@
-[data-md-color-scheme="slate"] .md-typeset table {
-  border-collapse: collapse !important;
-  background: transparent !important;
-  color: #fff !important;
-  width: 100%;
-  margin: 2em 0;
-  font-size: 1em !important;  /* 只影响表格 */
-  box-shadow: none !important;
-  border-left: none !important;
-  border-right: none !important;
-  border-top: none !important;
-  border-bottom: none !important;
-  outline: none !important;
+/* 放大表格字体 */
+.md-typeset table:not([class]) {
+  font-size: 0.75rem; /* 默认约等于 16.8px，可改为 1.1rem 等 */
 }
 
-/* 修改 markdown 常规表格样式为Latex */
-[data-md-color-scheme="slate"] .md-typeset__table th,
-[data-md-color-scheme="slate"] .md-typeset__table td {
-  border-top: 1.5px solid #fff !important;
-  border-bottom: 1.5px solid #fff !important;
-  border-left: 1.5px solid #fff !important;
-  border-right: 1.5px solid #fff !important;
-  padding: 0.7em 1.1em;
-  text-align: center;
-  background: transparent !important;
-  font-family: inherit;
-  font-size: 0.85em !important;
-}
-
-[data-md-color-scheme="slate"] .md-typeset__table tr th:first-child,
-[data-md-color-scheme="slate"] .md-typeset__table tr td:first-child {
-  border-left: none !important;
-}
-
-[data-md-color-scheme="slate"] .md-typeset__table tr th:last-child,
-[data-md-color-scheme="slate"] .md-typeset__table tr td:last-child {
-  border-right: none !important;
-}
-
-[data-md-color-scheme="slate"] .md-typeset__table thead th {
+/* 放大表头字体（可选） */
+.md-typeset table:not([class]) th {
   font-weight: bold;
-  background: transparent !important;
-  color: #fff !important;
+  font-size: 0.75rem;
 }
 
-[data-md-color-scheme="slate"] .md-typeset__table tbody tr:nth-child(even) td {
-  background: transparent !important;
+/* 加深表格第一行（表头）背景色 */
+.md-typeset table:not([class]) thead th {
+  background-color: #2a2a2a; 
+  color: #ffffff;            
 }
