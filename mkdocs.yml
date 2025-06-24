@@ -80,6 +80,7 @@ markdown_extensions:
       pygments_style: one-dark
   - pymdownx.inlinehilite
   - pymdownx.snippets
+  - footnotes
 
 extra_css:
   - _stylesheets/extra.css

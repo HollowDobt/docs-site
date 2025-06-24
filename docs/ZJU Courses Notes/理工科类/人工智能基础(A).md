@@ -548,7 +548,7 @@ $$
 最终输出还应该加上卷积核, 也就是通道的数目. 例如, 这一层卷积核有 10 个, 那么通道就有 10 个.
 
 !!! question
-	对 kernels = $96$, kernel_size = $11\times11$, padding = $[1,2]$, stride = $4$, input = $[224,224,3]$ 的图像进行卷积计算, 计算出输出形状.^[1]
+	对 kernels = $96$, kernel_size = $11\times11$, padding = $[1,2]$, stride = $4$, input = $[224,224,3]$ 的图像进行卷积计算, 计算出输出形状.[^1]
 
 !!! success
 	$[55,55,96]$, 按公式计算即可. 注意这里一般将**张量**描述为**形状**, 其要素为$[高度(H),宽度(W),通道数(C)]$.
@@ -894,5 +894,6 @@ def model2():
 ---
 GNN: 生成式对抗网络. 其思想是让图灵测试自动化, 让机器人判断对方是不是机器人. 其训练方式是同时投入真数据和伪装数据给判断方, 让判断方判别真假, 并逐步增强其辨别真假的能力; 同时让生成方不断生成更逼真的伪装数据. 结束条件为达到纳什均衡(0.5).
 
----
-[^1]: AlexNet (2012), The input to the network is a 224×224 RGB image. <https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf>
+
+[^1]: 
+	AlexNet (2012), The input to the network is a 224×224 RGB image. <https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf>
