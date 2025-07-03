@@ -1,261 +1,256 @@
 <!doctype html>
 <html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <title>404 - Page Not Found</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="assets/favicon.png" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/dist/output.css" />
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-      body {
-        font-family: "Quicksand", sans-serif;
-        margin: 0;
-        background-color: #17181c;
-        color: #ededed;
-        backdrop-filter: blur(10px);
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-      }
+    <head>
+        <meta charset="UTF-8" />
+        <title>404 - Page Not Found</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="assets/favicon.png" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/dist/output.css" />
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <style>
+            body {
+                font-family: "Quicksand", sans-serif;
+                margin: 0;
+                background-color: #17181c;
+                color: #ededed;
+                backdrop-filter: blur(10px);
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+            }
 
-      canvas {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: -1;
-      }
+            canvas {
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: -1;
+            }
 
-      .container {
-        text-align: center;
-        z-index: 1;
-        padding: 2rem;
-      }
+            .container {
+                text-align: center;
+                z-index: 1;
+                padding: 2rem;
+            }
 
-      h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        color: #ffffff;
-      }
+            h1 {
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+                color: #ffffff;
+            }
 
-      p {
-        font-size: 1.125rem;
-        color: #cccccc;
-        margin-bottom: 2rem;
-      }
+            p {
+                font-size: 1.125rem;
+                color: #cccccc;
+                margin-bottom: 2rem;
+            }
 
-      /* ——— 以下代码替换原来 .btn 和 .btn:hover ——— */
+            /* ——— 以下代码替换原来 .btn 和 .btn:hover ——— */
 
-      /* 按钮默认样式：bg-white/10 + shadow */
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.6rem 1.5rem;
-        font-size: 0.875rem;
-        font-weight: 500;
-        color: #ffffff;
-        background-color: rgba(
-          255,
-          255,
-          255,
-          0.1
-        ); /* Tailwind 的 bg-white/10 */
-        border-radius: 9999px;
-        text-decoration: none;
-        /* 只对背景色和阴影做过渡 */
-        transition:
-          background-color 0.2s ease-in-out,
-          box-shadow 0.2s ease-in-out;
-        /* 对应 Tailwind 的 shadow */
-        box-shadow:
-          0 1px 3px rgba(0, 0, 0, 0.1),
-          0 1px 2px rgba(0, 0, 0, 0.06);
-      }
+            /* 按钮默认样式：bg-white/10 + shadow */
+            .btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.6rem 1.5rem;
+                font-size: 0.875rem;
+                font-weight: 500;
+                color: #ffffff;
+                background-color: rgba(
+                    255,
+                    255,
+                    255,
+                    0.1
+                ); /* Tailwind 的 bg-white/10 */
+                border-radius: 9999px;
+                text-decoration: none;
+                /* 只对背景色和阴影做过渡 */
+                transition:
+                    background-color 0.2s ease-in-out,
+                    box-shadow 0.2s ease-in-out;
+                /* 对应 Tailwind 的 shadow */
+                box-shadow:
+                    0 1px 3px rgba(0, 0, 0, 0.1),
+                    0 1px 2px rgba(0, 0, 0, 0.06);
+            }
 
-      /* 悬停时：bg-white/20 + shadow-lg */
-      .btn:hover {
-        background-color: rgba(
-          255,
-          255,
-          255,
-          0.2
-        ); /* Tailwind 的 bg-white/20 */
+            /* 悬停时：bg-white/20 + shadow-lg */
+            .btn:hover {
+                background-color: rgba(
+                    255,
+                    255,
+                    255,
+                    0.2
+                ); /* Tailwind 的 bg-white/20 */
 
-        /* 对应 Tailwind 的 shadow-lg：0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05) */
-        box-shadow:
-          0 10px 15px -3px rgba(0, 0, 0, 0.1),
-          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+                /* 对应 Tailwind 的 shadow-lg：0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05) */
+                box-shadow:
+                    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 
-        color: #ffffff; /* 保持文字/图标白色 */
-      }
+                color: #ffffff; /* 保持文字/图标白色 */
+            }
 
-      .footer {
-        margin-top: 2rem;
-        font-size: 0.75rem;
-        color: #666;
-      }
+            .footer {
+                margin-top: 2rem;
+                font-size: 0.75rem;
+                color: #666;
+            }
 
-      .countdown {
-        margin-top: 1rem;
-        font-size: 0.9rem;
-        color: #999;
-      }
+            .countdown {
+                margin-top: 1rem;
+                font-size: 0.9rem;
+                color: #999;
+            }
 
-      hr {
-        display: none;
-      }
+            hr {
+                display: none;
+            }
 
-      .btn {
-        max-width: 90vw;
-        white-space: nowrap;
-      }
+            .btn {
+                max-width: 90vw;
+                white-space: nowrap;
+            }
 
-      @media (max-width: 400px) {
-        .btn {
-          font-size: 0.875rem;
-          padding: 0.6rem 1.5rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- 背景动画 -->
-    <canvas id="fishCanvas"></canvas>
+            @media (max-width: 400px) {
+                .btn {
+                    font-size: 0.875rem;
+                    padding: 0.6rem 1.5rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 背景动画 -->
+        <canvas id="fishCanvas"></canvas>
 
-    <!-- 内容区 -->
-    <div class="container">
-      <h1>404 - Page Not Found</h1>
-      <p>The page you're looking for doesn't exist or has been moved.</p>
+        <!-- 内容区 -->
+        <div class="container">
+            <h1>404 - Page Not Found</h1>
+            <p>The page you're looking for doesn't exist or has been moved.</p>
 
-      <div
-        class="flex flex-col sm:flex-row flex-wrap sm:flex-nowrap justify-center items-center gap-4 px-4 py-4"
-      >
-        <a
-          href="https://hollowlib.top"
-          class="btn"
-          title="Go to Home"
-          aria-label="Home"
-        >
-          <i data-lucide="home" class="w-5 h-5"></i> Home
-        </a>
-        <a
-          href="https://docs.hollowlib.top"
-          class="btn"
-          title="Go to Database"
-          aria-label="Blog"
-        >
-          <i data-lucide="book-open" class="w-5 h-5"></i> Docs
-        </a>
-        <a
-          href="https://blogs.hollowlib.top"
-          class="btn"
-          title="Go to Blog"
-          aria-label="About"
-        >
-          <i data-lucide="user" class="w-5 h-5"></i> Blog
-        </a>
-        <a
-          href="javascript:history.back()"
-          class="btn"
-          title="Go Back"
-          aria-label="Back"
-        >
-          <i data-lucide="arrow-left" class="w-5 h-5"></i> Back
-        </a>
-      </div>
+            <div
+                class="flex flex-col sm:flex-row flex-wrap sm:flex-nowrap justify-center items-center gap-4 px-4 py-4"
+            >
+                <a
+                    href="https://hollowlib.top"
+                    class="btn"
+                    title="Go to Home"
+                    aria-label="Home"
+                >
+                    <i data-lucide="home" class="w-5 h-5"></i> Home
+                </a>
+                <a
+                    href="https://docs.hollowlib.top"
+                    class="btn"
+                    title="Go to Database"
+                    aria-label="Blog"
+                >
+                    <i data-lucide="book-open" class="w-5 h-5"></i> Docs
+                </a>
+                <a
+                    href="https://blogs.hollowlib.top"
+                    class="btn"
+                    title="Go to Blog"
+                    aria-label="About"
+                >
+                    <i data-lucide="user" class="w-5 h-5"></i> Blog
+                </a>
+                <a
+                    href="javascript:history.back()"
+                    class="btn"
+                    title="Go Back"
+                    aria-label="Back"
+                >
+                    <i data-lucide="arrow-left" class="w-5 h-5"></i> Back
+                </a>
+            </div>
 
-      <div class="countdown">
-        Redirecting to homepage in <span id="timer">5</span> seconds...
-      </div>
-      <div class="footer">Designed by Hollow Dobt</div>
-    </div>
+            <div class="countdown">
+                Redirecting to homepage in <span id="timer">5</span> seconds...
+            </div>
+            <div class="footer">Designed by Hollow Dobt</div>
+        </div>
 
-    <!-- 动画和跳转脚本 -->
-    <script>
-      lucide.createIcons();
+        <!-- 动画和跳转脚本 -->
+        <script>
+            lucide.createIcons();
 
-      const canvas = document.getElementById("fishCanvas");
-      const ctx = canvas.getContext("2d");
+            const canvas = document.getElementById("fishCanvas");
+            const ctx = canvas.getContext("2d");
 
-      function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
 
-      resizeCanvas();
-      window.addEventListener("resize", resizeCanvas);
+            resizeCanvas();
+            window.addEventListener("resize", resizeCanvas);
 
-      class Fish {
-        constructor() {
-          this.reset();
-        }
+            class Fish {
+                constructor() {
+                    this.reset();
+                }
 
-        reset() {
-          this.x = Math.random() * canvas.width;
-          this.y = Math.random() * canvas.height;
-          this.size = 10 + Math.random() * 10;
-          this.speedY = 0.5 + Math.random() * 1.2;
-          this.speedX = (Math.random() - 0.5) * 0.8; // 左右浮动
-          this.color = `rgba(255,255,255,${Math.random() * 0.6 + 0.3})`;
-        }
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = 10 + Math.random() * 10;
+                    this.speedY = 0.5 + Math.random() * 1.2;
+                    this.speedX = (Math.random() - 0.5) * 0.8; // 左右浮动
+                    this.color = `rgba(255,255,255,${Math.random() * 0.6 + 0.3})`;
+                }
 
-        update() {
-          this.y += this.speedY;
-          this.x += this.speedX;
-          if (this.y > canvas.height + this.size) this.y = -this.size;
-          if (this.x < -this.size || this.x > canvas.width + this.size)
-            this.x = Math.random() * canvas.width;
-        }
+                update() {
+                    this.y += this.speedY;
+                    this.x += this.speedX;
+                    if (this.y > canvas.height + this.size) this.y = -this.size;
+                    if (
+                        this.x < -this.size ||
+                        this.x > canvas.width + this.size
+                    )
+                        this.x = Math.random() * canvas.width;
+                }
 
-        draw() {
-          ctx.beginPath();
-          ctx.ellipse(
-            this.x,
-            this.y,
-            this.size,
-            this.size / 2,
-            0,
-            0,
-            Math.PI * 2,
-          );
-          ctx.fillStyle = this.color;
-          ctx.fill();
-        }
-      }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                }
+            }
 
-      const fishArray = Array.from({ length: 30 }, () => new Fish());
+            const fishArray = Array.from({ length: 30 }, () => new Fish());
 
-      function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        fishArray.forEach((fish) => {
-          fish.update();
-          fish.draw();
-        });
-        requestAnimationFrame(animate);
-      }
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                fishArray.forEach((fish) => {
+                    fish.update();
+                    fish.draw();
+                });
+                requestAnimationFrame(animate);
+            }
 
-      animate();
+            animate();
 
-      // 倒计时并自动跳转
-      let countdown = 5;
-      const timerEl = document.getElementById("timer");
-      const interval = setInterval(() => {
-        countdown--;
-        timerEl.textContent = countdown;
-        if (countdown <= 0) {
-          clearInterval(interval);
-          window.location.href = "/";
-        }
-      }, 1000);
-    </script>
-  </body>
+            // 倒计时并自动跳转
+            let countdown = 5;
+            const timerEl = document.getElementById("timer");
+            const interval = setInterval(() => {
+                countdown--;
+                timerEl.textContent = countdown;
+                if (countdown <= 0) {
+                    clearInterval(interval);
+                    window.location.href = "/";
+                }
+            }, 1000);
+        </script>
+    </body>
 </html>
