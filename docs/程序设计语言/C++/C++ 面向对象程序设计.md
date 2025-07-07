@@ -206,11 +206,85 @@ int main(void) {
 | weak_ptr   | 不会增加引用计数. 常常用于解决循环引用问题.               | (不允许被直接 `make`, 因为仅依赖于已存在的 `shared` 指针) `weak_ptr<int> num2 = num;` |
 
 
-## Chap I 如何定义一个类?
+## Chap I 定义"类"
 ---
-类的基本思想是**数据抽象**和**封装**. 我们将**接口**和**实现**相分离, 用户不需要知道一个函数是如何实现的, 他们只需要知道接口的标准和功能即可; 接口的实现由类的设计者完成.
 
 ### 1. 1 定义一个类
+
+首先简单介绍一下, C++ 中使用 `this` 指针指向对象自身, 因此 `this` 指向的变量就是对象自己包含的变量.
+
+C++ 中最简单的类如下
+
 ```cpp
-class 
+class liuQ {
+   public:
+    void print();
+
+   private:
+    string ss = "Liu Qing";
+};
+
+void liuQ::print() { cout << "Hello, " << this->ss << endl; }
+```
+
+其中 `class` (在 C++ 中)基本等价于 `struct`, 唯一的区别仅在于 `class` 默认成员私有, 而 `struct` 默认成员公有. 在上面的写法中, 因为 `public` 和 `private` 显示声明, 因此使用 `class` 和 `struct` 没有任何区别.
+
+很自然地想到, 如何给 `liuQ` 中的 `ss` 赋值? 我们首先考虑最简单的一种
+
+```cpp
+class liuQ {
+   public:
+    void print();
+    void init(string _ss);
+
+   private:
+    string ss = "Liu Qing";
+};
+
+void liuQ::print() { cout << "Hello, " << this->ss << endl; }
+
+void liuQ::init(string _ss) { this->ss = _ss };
+```
+
+上面这种构造方式不够灵活,不能实现在定义的同时初始化值. 因此我们引入**构造函数**, 用来解决这一问题.
+
+构造函数的基本写法如下
+
+```cpp
+class liuQ {
+   public:
+    liuQ(string _ss);
+    void print();
+    void init(string _ss);
+
+   private:
+    string ss = "Liu Qing";
+};
+
+void liuQ::print() { cout << "Hello, " << this->ss << endl; }
+
+void liuQ::init(string _ss) { this->ss = _ss; }
+
+liuQ::liuQ(string _ss) { this->ss = _ss; }
+```
+
+上面这种写法仍然不够高效. 因为这一过程实际上仍然是**首先使用默认构造函数创建一个对象, 再将对象进行赋值**. 实际上, 我们有一种更加高效的方式, 在构造的同时就完成了赋值. 这就是**初始化列表**.
+
+```cpp
+// 改进了 liuQ(string _ss) 这一构造函数
+class liuQ {
+   public:
+    liuQ(string _ss);
+    void print();
+    void init(string _ss);
+
+   private:
+    string ss = "Liu Qing";
+};
+
+void liuQ::print() { cout << "Hello, " << this->ss << endl; }
+
+void liuQ::init(string _ss) { this->ss = _ss; }
+
+liuQ::liuQ(string _ss) : ss(_ss) {}
 ```
