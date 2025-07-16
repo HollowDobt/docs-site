@@ -117,7 +117,10 @@ extra:
       name: Hollow's Email
 
 plugins:
-  - search # 启用搜索
+  # 启用搜索
+  - search:
+      lang:
+        - zh
   - tags   # 启用标签
   - git-revision-date-localized:
       enable_creation_date: true
