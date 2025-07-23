@@ -357,13 +357,13 @@ source ~/.bash_profile
 ---
 这里简单解释 LFS 提到交叉编译链时举的例子. 交叉编译链编译时必须明确指定目标平台, 即 **CPU-供应商-内核-操作系统** 三元组(如 arm64-apple-darwin24.5.0).
 
-![LFS交叉编译链说明](https://files.hollowlib.top/public/20250700a94037773fee73e43e9c3aacf0e90d.png)
+![交叉编译链示例](https://files.hollowlib.top/public/2025071a662aaf7525fa384de0bf1ab8452c6b.png)
 
 第一阶段, 我们在 A 机器上编译得到一个编译器 cc1, 这个 cc1 自身运行平台是 A 机器, 其编译其他源文件得到的二进制文件目标平台是 B; 接下来第二阶段, 让 cc1 这个编译器在 A 机器上运行, 编译得到一个在 B 平台使用的编译器 cc2, 这个 cc2 编译器编译其他源文件得到的二进制文件目标平台是 C; 而接下来第三阶段, 让 cc2 在 B 平台运行, 编译得到可以在 C 平台运行的编译器 cc3, 并且 cc3 编译器目标平台就是 C 自己.
 
 执行下面几步便可完成构建
 
-![LFS 构建步骤](https://files.hollowlib.top/public/2025072fc63d688334d8d3daa66bd9aea2a61e.png)
+![LFS 交叉编译流程](https://files.hollowlib.top/public/202507a14bf447879bc9acb6163fa5250af097.png)
 
 !!! note
 	这里步骤稍显复杂并难以理解. 为什么不直接在第二部完成对目标平台的编译? 因为这里产生了经典的"鸡生蛋蛋生鸡"的环形逻辑链. 为了编译出目标平台的 `glibc` 库, 我们必须要用编译器编译; 而编译器依赖自身的 `libgcc`, `libgcc` 又依赖于目标的 `glibc`, 这就导致了闭环: 我们没有 `glibc`, 而要想得到 `glibc` 必须要用 `glibc`
