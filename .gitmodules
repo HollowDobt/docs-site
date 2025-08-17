@@ -1,4 +1,0 @@
-[submodule "site"]
-	path = site
-	url = https://github.com/HollowDobt/docs-site.git
-	branch = pages
