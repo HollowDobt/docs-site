@@ -181,7 +181,7 @@ sudo chmod 755 $LFS
 首先创建源码目录
 
 ```bash
-sudo mkdir -v $LFS # -v 表示输出具体创建信息
+sudo mkdir -v $LFS/sources # -v 表示输出具体创建信息
 sudo chmod -v a+wt $LFS/sources # 添加写入权限和 sticky 标志. sticky 允许多个用户对于目录的写入, 但只有文件所有者有权删除其中的文件
 ```
 
@@ -192,7 +192,7 @@ wget --input-file=wget-list-systemd --continue --directory-prefix=$LFS/sources
 ```
 
 !!! note
-	国内很可能因为防火墙的问题出现 github 连接失败的问题, 因此这里博主提供了替代 github 地址后的文件(镜像源: 阿里云) <https://mirrors.aliyun.com/lfs/lfs-packages/lfs-packages-12.3.tar>, 执行命令 `sudo wget https://mirrors.aliyun.com/lfs/lfs-packages/lfs-packages-12.3.tar --directory-prefix=$LFS/sources`, 防止出现 `failed: Connection timed out`.
+	国内很可能因为防火墙的问题出现 github 连接失败的问题, 因此这里博主提供了替代 github 地址后的文件(镜像源: 阿里云) <https://mirrors.aliyun.com/lfs/lfs-packages/lfs-packages-12.3.tar>, 执行命令 `sudo wget https://mirrors.aliyun.com/lfs/lfs-packages/lfs-packages-12.3.tar --directory-prefix=$LFS/sources`, 防止出现 `failed: Connection timed out`. 当然, 也可以使用更快的中科大镜像源 <https://mirrors.ustc.edu.cn/lfs/lfs-packages/lfs-packages-12.3.tar>
 
 进一步, 我们将文件的所有者改为 root, 避免无名者问题
 
@@ -353,8 +353,11 @@ powerprofilesctl set performance
 source ~/.bash_profile
 ```
 
-## Chap IV 开始: LFS 交叉编译链与临时工具构建
+## Chap IV 开始: LFS 交叉编译链与临时工具构建之旅
 ---
+
+### 4. 1 交叉编译原理
+
 这里简单解释 LFS 提到交叉编译链时举的例子. 交叉编译链编译时必须明确指定目标平台, 即 **CPU-供应商-内核-操作系统** 三元组(如 arm64-apple-darwin24.5.0).
 
 ![交叉编译链示例](https://files.hollowlib.top/public/2025071a662aaf7525fa384de0bf1ab8452c6b.png)
@@ -367,3 +370,117 @@ source ~/.bash_profile
 
 !!! note
 	这里步骤稍显复杂并难以理解. 为什么不直接在第二部完成对目标平台的编译? 因为这里产生了经典的"鸡生蛋蛋生鸡"的环形逻辑链. 为了编译出目标平台的 `glibc` 库, 我们必须要用编译器编译; 而编译器依赖自身的 `libgcc`, `libgcc` 又依赖于目标的 `glibc`, 这就导致了闭环: 我们没有 `glibc`, 而要想得到 `glibc` 必须要用 `glibc`
+
+### 4. 2 编译交叉工具链
+
+#### 4. 2. 1 binutils 第一遍编译
+
+接下来首先安装 binutils. binutils 是必要的组件库, 包括 `as` GNU 汇编器, `ld` GNU 连接器等重要编译后组件.
+
+接下来每次编译前保证:
+
+- 首先使用 `tar` 解包, 进入解包后包对应的目录. 注意不得使用 `cp -R` 等可能影响时间戳的命令, 保证在检测最新版本时可以根据时间戳正常完成
+- 进入解压后的目录
+
+完全编译后保证:
+
+- 删除源码(包)的目录与 `tar` 文件
+
+首先完成配置
+
+```bash
+../configure --prefix=$LFS/tools \
+             --with-sysroot=$LFS \
+             --target=$LFS_TGT   \
+             --disable-nls       \
+             --enable-gprofng=no \
+             --disable-werror    \
+             --enable-new-dtags  \
+             --enable-default-hash-style=gnu
+
+# --with-sysroot=$LFS 编译时目标系统库在 $LFS 中查找
+# --disable-nls 禁用临时工具的国际化功能
+# --enable-gprofng=no 禁用性能分析工具 gprofng
+# --disable-werror 防止宿主系统编译器警告导致构建失败
+# --enable-new-dtags 使用"runpath"标记在可执行程序和共享库中嵌入库文件搜索路径, 绕过一些软件包测试套件中的潜在问题
+# --enable-default-hash-style=gnu 避免为生成和存储经典 ELF 散列表浪费时间和空间, 默认只生成 GNU 风格散列表
+```
+
+然后开始编译
+
+```bash
+make
+```
+
+安装
+
+```bash
+make install
+```
+
+#### 4. 2. 2 安装交叉编译的 GCC
+
+这一章坑有点多, 所以这里给出详细步骤. 首先解包 GCC-14.2, 然后删除 `tar` 文件, 进入 GCC 包目录
+
+```bash
+tar -xf gcc-14.2.0.tar.xz
+
+cd gcc-14.2.0
+```
+
+之后完成下面几步, 将 GCC 依赖的包解包到 gcc 源码目录下
+
+```bash
+tar -xf ../mpfr-4.2.1.tar.xz
+mv -v mpfr-4.2.1 mpfr
+tar -xf ../gmp-6.3.0.tar.xz
+mv -v gmp-6.3.0 gmp
+tar -xf ../mpc-1.3.1.tar.gz
+mv -v mpc-1.3.1 mpc
+```
+
+接下来, 设置默认将 x86_64 库安装到 `lib` 而非 `lib64` 中
+
+```bash
+case $(uname -m) in
+  x86_64)
+    sed -e '/m64=/s/lib64/lib/' \
+        -i.orig gcc/config/i386/t-linux64
+ ;;
+esac
+```
+
+完成配置
+
+```bash
+../configure                  \
+    --target=$LFS_TGT         \
+    --prefix=$LFS/tools       \
+    --with-glibc-version=2.41 \
+    --with-sysroot=$LFS       \
+    --with-newlib             \
+    --without-headers         \
+    --enable-default-pie      \
+    --enable-default-ssp      \
+    --disable-nls             \
+    --disable-shared          \
+    --disable-multilib        \
+    --disable-threads         \
+    --disable-libatomic       \
+    --disable-libgomp         \
+    --disable-libquadmath     \
+    --disable-libssp          \
+    --disable-libvtv          \
+    --disable-libstdcxx       \
+    --enable-languages=c,c++
+```
+
+开始编译安装
+
+```bash
+make
+
+make install
+```
+
+GCC 的编译应该会花些时间. 这段时间耐心等待即可.
