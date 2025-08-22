@@ -3,7 +3,7 @@ site_name: Hollow's Library
 site_url: https://docs.hollowlib.top
 site_description: Flowers' Fade, Leaves' Birth.
 site_author: Hollow Dobt
-copyright: "<a href='https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.en'>CC BY-NC-SA 4.0</a> | &copy; 2025 - today Hollow Dobt | <a href='https://icp.gov.moe/?keyword=20257760' target='_blank'>萌ICP备20257760号</a>"
+copyright: "&copy; 2025 - today Hollow Dobt | <a href='https://icp.gov.moe/?keyword=20257760' target='_blank'>萌ICP备20257760号</a>"
 repo_url: https://github.com/hollowdobt/docs-site
 repo_name: hollowdobt/docs-site
 edit_uri: edit/main/docs/
