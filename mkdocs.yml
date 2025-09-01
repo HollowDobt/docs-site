@@ -35,9 +35,7 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.footer
-    - navigation.expand
     - navigation.indexes
-    - navigation.sections
     - navigation.tracking
     - naviagtion.prune
     - navigation.instant
@@ -57,8 +55,13 @@ theme:
     # 目录
     - toc.follow
 
+
 ## Markdown文件编辑加强
 markdown_extensions:
+  - toc:
+      toc_depth: 1-4
+      permalink: "#"
+
   - pymdownx.arithmatex:
       generic: true
 
@@ -134,3 +137,35 @@ plugins:
       repository: hollowdobt/docs-site
       branch: main
   - git-authors
+
+
+nav:
+  - "¶ Hollow's Library":
+    - index.md
+
+  - "¶ 程序设计语言":
+      - programlang/index.md
+      - "§ C++":
+          - "C++ 面向对象程序设计": programlang/C++/C++OOP.md
+
+  - "¶ 人工智能":
+      - ai/index.md
+
+  - "¶ ZJU Courses Notes":
+      - ZJU-Courses-Notes/index.md
+      - "§ 微积分(甲)II":
+          - ZJU-Courses-Notes/A/Calculus(A)II.md
+      - "§ 普通化学实验(乙)":
+          - ZJU-Courses-Notes/A/NorCheT(B).md
+      - "§ 人工智能基础(A)":
+          - ZJU-Courses-Notes/A/AIBasic(A).md
+
+  - "¶ 算法分析":
+      - algorithm/index.md
+      - "§ 数据结构基础与算法分析":
+          - algorithm/DBAA/index.md
+          - "• Chap I 线性表": algorithm/DBAA/array.md
+          - "• Appe I 数学基础与算法设计原则": algorithm/DBAA/appendix1.md
+          - "• Appe II 算法分析语设计实例": algorithm/DBAA/appendix2.md
+      - "§ Codeforces":
+          - "模版": algorithm/cf/stencil.md
