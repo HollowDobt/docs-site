@@ -453,12 +453,90 @@ Iterator find(T const& ele) {
 
 #### 1. 2. 3. 1 基数排序[^2]
 
-首先简单介绍一下桶排序. 桶排序的思想类似于干部的投票选拔, 非常适用于
+基数排序, 简单来说是基于分类思想的排序方式. 其最大的特点是原理上不需要进行数之间的比较. 下面给出一个实例(桶 $0$ 表示桶内对应位数的值为 $0$, 如 $0720$ 在 $Pass1$ 中对应位数值为 $0$, 故排在桶 $0$. 其余同理)
 
+```mermaid
+flowchart TD
+    A[初始数组: 0329, 0457, 0657, 0839, 0436, 0720, 0355]
 
+    subgraph P1[Pass 1 · 个位]
+        B0[桶0: 0720]
+        B5[桶5: 0355]
+        B6[桶6: 0436]
+        B7[桶7: 0457, 0657]
+        B9[桶9: 0329, 0839]
+        BRes[结果: 0720, 0355, 0436, 0457, 0657, 0329, 0839]
+    end
+
+    subgraph P2[Pass 2 · 十位]
+        C2[桶2: 0720, 0329]
+        C3[桶3: 0436, 0839]
+        C5[桶5: 0355, 0457, 0657]
+        CRes[结果: 0720, 0329, 0436, 0839, 0355, 0457, 0657]
+    end
+
+    subgraph P3[Pass 3 · 百位]
+        D3[桶3: 0329, 0355]
+        D4[桶4: 0436, 0457]
+        D6[桶6: 0657]
+        D7[桶7: 0720]
+        D8[桶8: 0839]
+        DRes[结果: 0329, 0355, 0436, 0457, 0657, 0720, 0839]
+    end
+
+    subgraph P4[Pass 4 · 千位]
+        E0[桶0: 所有元素]
+        ERes[最终结果: 0329, 0355, 0436, 0457, 0657, 0720, 0839]
+    end
+
+    A --> BRes --> CRes --> DRes --> ERes
+
+```
+
+这一排序的具体代码实现如下(以 $10$ 位整数为例)
+
+```cpp
+#include <cstdint>
+#include <list>
+#include <vector>
+
+using namespace std;
+using u64 = uint64_t;
+
+vector<u64> radixSort(vector<u64> const& lst_c) {
+    vector<u64> lst(lst_c);
+    u64 pos = 0, exp = 1;
+    while(++pos <= 10 && (exp *= 10)) {
+        vector<list<u64>> buc(10);
+        for(auto const& num : lst) {
+            buc[(num/(exp/10)) % 10].push_back(num);
+        }
+        lst.clear();
+        for(auto const& ls : buc) {
+            for (auto const& num : ls) {
+                lst.push_back(num);
+            }
+        }
+    }
+    return lst;
+}
+```
+
+!!! tip
+	如果你和我一样之前已经学过其他基于比较的排序方式, 直觉上一定会发现, 基数排序的理论时间复杂度会小很多. 实际上也是, 理论上 $O(N\log N) < O(N)$, 其时间复杂度是线性的. 甚至其空间复杂度也仅有 $O(N)$ 级别. 那么, 为什么大部分程序语言使用的排序方式都是快速排序或者混合了多种基于比较的排序呢?
+	
+	虽然理论上基数排序的时间复杂度低于快速排序或者其他混合排序, 但是实际使用与优化中需要考虑 `CPU` 的缓存机制. 基数排序因为多轮全量扫描机制, 其缓存命中率显著低于快速排序等算法; 再如上面程序实现, 基数排序中我们需要进行多轮的全部数据交换, 实际上的时间常数常常难以忽略, 尤其是在数据量较小的前提下. 更加致命的是, 基数排序很难应用在浮点数情况上, 或者说基数排序只适合用在位数结构上一致的数据. 因此, 在工程实现上, 为了达到一般情况下排序效率的最大化, 我们常常会使用其他排序方式, 而非理论上极快的基数排序.[^3]
+	
+	尽管如此, 基数排序的应用仍然相当广泛. 其性能在现代计算机缓存大小与内存带宽大幅度上升后也随之增强, 在如 `IP` 地址, 哈希值, `ID` 排序等位数固定的场景上表现相当优秀.[^4]
 
 [^1]:
 	*C++算法编程指南 0.1 文档* <https://majorli.github.io/algo_guide/ch03/sec01/318_linkedlist_2.html>
 
 [^2]:
 	*Data Structures and Algorithm Analysis in C, Second Edition 3. 2. 7*  P54
+
+[^3]:
+	*A Fast Radix Sort, I.J.DAVIS, Department of Computing and Physics, Wilfrid Laurier University, Waterloo, Ontario, Canada N2L* Table 2 <https://cs.uwaterloo.ca/~ijdavis/fastsort.pdf>
+
+[^4]:
+	*Fast Sort on CPUs, GPUs and Intel MIC Architectures, Nadathur Satish, Changkyu Kim, Jatin Chhugani, Anthony D. Nguyen, Victor W. Lee, Daehyun Kim, Pradeep Dubey Throughput Computing Lab.* <https://www.intel.com/content/dam/www/public/us/en/documents/technology-briefs/intel-labs-radix-sort-mic-report.pdf>
