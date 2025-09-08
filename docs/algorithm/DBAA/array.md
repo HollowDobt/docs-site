@@ -5,9 +5,13 @@
 
 ## 1. 1 顺序表
 
+---
+
 这是相当常见的一种线性表, 也是最常用的线性表. 一般我们称这种在内存上连续的表为**顺序表**, `C++` 中即为 `vector` 或者一般数组. 这类数据结构相当简单为大家所熟悉, 此处不再过多赘述.
 
 ## 1. 2 链表
+
+---
 
 下图是单向链表, 双向链表和环表的示意图(设计头和尾根据实际情况进行. 一般而言仅仅使用头即可, 无需尾浪费内存空间).
 
@@ -453,7 +457,9 @@ Iterator find(T const& ele) {
 
 #### 1. 2. 3. 1 基数排序[^2]
 
-基数排序, 简单来说是基于分类思想的排序方式. 其最大的特点是原理上不需要进行数之间的比较. 下面给出一个实例(桶 $0$ 表示桶内对应位数的值为 $0$, 如 $0720$ 在 $Pass1$ 中对应位数值为 $0$, 故排在桶 $0$. 其余同理)
+基数排序, 简单来说是基于分类思想的排序方式. 其最大的特点是原理上不需要进行数之间的比较, 每一轮根据所有数的某一位数调整排列顺序, 保证第 $X$ 轮后每个数的后面 $X$ 位全部排序完成, 同时保证在第 $X+1$ 轮以及之后的排序调整有更高优先级.
+
+下面给出一个实例(桶 $0$ 表示桶内对应位数的值为 $0$, 如 $0720$ 在 $Pass1$ 中对应位数值为 $0$, 故排在桶 $0$. 其余同理)
 
 ```mermaid
 flowchart TD
@@ -529,6 +535,123 @@ vector<u64> radixSort(vector<u64> const& lst_c) {
 	
 	尽管如此, 基数排序的应用仍然相当广泛. 其性能在现代计算机缓存大小与内存带宽大幅度上升后也随之增强, 在如 `IP` 地址, 哈希值, `ID` 排序等位数固定的场景上表现相当优秀.[^4]
 
+#### 1. 2. 3. 2 多项式乘法[^5]
+
+使用链表完成多项式乘法相当简单. 使用模拟乘法竖式的思路即可.
+
+我们顺序地存储 $N$ 个二元组, 每个二元组包括系数项与指数项. 每轮需要查找有序链表中是否存有相同的指数项. 如果有, 那么直接将系数项乘法得到的值加到已有的系数项中; 否则遍历到 `nullptr` 或者当前项的指数项已经大于乘法得到的指数项, 在末尾或者当前项的节点前部插入新节点.
+
+具体程序按照上述思路即可完成, 这里不再赘述.
+
+#### 1. 2. 3. 3 多重表问题[^6]
+
+书上给出了非常有名的例子, 即简单多重关系问题. 其思想类似于图.
+
+我们设一共有 $N$ 位学生, 同时有 $M$ 个课程, 每个学生最多选择 $5$ 种课程, 那么直接使用顺序表需要 $M\times N$ 大小的空间, 也就是下图的关系
+
+```mermaid
+flowchart LR
+  %% ====== 标题 ======
+  %% （有的渲染器会忽略 title，这里留注释）
+  %% 学生 × 课程：朴素顺序表（N×M 布尔矩阵）
+
+  %% ====== 头行：课程 ======
+  H0[" "]:::corner --- H1["课程1"]:::colHead --- H2["课程2"]:::colHead --- H3["课程3"]:::colHead --- H4["课程4"]:::colHead --- H5["课程5"]:::colHead --- HM["… 课程M"]:::colHead
+
+  %% ====== 第1行：学生1 ======
+  R1["学生1"]:::rowHead --- C11["0"]:::cell0 --- C12["1"]:::cell1 --- C13["0"]:::cell0 --- C14["1"]:::cell1 --- C15["0"]:::cell0 --- C1M["…"]:::cell0
+
+  %% ====== 第2行：学生2 ======
+  R2["学生2"]:::rowHead --- C21["1"]:::cell1 --- C22["0"]:::cell0 --- C23["0"]:::cell0 --- C24["1"]:::cell1 --- C25["0"]:::cell0 --- C2M["…"]:::cell0
+
+  %% ====== 第3行：学生3 ======
+  R3["学生3"]:::rowHead --- C31["0"]:::cell0 --- C32["1"]:::cell1 --- C33["1"]:::cell1 --- C34["0"]:::cell0 --- C35["0"]:::cell0 --- C3M["…"]:::cell0
+
+  %% ====== 第4行：学生4 ======
+  R4["学生4"]:::rowHead --- C41["0"]:::cell0 --- C42["0"]:::cell0 --- C43["1"]:::cell1 --- C44["0"]:::cell0 --- C45["1"]:::cell1 --- C4M["…"]:::cell0
+
+  %% ====== 第N行（占位） ======
+  RN["… 学生N"]:::rowHead --- CN1["…"]:::cell0 --- CN2["…"]:::cell0 --- CN3["…"]:::cell0 --- CN4["…"]:::cell0 --- CN5["…"]:::cell0 --- CNM["…"]:::cell0
+
+  %% ====== 图例 ======
+  subgraph Legend[图例]
+    L0["0：未选"]:::cell0 --- L1["1：已选"]:::cell1
+  end
+
+
+  %% 去掉连线箭头 & 尽量轻量
+  linkStyle default stroke:#cfd6e4,stroke-width:1px,opacity:0.6;
+```
+
+而链表版本仅需要 $5\times N$ 的空间
+
+```mermaid
+%%{init: {'flowchart': {'curve': 'linear'}}}%%
+flowchart LR
+  %% ================= 顶部课程表头（与原版一致） =================
+  H0[" "]:::corner --- H1["课程1"]:::colHead --- H2["课程2"]:::colHead --- H3["课程3"]:::colHead --- H4["课程4"]:::colHead --- H5["课程5"]:::colHead --- HM["… 课程M"]:::colHead
+
+  %% ================= 左侧学生行头（与原版一致） =================
+  subgraph ROWS[ ]
+  direction TB
+  R1["学生1"]:::rowHead
+  R2["学生2"]:::rowHead
+  R3["学生3"]:::rowHead
+  R4["学生4"]:::rowHead
+  RN["… 学生N"]:::rowHead
+  end
+
+  %% ================= 列：只放 “1” 的结点，形成课程向下链 =================
+  %% 列1（H1）：(2,1)
+  subgraph COL1[ ]
+  direction TB
+  H1 --> C21["C21 (2,1)"]:::rel
+  end
+
+  %% 列2（H2）：(1,2) -> (3,2)
+  subgraph COL2[ ]
+  direction TB
+  H2 --> C12["C12 (1,2)"]:::rel --> C32["C32 (3,2)"]:::rel
+  end
+
+  %% 列3（H3）：(3,3) -> (4,3)
+  subgraph COL3[ ]
+  direction TB
+  H3 --> C33["C33 (3,3)"]:::rel --> C43["C43 (4,3)"]:::rel
+  end
+
+  %% 列4（H4）：(1,4) -> (2,4)
+  subgraph COL4[ ]
+  direction TB
+  H4 --> C14["C14 (1,4)"]:::rel --> C24["C24 (2,4)"]:::rel
+  end
+
+  %% 列5（H5）：(4,5)
+  subgraph COL5[ ]
+  direction TB
+  H5 --> C45["C45 (4,5)"]:::rel
+  end
+
+  %% ================= 行：学生链，用虚线把同一行的“1”连起来 =================
+  R1 -. 学生next .-> C12 -. 学生next .-> C14
+  R2 -. 学生next .-> C21 -. 学生next .-> C24
+  R3 -. 学生next .-> C32 -. 学生next .-> C33
+  R4 -. 学生next .-> C43 -. 学生next .-> C45
+
+  %% ================= 图例 =================
+  subgraph Legend[图例]
+  direction TB
+  Lrel["关系结点 (i,j) ：选了该课程"]:::rel
+  Lr["虚线：行指针 right（同一学生的下一门课）"]:::legend
+  Lc["实线：列指针 down（同一课程的下一个学生）"]:::legend
+  end
+
+  %% ================= 样式 =================
+  linkStyle default stroke:#cfd6e4,stroke-width:1px,opacity:0.65;
+```
+
+唯一的缺点是不方便直接访问某个学生或者课程情况. 不过可以通过额外构建元数据表实现这一点.
+
 [^1]:
 	*C++算法编程指南 0.1 文档* <https://majorli.github.io/algo_guide/ch03/sec01/318_linkedlist_2.html>
 
@@ -540,3 +663,9 @@ vector<u64> radixSort(vector<u64> const& lst_c) {
 
 [^4]:
 	*Fast Sort on CPUs, GPUs and Intel MIC Architectures, Nadathur Satish, Changkyu Kim, Jatin Chhugani, Anthony D. Nguyen, Victor W. Lee, Daehyun Kim, Pradeep Dubey Throughput Computing Lab.* <https://www.intel.com/content/dam/www/public/us/en/documents/technology-briefs/intel-labs-radix-sort-mic-report.pdf>
+
+[^5]:
+	*Data Structures and Algorithm Analysis in C, Second Edition 3. 2. 7*  P53
+
+[^6]:
+	*Data Structures and Algorithm Analysis in C, Second Edition 3. 2. 7*  P55
