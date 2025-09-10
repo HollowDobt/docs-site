@@ -652,6 +652,51 @@ flowchart LR
 
 唯一的缺点是不方便直接访问某个学生或者课程情况. 不过可以通过额外构建元数据表实现这一点.
 
+
+## 1. 3 栈
+---
+
+栈的实现方式多种多样. 其特点是 `FILO(First In Last Out)`, 也就是先进后出, 类似于鸡尾酒, 冰激凌的唯一出口式模型. 
+
+一般而言, 我们只能获取栈顶的元素, 并且只能对栈顶元素进行操作. 或者说栈顶元素是唯一可见元素. 下图是一个栈的示意图
+
+```mermaid
+flowchart LR
+  %% styles (safe & compatible)
+  classDef empty   fill:stroke-width:1px,rx:6,ry:6;
+  classDef filled  fill:stroke-width:1.5px,rx:6,ry:6;
+  classDef top     fill:stroke-width:2px,rx:8,ry:8;
+  classDef base    fill:stroke-dasharray:4 3,rx:6,ry:6;
+  classDef pointer fill:stroke-width:1.5px,rx:6,ry:6;
+
+  %% vertical stack (capacity = 10)
+  S7["S[7]  empty"]:::empty
+  S6["S[6]  empty"]:::empty
+  S5["S[5]  empty"]:::empty
+  S4["S[4]  empty"]:::empty
+  S3["S[3]  C"]:::top
+  S2["S[2]  B"]:::filled
+  S1["S[1]  A"]:::filled
+  S0["S[0]  bottom"]:::base
+
+  %% invisible connectors to make cells touch vertically (not a linked list)
+  S7 --- S6
+  S6 --- S5
+  S5 --- S4
+  S4 --- S3
+  S3 --- S2
+  S2 --- S1
+  S1 --- S0
+
+  Top["top = 3"]:::pointer --> S3
+
+  %% hide the vertical connectors (keep only the Top->S3 arrow visible)
+
+```
+
+
+
+
 [^1]:
 	*C++算法编程指南 0.1 文档* <https://majorli.github.io/algo_guide/ch03/sec01/318_linkedlist_2.html>
 
