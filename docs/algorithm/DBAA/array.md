@@ -3,13 +3,13 @@
 !!! abstract
 	本文主要内容是线性表的概念与实现. 常见的线性表分为连续数组(顺序表), 链表, 栈, 队列.
 
-## 1. 1 顺序表
+## 1. 1 顺序表(Contiguous List)
 
 ---
 
 这是相当常见的一种线性表, 也是最常用的线性表. 一般我们称这种在内存上连续的表为**顺序表**, `C++` 中即为 `vector` 或者一般数组. 这类数据结构相当简单为大家所熟悉, 此处不再过多赘述.
 
-## 1. 2 链表
+## 1. 2 链表(Linked List)
 
 ---
 
@@ -653,8 +653,10 @@ flowchart LR
 唯一的缺点是不方便直接访问某个学生或者课程情况. 不过可以通过额外构建元数据表实现这一点.
 
 
-## 1. 3 栈
+## 1. 3 栈(Stack)
 ---
+
+### 1. 3. 1 栈的实现
 
 栈的实现方式多种多样. 其特点是 `FILO(First In Last Out)`, 也就是先进后出, 类似于鸡尾酒, 冰激凌的唯一出口式模型. 
 
@@ -694,8 +696,166 @@ flowchart LR
 
 ```
 
+栈的基本操作包括 `Top`(检查栈顶), `Push`(将元素放入栈顶), `Pop`(取出栈顶元素), 只需要将前面的链表进行简单改造即可. 具体而言, 只需保留这几项操作, 删除其他操作即可.
 
+但是, 使用链表的代价是极其可怕的, 因为对于堆空间(动态内存)的开辟需要花费大量的常数时间. 因此, 更加常见的方式是直接使用普通数组, 也就是线性表构建. 这种方式的优点是避开了时间代价高昂的动态内存, 缺点是事先需要确定适合的数组大小, 容易造成严重的内存安全隐患.
 
+这里给出最简单的栈实现
+
+```cpp
+#include <cstddef>
+#include <iostream>
+#include <stdexcept>
+
+using namespace std;
+
+template <typename T, size_t N>
+class Stack {
+   private:
+    size_t top_ptr;
+    T array[N];
+
+   public:
+    Stack() : top_ptr(0) {}
+    // 使用的是栈空间, 不需要额外的析构函数
+
+    T& top() {
+        if (top_ptr > 0) {
+            return array[top_ptr - 1];
+        }
+        throw runtime_error("Stack is empty!");
+    }
+
+    T const& top() const {
+        if (top_ptr > 0) {
+            return array[top_ptr - 1];
+        }
+        throw runtime_error("Stack is empty!");
+    }
+
+    // 这里没有体现边界检查与扩容. 实际上的习惯是会添加 is_full 和 is_empty 两个函数专门辅助边界检查.
+    void push(T const& num) { array[++top_ptr - 1] = num; }
+    T pop() { return array[top_ptr-- - 1]; }
+    size_t const& size() const noexcept { return top_ptr; }
+};
+
+int main(void) {
+    Stack<int, 1000> stack;
+    stack.push(100);
+    cout << stack.pop() << " " << stack.size() << endl;
+
+    return 0;
+}
+```
+
+使用动态内存实现同样是可行的, 甚至更加灵活. 不过在那种情况下许多操作甚至栈本身我们可以直接使用标准库的 `vector` 完成, 因此这里不给出动态内存的方式.
+
+### 1. 3. 2 栈的应用
+
+#### 1. 3. 2. 1 符号平衡(符号语法检查)[^7]
+
+我们写程序的时候, 尤其是诸如 `lisp` 那样包含巨量恐怖括号的程序时, 我们需要检查括号是否闭合. 这是一件十分重要的事, 因为一旦括号未闭合, 缺少专门的符号平衡解析器的情况下很容易产生几百上千行程序代码的报错. 我们可以引入栈解决这一问题.
+
+我们将一对括号分为开放和闭合两类, 其中一对括号的左边部分就是开放的, 右边部分就是闭合的. 每当遇到开放符号的时候就将符号记录到栈顶, 而每当遇到闭合符号的时候就检查是否与栈顶元素相同. 如果栈顶元素根本不存在, 报错缺少左括号. 如果不同, 那么就产生配对错误的报错. 如果相同, 那么就将栈顶符号推出, 栈顶移到下一符号. 在文末如果栈中还残留有元素, 证明前面有括号未闭合(这意味着我们需要存入的不仅仅是元素本身, 还需要存储元素的位置), 此时执行报错.
+
+符号平衡算法是很经典的**在线(on-line)算法**, 因为它不需要读完整个文本就可以直接检查到最前面的符号不配对问题.
+
+!!! tip
+	**在线算法** 指的是可以流式处理数据的算法. 准确的讲, 在输入数据 **逐步到达** 的过程中, 算法能 **实时处理**, 并在任何时刻给出当前处理结果, 而不需要等待全部输入都到齐的算法就是在线算法.
+	
+	**离线算法** 指的是必须等到 **完整输入数据** 都准备好之后才能开始计算的算法.
+
+下面是对于符号平衡算法的实现. 当然, 诸如 `gcc` 等编译器的语法解析的符号平衡算法远没有这么简单. 简单来讲, 下面这个程序源代码本身的符号平衡就会被这个算法识别为"非法". 大家可以猜猜是哪里, 是为什么, 然后自己编译试试
+
+```cpp
+#include <cstddef>
+#include <fstream>
+#include <iostream>
+#include <stack>
+#include <string>
+
+using namespace std;
+
+int main(int argc, char const* argv[]) {
+    // 其中另一个参数 argv[1] 指向需要检查语法的文件地址
+    if (argc != 2) {
+        cerr << "Input type is undefined" << endl;
+        return 1;
+    }
+
+    ifstream inFile(argv[1]);
+    string leftLst = "([{", righLst = ")]}";
+
+    if (!inFile) {
+        cerr << "No such file: " << argv[1] << endl;
+        return 1;
+    }
+
+    string line;
+    stack<pair<size_t, pair<size_t, size_t>>> lineRead;
+    size_t lineNum = 0;
+
+    while (getline(inFile, line) && ++lineNum) {
+        size_t rowNum = 0;
+
+        for (char const& ch : line) {
+            ++rowNum;
+
+            // bool handled = false;
+
+            for (size_t ptr_ex = 0; ptr_ex < leftLst.size(); ++ptr_ex) {
+                if (ch == leftLst[ptr_ex]) {
+                    lineRead.push({ptr_ex, {lineNum, rowNum}});
+                    // handled = true;
+                    // goto 就是简单的跳转执行, 用来取代上面的 handled 标注
+                    goto next_turn;
+                    break;
+                }
+            }
+
+            // if (handled == true) continue;
+
+            for (size_t ptr_ex = 0; ptr_ex < righLst.size(); ++ptr_ex) {
+                if (ch == righLst[ptr_ex]) {
+                    if (lineRead.empty() == true ||
+                        lineRead.top().first != ptr_ex) {
+                        cout << "Unpaired symbol detected\n"
+                             << "In [line, row] -> [" << lineNum << ", "
+                             << rowNum << "]: unpaired symbol `" << ch << "`"
+                             << endl;
+
+                        if (lineRead.empty() == false) {
+                            cout << "Expected symbol: "
+                                 << righLst[lineRead.top().first] << endl;
+                        } else {
+                            cout << "No left symbol found." << endl;
+                        }
+                        return 0;
+                    }
+
+                    lineRead.pop();
+                    break;
+                }
+            }
+
+        next_turn:;
+        }
+    }
+
+    if (lineRead.empty() != true) {
+        cout << "Unpaired symbol detected\n"
+             << "In [line, row] -> [" << lineRead.top().second.first << ", "
+             << lineRead.top().second.second << "]: unpaired symbol `"
+             << leftLst[lineRead.top().first] << "`" << endl;
+
+        return 0;
+    }
+
+    cout << "No error found." << endl;
+
+    return 0;
+}
+```
 
 [^1]:
 	*C++算法编程指南 0.1 文档* <https://majorli.github.io/algo_guide/ch03/sec01/318_linkedlist_2.html>
@@ -714,3 +874,6 @@ flowchart LR
 
 [^6]:
 	*Data Structures and Algorithm Analysis in C, Second Edition 3. 2. 7*  P55
+
+[^7]: 
+	*Data Structures and Algorithm Analysis in C, Second Edition 3. 3. 3*  P70
