@@ -90,6 +90,8 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - footnotes
+  - attr_list
+  - md_in_html
 
 extra_css:
   - _stylesheets/extra.css
@@ -137,6 +139,7 @@ plugins:
       repository: hollowdobt/docs-site
       branch: main
   - git-authors
+  - glightbox # 允许图片缩放
 
 
 nav:
