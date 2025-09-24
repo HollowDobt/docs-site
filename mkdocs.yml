@@ -165,6 +165,7 @@ nav:
       - "§ 电子电工学":
           - ZJU-Courses-Notes/A/Electron/index.md
           - "• Chap I 电路和电路元件": ZJU-Courses-Notes/A/Electron/Circuitsandelectroniccomponents.md
+          - "• Chap II 电路分析基础": ZJU-Courses-Notes/A/Electron/CircuitAnalysisBasics.md
       - "§ 理论力学(甲)":
           - ZJU-Courses-Notes/A/TheoreticalMechanics/index.md
           - "• Chap I 点的运动学": ZJU-Courses-Notes/A/TheoreticalMechanics/pointmove.md
