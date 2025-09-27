@@ -299,7 +299,7 @@ int gcd(unsigned int a, unsigned int b) {
 
 ### F2. 4. 4 程序实现(基于语法解析与后缀表达式的计算器)
 
-程序实现较为繁琐(嗯我自己都是用 AI 写的), 具体参见我的 [github 仓库](https://github.com/HollowDobt/algorithm/blob/main/stack/culculator.cpp).
+程序实现较为繁琐(用 AI 写吧), 具体参见 [github 仓库](https://github.com/HollowDobt/algorithm/blob/main/stack/culculator.cpp).
 
 [^1]:
 	*Data Structures and Algorithm Analysis in C, Second Edition 2. 4. 3* P23

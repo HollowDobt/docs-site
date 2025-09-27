@@ -1,7 +1,7 @@
 # 数据结构与算法分析基础
 ---
 !!! abstract
-	本篇是比较完整的自学笔记, 不属于浙江大学数据结构与算法分析基础课程内容. 里面有绝大部分数据结构基础与算法分析的知识. 由于博主之前有一点点数据结构和算法的基础, 并且主要的参考内容是一本老书 *Data Structures and Algorithm Analysis in C, Second Edition*, 所以笔记相较于一般课程可能不会很完整. 部分内容也参考了教程 <https://pacman.cs.tsinghua.edu.cn/~hanwentao/dsa/>, <https://www.hello-algo.com/chapter_hello_algo/> 等网络上的内容. 数据结构与算法实现的语言是 `C++`, 所有数据结构使用模版技术完成.
+	本篇是比较完整的自学笔记. 主要的参考内容是一本老书 *Data Structures and Algorithm Analysis in C, Second Edition*, 所以笔记相较于一般课程可能不会很完整. 部分内容也参考了教程 <https://pacman.cs.tsinghua.edu.cn/~hanwentao/dsa/>, <https://www.hello-algo.com/chapter_hello_algo/> 等网络上的内容. 数据结构与算法实现的语言是 `C++`, 不是 `C`
 
 ## 文章列表
 

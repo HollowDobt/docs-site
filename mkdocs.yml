@@ -169,6 +169,7 @@ nav:
       - "§ 理论力学(甲)":
           - ZJU-Courses-Notes/A/TheoreticalMechanics/index.md
           - "• Chap I 点的运动学": ZJU-Courses-Notes/A/TheoreticalMechanics/pointmove.md
+          - "• Chap II 刚体运动学": ZJU-Courses-Notes/A/TheoreticalMechanics/rigidbodymove.md
 
   - "¶ 算法分析":
       - algorithm/index.md

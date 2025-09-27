@@ -21,3 +21,4 @@
 ---
 
 - [x] [§ Chap I      点的运动学](pointmove.md)
+- [x] [§ Chap II     刚体运动学](rigidbodymove.md)
