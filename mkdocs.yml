@@ -162,7 +162,7 @@ nav:
           - ZJU-Courses-Notes/A/NorCheT(B).md
       - "§ 人工智能基础(A)":
           - ZJU-Courses-Notes/A/AIBasic(A).md
-      - "§ 电子电工学":
+      - "§ 电工电子学":
           - ZJU-Courses-Notes/A/Electron/index.md
           - "• Chap I 电路和电路元件": ZJU-Courses-Notes/A/Electron/Circuitsandelectroniccomponents.md
           - "• Chap II 电路分析基础": ZJU-Courses-Notes/A/Electron/CircuitAnalysisBasics.md
