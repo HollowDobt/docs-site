@@ -22,3 +22,4 @@
 
 - [x] [§ Chap I      点的运动学](pointmove.md)
 - [x] [§ Chap II     刚体的简单运动学](rigidbodymove.md)
+- [x] [§ Chap III    点的合成运动](combinationmove.md)
