@@ -16,9 +16,9 @@
 - (附加到平时成绩. 平时成绩无法影响总成绩, 期末成绩, 线上成绩)竞赛, 专题报告等 $5\%$
 - 期末卷面成绩 $50\%$
 
-## 文章列表
+## 笔记列表
 
 ---
 
 - [x] [§ Chap I      点的运动学](pointmove.md)
-- [x] [§ Chap II     刚体运动学](rigidbodymove.md)
+- [x] [§ Chap II     刚体的简单运动学](rigidbodymove.md)
