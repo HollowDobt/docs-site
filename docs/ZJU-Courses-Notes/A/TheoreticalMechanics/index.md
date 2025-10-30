@@ -23,3 +23,10 @@
 - [x] [§ Chap I      点的运动学](pointmove.md)
 - [x] [§ Chap II     刚体的简单运动学](rigidbodymove.md)
 - [x] [§ Chap III    点的合成运动](combinationmove.md)
+- [x] [§ Chap IV   刚体的平面运动](rigidbodyinflat.md)
+
+## 参考答案
+
+---
+
+- [理论力学习题全解 第九版 哈工大版](https://pan.moe/s/rvEqCp)  密码: aywqp7

@@ -171,6 +171,7 @@ nav:
           - "• Chap I 点的运动学": ZJU-Courses-Notes/A/TheoreticalMechanics/pointmove.md
           - "• Chap II 刚体运动学": ZJU-Courses-Notes/A/TheoreticalMechanics/rigidbodymove.md
           - "• Chap III 点的合成运动": ZJU-Courses-Notes/A/TheoreticalMechanics/combinationmove.md
+          - "• Chap IV 刚体的平面运动": ZJU-Courses-Notes/A/TheoreticalMechanics/rigidbodyinflat.md
 
   - "¶ 算法分析":
       - algorithm/index.md
