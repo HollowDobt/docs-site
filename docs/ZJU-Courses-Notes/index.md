@@ -25,5 +25,6 @@
 
 ### 大二上
 
-- [x] [§ 电子电工学](A/Electron/index.md)
+- [x] [§ 电工电子学](A/Electron/index.md)
 - [x] [§ 理论力学(甲)](A/TheoreticalMechanics/index.md)
+- [ ] [§ 大学物理(乙) II](A/PhysicsII.md)
