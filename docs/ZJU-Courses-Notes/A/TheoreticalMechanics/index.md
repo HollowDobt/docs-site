@@ -24,6 +24,7 @@
 - [x] [§ Chap II     刚体的简单运动学](rigidbodymove.md)
 - [x] [§ Chap III    点的合成运动](combinationmove.md)
 - [x] [§ Chap IV   刚体的平面运动](rigidbodyinflat.md)
+- [x] [§ Chap V    静力学公理与受力分析](forcetheory.md)
 
 ## 参考答案
 
