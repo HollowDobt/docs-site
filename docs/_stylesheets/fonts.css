@@ -1,23 +1,92 @@
+/* 字体设置 */
+
+/* 从 _assets 下导入字体样式文件 */
+@import url("../_assets/fonts/JetBrainsMono/JetBrainsMono.css");
 @import url("../_assets/fonts/wenkai/style.css");
-@import url("../_assets/fonts/code-new-roman/code-new-roman.css");
-@import url("https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap");
 
+/* 整体字体设置 */
 :root {
-	--md-text-font: "LXGW WenKai";
-	--md-code-font: "Fira Mono";
+    --md-text-font: "JetBrains Mono", "LXGW WenKai Mono"; 
+    --md-code-font: "JetBrains Mono", "LXGW WenKai Mono";
 }
 
-/* Admonition-title & contents settings */
-.md-typeset .admonition-title {
-	font-family: "LXGW WenKai";
-	line-height: 1.5;
-	vertical-align: middle;
-}
-.md-typeset .admonition {
-	font-family: "LXGW WenKai";
-	line-heigth: 1.6;
+/* 标题字体粗细增强设置 */
+.md-typeset h1 {
+    font-weight: 800;
 }
 
-.md-typeset code, .md-typeset pre, .md-typeset pre code {
-	font-family: "Code New Roman";
+.md-typeset h2 {
+    font-weight: 600;
+}
+
+.md-typeset h3 {
+    font-weight: 500;
+}
+
+/* 标题字符默认间距设置 */
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4 {
+    letter-spacing: 0;
+}
+
+/* 正文内容相较于根字体的大小 */
+.md-typeset {
+    font-size: .75rem;
+}
+
+.md-typeset code:not(pre code) {
+    /* 默认内联代码字体大小继承自正文内容部分 */
+    font-size: inherit;
+}
+
+.md-typeset code {
+    font-size: .70rem;
+}
+.md-typeset .linenodiv {
+    font-size: .70rem;
+}
+
+/* 版权部分字体设置 */
+.md-copyright {
+    font-size: .60rem;
+}
+
+.katex {
+    -webkit-text-stroke-width: 0.3px;
+}
+
+.reference ol {
+    counter-reset: li;
+}
+.reference li {
+    padding-left: 0.7em;
+    counter-increment: li;
+    word-break: break-all;
+}
+.reference li::marker {
+    content: "[" counter(li) "]";
+    font-size: 0.8em;
+}
+
+.md-typeset :is(.emojione,.twemoji,.gemoji) {
+    vertical-align: sub;
+}
+
+.md-source-file__fact {
+  font-size: 90%;
+}
+
+.hr-before-source-file:not(:has(+ aside)) {
+  display: none;
+}
+
+.md-tooltip2 > .md-typeset {
+  font-size: 0.65rem;
+  line-height: 1.4;
+}
+
+.md-tooltip,
+.md-tooltip--inline {
+  max-width: 20rem;         /* 覆盖宽度策略 */
+  word-break: break-word;
+  white-space: normal;
 }

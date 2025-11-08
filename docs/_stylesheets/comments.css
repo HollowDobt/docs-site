@@ -1,30 +1,9 @@
-/* /static/_stylesheets/comments.css 或你当前指向的同一路径 */
-
 @import url("../_assets/fonts/wenkai/style.css");
+@import url("../_assets/fonts/JetBrainsMono/JetBrainsMono.css");
 
-/* 注意：作用域改为 :root，而不是 main */
-:root {
+main {
   --primary-default: 99,99,99;
   --bg-default: 22, 22, 24;
-
-  /* GitHub Primer 变量：将“画布”设为透明 */
-  --color-canvas-default: transparent;
-  --color-canvas-overlay: transparent;
-  --color-canvas-inset: transparent;
-  --color-canvas-subtle: transparent;
-
-  /* 文字、链接、按钮仍然按你的深色风格 */
-  --color-fg-default: rgb(235 235 245 / 86%);
-  --color-fg-muted: rgb(235 235 245 / 60%);
-  --color-fg-subtle: rgb(235 235 245 / 50%);
-  --color-text-link: #aaa;
-
-  /* 边框用轻微透明，避免过硬 */
-  --color-border-default: rgba(255,255,255,0.08);
-  --color-border-muted: rgba(255,255,255,0.06);
-  --color-neutral-muted: rgba(255,255,255,0.06);
-
-  /* 语法高亮与按钮变量维持你的设置（可原样保留） */
   --color-prettylights-syntax-comment: #8b949e;
   --color-prettylights-syntax-constant: #79c0ff;
   --color-prettylights-syntax-entity: #d2a8ff;
@@ -55,30 +34,48 @@
   --color-prettylights-syntax-brackethighlighter-angle: #8b949e;
   --color-prettylights-syntax-sublimelinter-gutter-mark: #484f58;
   --color-prettylights-syntax-constant-other-reference-link: #a5d6ff;
-
   --color-btn-text: rgb(235 235 245 / 86%);
-  --color-btn-bg: rgba(var(--bg-default), 0.0); /* 透明以融入玻璃 */
-  --color-btn-border: rgba(255,255,255,0.08);
-  --color-btn-shadow: 0 1px 0 rgba(0,0,0,0.0);
-  --color-btn-inset-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
-  --color-btn-hover-bg: rgba(255,255,255,0.06);
-  --color-btn-hover-border: rgba(255,255,255,0.12);
+  --color-btn-bg: rgba(var(--bg-default), 1);
+  --color-btn-border: rgba(var(--bg-default), 1);
+  --color-btn-shadow: 0 1px 0 rgba(var(--bg-default), 1);
+  --color-btn-inset-shadow: inset 0 1px 0 rgba(var(--bg-default), 1);
+  --color-btn-hover-bg: rgba(var(--bg-default), 0.5);
+  --color-btn-hover-border: rgba(var(--bg-default), 0.5);
   --color-btn-active-bg: rgba(var(--primary-default), 0.2);
   --color-btn-active-border: rgba(var(--primary-default), 1);
   --color-btn-selected-bg: rgba(var(--primary-default), 0.15);
-
-  --color-btn-primary-text: #fff;
+  --color-btn-primary-text: rgb(255 255 255 / 100%);
   --color-btn-primary-bg: rgba(var(--primary-default), 0.45);
   --color-btn-primary-border: rgba(var(--primary-default), 0.5);
+  --color-btn-primary-shadow: 0 1px 0 rgb(27 31 36 / 10%);
+  --color-btn-primary-inset-shadow: inset 0 1px 0 hsl(0deg 0% 100% / 3%);
   --color-btn-primary-hover-bg: rgba(var(--primary-default), 0.53);
   --color-btn-primary-hover-border: rgba(var(--primary-default), 0.75);
   --color-btn-primary-selected-bg: rgba(var(--primary-default), 0.45);
+  --color-btn-primary-selected-shadow: inset 0 1px 0 rgb(0 45 17 / 20%);
+  --color-btn-primary-disabled-text: rgb(255 255 255 / 80%);
+  --color-btn-primary-disabled-bg: rgba(var(--primary-default), 0.5);
+  --color-btn-primary-disabled-border: rgba(var(--primary-default), 0.5);
+  --color-action-list-item-default-hover-bg: rgb(177 186 196 / 12%);
+  --color-segmented-control-bg: rgb(110 118 129 / 10%);
+  --color-segmented-control-button-bg: #0d1117;
+  --color-segmented-control-button-selected-border: rgba(var(--bg-default), 0.85);
+  --color-fg-default: rgb(235 235 245 / 86%);
+  --color-fg-muted: rgb(235 235 245 / 60%);
+  --color-fg-subtle: rgb(235 235 245 / 50%);
+  --color-canvas-default: rgb(30 30 32 / 100%);
+  --color-canvas-overlay: rgb(30 30 32 / 100%);
+  --color-canvas-inset: rgba(var(--bg-default), 0.85);
+  --color-canvas-subtle: rgba(var(--bg-default), 1);
+  --color-border-default: rgba(var(--bg-default), 0.85);
+  --color-border-muted: rgb(175 184 193 / 19%);
+  --color-neutral-muted: rgb(175 184 193 / 19%);
 
-  --color-accent-fg: #aaa;
+  /* --color-accent-fg: rgba(var(--primary-default), 1); */
+  --color-accent-fg: #aaa; /* needed for links contrast */
   --color-accent-emphasis: rgba(var(--primary-default), 0.95);
   --color-accent-muted: rgba(var(--primary-default), 0.4);
   --color-accent-subtle: rgba(var(--primary-default), 0.1);
-
   --color-success-fg: #3fb950;
   --color-attention-fg: #d29922;
   --color-attention-muted: rgb(187 128 9 / 40%);
@@ -86,16 +83,24 @@
   --color-danger-fg: #f85149;
   --color-danger-muted: rgb(248 81 73 / 40%);
   --color-danger-subtle: rgb(248 81 73 / 10%);
-
-  --color-primer-shadow-inset: 0 1px 0 rgba(0,0,0,0.0);
-
+  --color-primer-shadow-inset: 0 1px 0 rgba(var(--bg-default), 1), inset 0 1px 0 rgba(var(--bg-default), 1);
   --color-scale-gray-7: rgb(22 22 24 / 100%);
   --color-scale-blue-8: rgb(16 185 129 / 15%);
+  --color-text-link: #aaa;
+
+  /*! Extensions from @primer/css/alerts/flash.scss */
+  --color-social-reaction-bg-hover: var(--color-scale-gray-7);
+  --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-8);
 }
 
-/* 细节：加载动画、字体保持 */
-.gsc-loading-image {
+main .pagination-loader-container {
+  background-image: url("https://github.com/images/modules/pulls/progressive-disclosure-line-dark.svg");
+}
+
+main .gsc-loading-image {
   background-image: url("https://github.githubassets.com/images/mona-loading-dark.gif");
 }
-html { font-family: "LXGW WenKai", sans-serif; }
 
+html {
+  font-family: "JetBrains Mono", "LXGW WenKai Mono", sans-serif;
+}

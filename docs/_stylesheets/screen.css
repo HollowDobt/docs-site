@@ -1,20 +1,25 @@
-/* 修改pc端屏幕分辨率 */
+/* 屏幕内容显示设置 */
 .md-grid {
-  max-width: 1440px; 
+  max-width: 1400px; /* 1440px */
 }
 
-/* 修改一般背景 */
-[data-md-color-scheme="slate"] {
-  --md-default-bg-color: #17181C;
+/* 屏幕宽度达到 960px 时生效 */
+@media screen and (min-width: 960px) {
+  html {
+    font-size: 137.5%;
+  }
 }
 
-/* 修改显示文字颜色与大小 */
-[data-md-color-scheme="slate"] .md-typeset {
-  color: #fff !important;
-  font-size: 0.85rem;
+/* 幕宽度大于100em的样式 */
+@media screen and (min-width: 100em) {
+  html {
+    font-size: 137.5%;
+  }
 }
 
-/* 增大段落之间的空白间距 */
-.md-typeset p {
-  margin-bottom: 0.7em;
+/* 幕宽度大于125em的样式 */
+@media screen and (min-width: 125em) {
+  html {
+    font-size: 137.5%;
+  }
 }

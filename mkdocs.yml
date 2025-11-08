@@ -18,8 +18,8 @@ theme:
   # 界面永久夜间模式, 减少作者图片设置等工作量(hhh)
   palette:
     scheme: slate
-    primary: black
-    accent: teal
+    primary: custom
+    accent: custom
   
   icon:
     # 仓库图标
