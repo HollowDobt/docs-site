@@ -130,6 +130,7 @@ extra:
 plugins:
   # 启用搜索
   - search:
+      separator: '[\s\u200b\-]'
       lang:
         - zh
   - tags   # 启用标签

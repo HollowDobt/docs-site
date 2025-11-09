@@ -24,6 +24,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          pip install jieba
           pip install mkdocs
           pip install mkdocs-material
           pip install mkdocs-glightbox
