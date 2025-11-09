@@ -1,9 +1,8 @@
 # 大学物理(乙) II
 
 !!! abstract
-	博主补天时记录的笔记, 是根据 [NoughtQ 前辈提供的老师的每周要点](https://github.com/NoughtQ/ZJU-Courses-Resources/tree/main/Physics-D1CX-D2QD) 结合历年习题复习时重写的.
-	
-	因为大物乙的课太过催眠, 而且很多东西(对博主来说)都很没意思, 因此博主一直没有认真听过. 考前把知识的原理搞懂, 然后再认真做一遍历年卷, 问题其实不大的?
+	博主补天时记录的笔记, 是根据 [NoughtQ 前辈提供的 whc 老师的每周要点](https://github.com/NoughtQ/ZJU-Courses-Resources/tree/main/Physics-D1CX-D2QD) 结合历年习题复习时重写的.
+
 
 ## 静电场
 
@@ -223,5 +222,147 @@ $$
 	思路类似, 将内表面与外表面做同种处理(不可以直接忽视厚度), 则内层向外层的满足高斯定理(设表面到圆柱轴的距离为 $r$):
 	
 	$$
-	E=\frac{Q}{}
+	E=\frac{Q}{\varepsilon_r\varepsilon_0S}=\frac{Q}{2\varepsilon_r\varepsilon_0\pi rl}
 	$$
+	
+	进一步, 考虑从 $a$ 到 $b$ 的电势差, 这样可以进一步消掉 $Q$ 求解出电容:
+	
+	$$
+	\begin{align*}
+	U&=\int_{a}^{b}\frac{Q}{2\varepsilon_r\varepsilon_0\pi l}\cdot \frac{1}{r}=\frac{Q}{2\varepsilon_r\varepsilon_0\pi l}\int_a^b\frac{1}{r}=\frac{Q}{2\varepsilon_r\varepsilon_0\pi l}\ln\frac{b}{a}\\
+	\frac{Q}{C}&=\frac{Q}{2\varepsilon_r\varepsilon_0\pi l}\ln\frac{b}{a}\longrightarrow C=\frac{2\varepsilon_r\varepsilon_0\pi l}{\ln\frac{b}{a}}
+	\end{align*}
+	$$
+
+1-13-b 另外, 同心球壳也是一种典型的电容器. 设内球壳半径为 $a$, 外球壳半径为 $b$, 处在空气介质中, 求双层球壳的电容 $C$.
+
+!!! tip
+	思路与圆柱体非常类似, 只是面积公式变为了 $4\pi r^2$, 其他部分几乎没有任何变化. 下面给出另一种稍加改变的情形.
+
+1-13-c 设空气介质中存在一孤立金属球体, 半径 $a$ 已知, 求解其与外部空间构成的电容.
+
+!!! tip
+	此类一般就是与无穷远构成电容($b=\infty$).
+	
+	$$
+	\begin{align*}
+	E&=\frac{Q}{\varepsilon_r\varepsilon_0 S}=\frac{Q}{\varepsilon_r\varepsilon_0 4\pi r^2}=\frac{Q}{4\varepsilon_r\varepsilon_0 \pi }\cdot \frac{1}{r^2}\\
+	U&=\int_a^\infty \frac{Q}{4\varepsilon_r\varepsilon_0 \pi }\cdot \frac{1}{r^2}\mathrm d r=\frac{Q}{4\varepsilon_r\varepsilon_0 \pi }=\frac{Q}{4\varepsilon_r\varepsilon_0 \pi a}\\
+	\frac{Q}{C}&=\frac{Q}{4\varepsilon_r\varepsilon_0 \pi a}\longrightarrow C=4\varepsilon_r\varepsilon_0 \pi a
+	\end{align*}
+	$$
+
+!!! note
+	通过完成上面这些例题, 我们得到了求解电容的一般思路: 先求解 $E$, 再积分求解 $U$, 最后换出 $C$.
+
+### 串联和并联电容的等值关系
+
+$$
+\begin{align*}
+\frac{1}{C_{串}}&=\sum_{i=1}^n\frac{1}{C_i}\\
+C_{并}&=\sum_{i=1}^nC_i
+\end{align*}
+$$
+
+说明: 对于串联, 每个被串联的电容器所带电荷都应该相同. 具体而言, 在电容器电荷平衡时两个电容器之间所连接的导线必须保持电荷平衡, 否则会有电荷移动, 电荷量改变. 唯一达到这种平衡的方式就是让两边的电荷量相等, 产生的场强相等被抵消.
+
+对于并联, 显然两端电压相同, 因此:
+
+$$
+\begin{align*}
+U&=\frac{Q}{C}\longrightarrow Q=CU\\
+Q_{等效}&=C_{等效} U=\sum_{i=1}^n Q_i=U\sum_{i=1}^n C_i\\
+&C_{等效}=\sum_{i=1}^n C_i
+\end{align*}
+$$
+
+### 电极化强度与电场的关系
+
+!!! note
+	电偶极矩与电极化强度之间的关系: 二者本质上是对同一物理量的总描述/平均描述. 前者的净总量是总描述, 后者则是净总量除以体积得到的平均描述. 使用严谨数学形式描述如下:
+	
+	$$
+	P=\frac{\sum p_i}{V}
+	$$
+
+首先说明, 电极化强度的直接物理意义是"介质内部单位体积所含的电偶极矩矢量和". 用更直观的语言讲, 就是表述电场对单位体积的物体自身电场改变的能力.
+
+对于线性, 各向同性的均匀介质(线性介质):
+
+$$
+p=\varepsilon_0\chi_e E
+$$
+
+其中 $\chi_e$ 是电极化率, 宏观上表现为相对介电常数减去 $1$: $\varepsilon_r=1+\chi_e$, 是介质本身的属性. 换言之, 上述公式等价于:
+
+$$
+p=\varepsilon_0(\varepsilon_r-1)E
+$$
+
+### 极化电荷面密度/等效束缚电荷面密度
+
+就是:
+
+$$
+\sigma=P\cdot\widehat{a}=\varepsilon_0(\varepsilon_r-1)E\cdot\widehat{a}
+$$
+
+其中 $\widehat{a}$ 表示单位向量, 方向与 $P$ 相同. 此处方向的物理意义: 激发会在表面两侧都产生电荷, 其中一侧为正电荷, 另一侧为负电荷. 另一面, 我们认为定义 $P$ 指向偶极矩方向, 即**负电荷指向正电荷**(否则应该很容易发现这种计算得到的电荷方向不可能达成静电平衡). 因此, 此处定义的就是从负电荷指向正电荷的方向.
+
+### 电位移矢量 $D$ 与 $P$, $\varepsilon_0E$ 关系
+
+简言之, 这三个量都可以看做电荷通量的面密度, 只不过指代三种不同的电荷面密度. 满足关系:
+
+$$
+D=P+\varepsilon_0E
+$$
+
+我们通过高斯定理展开上述表达式:
+
+$$
+D=\varepsilon_0(\varepsilon_r -1)E+\varepsilon_0 E=\varepsilon_0\varepsilon_r E=\frac{Q}{S}
+$$
+
+$E$ 表征外电场的强弱与方向, 由自由电荷受电场影响产生; $P$ 电极化强度反映介质内部极化程度, 受外部电场激发产生; $D$ 电位移矢量反应宏观下有效电通量的密度.
+
+使用积分形式可以还原为高斯定理(对于封闭曲面), 这就是**电介质中高斯定理求解电场公式**:
+
+$$
+\iint_{\Sigma}D(S)\cdot \mathrm d S=\iiint_V (\rho_{自由}+\rho_{束缚})\mathrm d V
+$$
+
+其中束缚电荷就是 $P$ 表述的物理量, 自由电荷就是 $E$ 表述的物理量, 净电荷就是 $D$ 表示的物理量.
+
+!!! note
+	这里一再强调"表示", 意思是求解方法是一致的. 尤其是 $D$, 我们使用一般高斯定理构造封闭面的技巧这里都是可以用的.
+
+1-14 设一平行板电容器, 极板面积 $S$, 板间距离 $d$, 左半部分(厚度为 $\frac{d}{2}$)为空气, 右半部分插入相对介电常数为 $\varepsilon_r$ 的电介质, 两极板之间加电压 $U$, 求解两个介质中的电场强度 $E_1$, $E_2$, 两个介质中的电位移矢量 $D_1$, $D_2$.
+
+!!! tip
+	![](https://pan.xxbyq.net/f/BDLC6/%E8%AF%BE%E7%A8%8B-59.jpg)
+
+### 相对介电常数对电容的影响
+
+前面已经推导出了平行板的电容公式, 即:
+
+$$
+C=\frac{\varepsilon S}{d}=\frac{\varepsilon_0\varepsilon_r S}{d}
+$$
+
+因此很容易进一步推导, 电容与 $\varepsilon_r$ 成正比. 换句话说, 电压一定的前提下, 在中间为空气的电容器放入其他电介质会成正比地增大所带电荷量.
+
+### 电介质内电场强度下降
+
+我们前面已经推导发现, 电场本身会激发产生束缚电荷, 减小电场强度. 那么, 具体减小的倍数是多少? 达成这种理想的倍数必须满足的物理条件是什么?
+
+一般而言, 我们考虑无自由电荷, 仅存在束缚电荷, 且外部电场为线性场(各向同性介质, 匀强外场)达到静电平衡的情况.
+
+只需要想到, 对于介质内部, 电极化强度 $D$ 计算:
+
+$$
+D=\varepsilon_0(\varepsilon_r-1)E
+$$
+
+因此, 受激发产生的反向电场强度为 $E'=(\varepsilon_r - 1)E$, 合场强大小为 $E_{合}=E'+E=\varepsilon_r E$.
+
+这就是所谓的下降 $\varepsilon_r$ 倍.
