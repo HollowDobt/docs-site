@@ -19,7 +19,7 @@
 
 ---
 
-前置知识, 库伦定理中电场强度部分:
+我们高中时期就学过的库仑定律:
 
 $$
 E=\frac{1}{4\pi\varepsilon}\frac{Q}{R^2}
@@ -27,7 +27,7 @@ $$
 
 其中 $\varepsilon$ 是所处空间的介电常数, 也常常表示为 $\varepsilon_0\varepsilon_r$, 即真空介电常数与相对介电常数的乘积.
 
-本章节的一切都是基于 Gauss 定理进行的. 这个重要的公式就是:
+另外, 本章节的一切都是基于 $Gauss$ 定律进行的. 这一高斯定理也和微积分 II 中我们学到的高斯定理密切相关. 这个重要公式的数学表达式是:
 
 $$
 \sum E(S)\Delta S=\frac{Q}{\varepsilon_r\varepsilon_0}
@@ -55,9 +55,9 @@ $$
 例 2 存在一无限长的均匀带电导线, 已知线电荷密度为 $\lambda$, 求到导线垂直距离为 $\rho$ 处的 $E$ 的大小.
 
 !!! tip
-	![](https://pan.xxbyq.net/f/Re8sW/%E8%AF%BE%E7%A8%8B-53.jpg)
+	只考虑侧面通量, 上下底面通量均为 $0$.
 	
-	只考虑侧面积通量, 底面通量为 $0$.
+	![](https://pan.xxbyq.net/f/Re8sW/%E8%AF%BE%E7%A8%8B-53.jpg)
 
 例 3 已知一同轴电缆, 表面极薄. 内半径 $a$ 表面带有电荷量 $+\lambda$, 外半径 $b$ 表面带有电荷量 $-\lambda$, 求各区域 $E(\rho)$.
 
@@ -72,11 +72,15 @@ $$
 例 5 已知一半径为 $R$ 的空心导体球壳, 向球壳中心放入 $+q$ 的带点粒子, 并将壳外表面接地. 求内腔, 金属层, 球壳外部的 $E$.
 
 !!! tip
+	接地的意思是 $\varphi=0$, 我们只能通过此表达式推断哪些电荷被排到了大地. 这也是接地所能带来的唯一条件.
+	
 	![](https://pan.xxbyq.net/f/zNZcZ/%E8%AF%BE%E7%A8%8B-54.jpg)
 
 例 6 已知存在一个无限大的并且面电荷密度为 $\lambda$ 的均匀带电的薄平板, 求垂直距离为 $h$ 处的电场强度 $E$.
 
 !!! tip
+	所谓"无限长", 就是直接将两层平面看做一个封闭的曲面.
+	
 	![](https://pan.xxbyq.net/f/x4piA/%E8%AF%BE%E7%A8%8B-55.jpg)
 	
 	此处很容易得到一个有趣的结论, 即一个无限大的均匀带电平面两侧任意一点的电场强度与到平面的距离无关.
@@ -119,6 +123,8 @@ $$
 某区域内 $U=ax^2+bxy-cz^3$, 已知 $a,b,c$ 均为常量. 求该区域内任意一点的电场强度 $E$.
 
 !!! tip
+	涉及了一些负号, 最终得到结果时注意不要省略.
+	
 	$$
 	E=-\frac{\mathrm d U}{\mathrm d t}=-(\frac{\partial U}{\partial x}i+\frac{\partial U}{\partial y}j+\frac{\partial U}{\partial z}k)=-((2ax+by)i+bxj-3cz^2k)=(-(2ax+by), -bx,3cz^2)
 	$$
@@ -130,6 +136,8 @@ $$
 ![](https://pan.xxbyq.net/f/YGYi0/%E6%88%AA%E5%B1%8F2025-11-12%2009.26.08.png)
 
 !!! tip
+	典型的球壳等效点电荷的问题.
+	
 	在静电平衡中, 实心球和空心球(壳)都是等效的, 因为约束电荷都分布在球体表面. 据此, 我们将球壳等效到 $O$ 点, 求得 $q$ 对球壳产生的电势为 $\varphi_1=\frac{1}{4\pi \varepsilon_0}\frac{q}{l}$, 从而得到球内任意一点的电势 $\varphi=\varphi_1=\frac{q}{4\pi \varepsilon_0}\frac{1}{l}$ (感应电荷不会产生影响, 因为球壳上的总电荷量始终为 $0$) . 对于第二问, 若接地, 则 $\varphi=0$, 空心球壳的 $\varphi_2=\frac{Q}{4\pi\varepsilon_0}\frac{1}{R}$, 二者相加有: $\varphi=\varphi_1+\varphi_2=\frac{1}{4\pi\varepsilon_0}(\frac{q}{l}+\frac{Q}{R})=0$, 解得: $Q=-\frac{R}{l}q$.
 
 
@@ -150,8 +158,6 @@ $$
 		p=(-q)\times (-\frac{a}{2})+q\times \frac{a}{2}=qa
 	$$
 	其中, 方向为从参考点指向 $+\frac{a}{2}$.
-
-
 
 例 8 对于半径为 $R$ 的绝缘球, 内部均匀极化为 $P=pk$ (其中 $k$ 表示方向为沿 $z$ 正半轴), 求该绝缘球的总偶极矩.
 

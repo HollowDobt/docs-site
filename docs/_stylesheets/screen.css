@@ -23,3 +23,14 @@
     font-size: 137.5%;
   }
 }
+
+/* 全局：给所有段落增加下外边距 */
+.md-typeset p {
+  margin-top: 0;         /* 避免双倍叠加 */
+  margin-bottom: 0.5rem; /* 自行调节 1.0–1.6rem */
+}
+
+/* 可选：仅让相邻段落拉开距离 */
+.md-typeset p + p {
+  margin-top: 0.5rem;    /* 如果不想影响段落后的列表/图表 */
+}

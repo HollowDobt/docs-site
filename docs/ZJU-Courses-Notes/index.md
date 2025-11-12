@@ -32,4 +32,5 @@ icon: fontawesome/solid/book-bookmark
 
 - [x] [§ 电工电子学](A/Electron/index.md)
 - [x] [§ 理论力学(甲)](A/TheoreticalMechanics/index.md)
-- [x] [§ 大学物理(乙) II](ZJU-Courses-Notes/A/PhysicsII/index.md)
+- [x] [§ 大学物理(乙) II](A/PhysicsII/index.md)
+- [x] [§ 人工智能：大规模数据分析与机器学习模型中的算法优化](A/BigData/index.md)
