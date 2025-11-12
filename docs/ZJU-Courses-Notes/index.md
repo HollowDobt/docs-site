@@ -1,3 +1,8 @@
+---
+icon: fontawesome/solid/book-bookmark
+---
+
+
 # 目录/索引
 
 !!! question
@@ -27,4 +32,4 @@
 
 - [x] [§ 电工电子学](A/Electron/index.md)
 - [x] [§ 理论力学(甲)](A/TheoreticalMechanics/index.md)
-- [x] [§ 大学物理(乙) II](A/PhysicsII.md)
+- [x] [§ 大学物理(乙) II](ZJU-Courses-Notes/A/PhysicsII/index.md)

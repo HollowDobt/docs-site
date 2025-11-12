@@ -1,5 +1,6 @@
 ---
 comments: false
+icon: fontawesome/solid/fingerprint
 ---
 
 # 人工智能

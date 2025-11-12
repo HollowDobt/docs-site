@@ -1,5 +1,6 @@
 ---
 comments:
+icon: fontawesome/solid/chess
 ---
 
 # 首页

@@ -65,6 +65,10 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -144,18 +148,18 @@ plugins:
 
 
 nav:
-  - "¶ Hollow's Library":
+  - "Hollow's Library":
     - index.md
 
-  - "¶ 程序设计语言":
+  - "程序设计语言":
       - programlang/index.md
       - "§ C++":
           - "C++ 面向对象程序设计": programlang/C++/C++OOP.md
 
-  - "¶ 人工智能":
+  - "人工智能":
       - ai/index.md
 
-  - "¶ ZJU Courses Notes":
+  - "ZJU Courses Notes":
       - ZJU-Courses-Notes/index.md
       - "§ 微积分(甲)II":
           - ZJU-Courses-Notes/A/Calculus(A)II.md
@@ -176,9 +180,9 @@ nav:
           - "• Chap IV 刚体的平面运动": ZJU-Courses-Notes/A/TheoreticalMechanics/rigidbodyinflat.md
           - "• Chap V 静力学公理与受力分析": ZJU-Courses-Notes/A/TheoreticalMechanics/forcetheory.md
       - "§ 大学物理(乙) II":
-          - ZJU-Courses-Notes/A/PhysicsII.md
+          - ZJU-Courses-Notes/A/PhysicsII/index.md
 
-  - "¶ 算法分析":
+  - "算法分析":
       - algorithm/index.md
       - "§ 数据结构基础与算法分析":
           - algorithm/DBAA/index.md

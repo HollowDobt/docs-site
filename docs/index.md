@@ -1,5 +1,6 @@
 ---
 comments: false
+icon: fontawesome/regular/house
 ---
 
 # Hollow's Library
