@@ -1,7 +1,9 @@
-/* 设置admonition中正文内容到顶部和底部分距离相等 */
-.md-typeset .admonition > :not(.admonition-title) {
-    margin-top: 1em;
-    margin-bottom: 1em;
+/* ADMONITION 设置 */
+
+.md-typeset .admonition > :not(.admonition-title), /* 只选常规型 */
+.md-typeset .admonition-content > * {              /* 只选折叠型 */
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 /* 使用 Classic 版本的 admonition */
@@ -11,19 +13,8 @@
   border-left-width: 4px;
 }
 
-/* 修改 admonition 的背景颜色 */
-[data-md-color-scheme="slate"] .md-typeset .admonition {
-  background-color: #27272E;
-  color: #ffffff;
-}
-
-/* 背景阴影立体化 */
-[data-md-color-scheme="slate"] .md-typeset .admonition {
-  box-shadow: 0 8px 32px rgba(0,0,0,0.55), 0 1.5px 6px rgba(0,0,0,0.18);
-}
-
 /* 修改 admonition 的字体大小 */
 [data-md-color-scheme="slate"] .md-typeset .admonition,
 [data-md-color-scheme="slate"] .md-typeset details.admonition {
-  font-size: 0.78rem !important;
+  font-size: .75rem !important;
 }

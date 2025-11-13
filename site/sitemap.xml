@@ -2,54 +2,118 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.hollowlib.top/</loc>
-         <lastmod>2025-06-17</lastmod>
+         <lastmod>2025-11-13</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU%20Courses%20Notes/</loc>
-         <lastmod>2025-06-17</lastmod>
+         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/</loc>
+         <lastmod>2025-11-13</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU%20Courses%20Notes/%E7%90%86%E5%B7%A5%E7%A7%91%E7%B1%BB/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%28%E4%B9%99%29%20I/</loc>
-         <lastmod>2025-06-17</lastmod>
+         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/AIBasic%28A%29/</loc>
+         <lastmod>2025-11-13</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU%20Courses%20Notes/%E7%90%86%E5%B7%A5%E7%A7%91%E7%B1%BB/%E5%BE%AE%E7%A7%AF%E5%88%86%28%E7%94%B2%29%20II/</loc>
-         <lastmod>2025-06-17</lastmod>
+         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/Calculus%28A%29II/</loc>
+         <lastmod>2025-11-13</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU%20Courses%20Notes/%E7%90%86%E5%B7%A5%E7%A7%91%E7%B1%BB/%E6%99%AE%E5%8C%96%E5%AE%9E%E9%AA%8C%28%E4%B9%99%29/</loc>
-         <lastmod>2025-06-17</lastmod>
+         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/NorCheT%28B%29/</loc>
+         <lastmod>2025-11-13</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU%20Courses%20Notes/%E7%90%86%E5%B7%A5%E7%A7%91%E7%B1%BB/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%9F%BA%E7%A1%80%20A/</loc>
-         <lastmod>2025-06-17</lastmod>
+         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/BigData/</loc>
+         <lastmod>2025-11-13</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU%20Courses%20Notes/%E7%90%86%E5%B7%A5%E7%A7%91%E7%B1%BB/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%9F%BA%E7%A1%80%20A/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/</loc>
-         <lastmod>2025-06-17</lastmod>
+         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/BigData/GameTheory/</loc>
+         <lastmod>2025-11-13</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU%20Courses%20Notes/%E7%90%86%E5%B7%A5%E7%A7%91%E7%B1%BB/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%9F%BA%E7%A1%80%20A/%E5%8E%86%E5%8F%B2%E4%B8%8E%E8%B5%B7%E6%BA%90/</loc>
-         <lastmod>2025-06-17</lastmod>
+         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/Electron/</loc>
+         <lastmod>2025-11-13</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU%20Courses%20Notes/%E9%80%9A%E8%AF%86%E7%B1%BB/%E4%B8%AD%E5%9B%BD%E4%BC%A0%E7%BB%9F%E6%96%87%E5%8C%96%E4%B8%8E%E6%95%99%E8%82%B2/</loc>
-         <lastmod>2025-06-17</lastmod>
+         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/Electron/BaseDivi/</loc>
+         <lastmod>2025-11-13</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
-         <lastmod>2025-06-17</lastmod>
+         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/Electron/CircuitAnalysisBasics/</loc>
+         <lastmod>2025-11-13</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E6%99%BA%E8%83%BD%E4%BD%93%E5%BC%80%E5%8F%91/ai-agent%20%E7%9B%B8%E5%85%B3%E5%AD%A6%E4%B9%A0/</loc>
-         <lastmod>2025-06-17</lastmod>
+         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/Electron/Circuitsandelectroniccomponents/</loc>
+         <lastmod>2025-11-13</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/%E7%AB%9E%E6%8A%80%E7%AE%97%E6%B3%95%E4%B8%8E%E6%80%9D%E8%80%83%E9%A2%98/</loc>
-         <lastmod>2025-06-17</lastmod>
+         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/PhysicsII/</loc>
+         <lastmod>2025-11-13</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/%E7%AB%9E%E6%8A%80%E7%AE%97%E6%B3%95%E4%B8%8E%E6%80%9D%E8%80%83%E9%A2%98/%E6%A8%A1%E6%9D%BF/</loc>
-         <lastmod>2025-06-17</lastmod>
+         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/TheoreticalMechanics/</loc>
+         <lastmod>2025-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/TheoreticalMechanics/combinationmove/</loc>
+         <lastmod>2025-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/TheoreticalMechanics/forcetheory/</loc>
+         <lastmod>2025-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/TheoreticalMechanics/planeforce/</loc>
+         <lastmod>2025-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/TheoreticalMechanics/pointmove/</loc>
+         <lastmod>2025-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/TheoreticalMechanics/rigidbodyinflat/</loc>
+         <lastmod>2025-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/TheoreticalMechanics/rigidbodymove/</loc>
+         <lastmod>2025-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.hollowlib.top/_stylesheets/</loc>
+         <lastmod>2025-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.hollowlib.top/ai/</loc>
+         <lastmod>2025-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.hollowlib.top/algorithm/</loc>
+         <lastmod>2025-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.hollowlib.top/algorithm/DBAA/</loc>
+         <lastmod>2025-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.hollowlib.top/algorithm/DBAA/appendix1/</loc>
+         <lastmod>2025-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.hollowlib.top/algorithm/DBAA/appendix2/</loc>
+         <lastmod>2025-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.hollowlib.top/algorithm/DBAA/array/</loc>
+         <lastmod>2025-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.hollowlib.top/algorithm/cf/stencil/</loc>
+         <lastmod>2025-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.hollowlib.top/programlang/</loc>
+         <lastmod>2025-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.hollowlib.top/programlang/C%2B%2B/C%2B%2BOOP/</loc>
+         <lastmod>2025-11-13</lastmod>
     </url>
 </urlset>

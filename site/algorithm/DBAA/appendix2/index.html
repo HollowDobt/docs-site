@@ -1,0 +1,2703 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Flowers' Fade, Leaves' Birth.">
+      
+      
+        <meta name="author" content="Hollow Dobt">
+      
+      
+        <link rel="canonical" href="https://docs.hollowlib.top/algorithm/DBAA/appendix2/">
+      
+      
+        <link rel="prev" href="../appendix1/">
+      
+      
+        <link rel="next" href="../../cf/stencil/">
+      
+      
+      <link rel="icon" href="../../../_assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>• Appe II 算法分析语设计实例 - Hollow's Library</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+  
+  
+    
+      
+      
+        
+      
+      
+    
+  
+  
+  <style>:root{.md-tag.md-tag--learn{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%207.1.0%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202025%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M384%20512H96c-53%200-96-43-96-96V96C0%2043%2043%200%2096%200h304c26.5%200%2048%2021.5%2048%2048v288c0%2020.9-13.4%2038.7-32%2045.3V448c17.7%200%2032%2014.3%2032%2032s-14.3%2032-32%2032zM96%20384c-17.7%200-32%2014.3-32%2032s14.3%2032%2032%2032h256v-64zm32-232c0%2013.3%2010.7%2024%2024%2024h176c13.3%200%2024-10.7%2024-24s-10.7-24-24-24H152c-13.3%200-24%2010.7-24%2024m24%2072c-13.3%200-24%2010.7-24%2024s10.7%2024%2024%2024h176c13.3%200%2024-10.7%2024-24s-10.7-24-24-24z%22/%3E%3C/svg%3E');}}</style>
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../_stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../static/dist/output.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-TCDSJEFYY3"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-TCDSJEFYY3",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-TCDSJEFYY3",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
+  
+
+    
+    
+    
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ii" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://docs.hollowlib.top" title="Hollow's Library" class="md-header__button md-logo" aria-label="Hollow's Library" data-md-component="logo">
+      
+  <img src="../../../_assets/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Hollow's Library
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              • Appe II 算法分析语设计实例
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/hollowdobt/docs-site" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M202.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M496 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    hollowdobt/docs-site
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+    
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M240 6.1c9.1-8.2 22.9-8.2 32 0l232 208c9.9 8.8 10.7 24 1.8 33.9s-24 10.7-33.9 1.8l-8-7.2v205.3c0 35.3-28.7 64-64 64h-288c-35.3 0-64-28.7-64-64V242.6l-8 7.2c-9.9 8.8-25 8-33.9-1.8s-8-25 1.8-33.9zm16 50.1L96 199.7V448c0 8.8 7.2 16 16 16h48V360c0-39.8 32.2-72 72-72h48c39.8 0 72 32.2 72 72v104h48c8.8 0 16-7.2 16-16V199.7L256 56.3zM208 464h96V360c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24z"></path></svg>
+    
+  
+  Hollow's Library
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../programlang/" class="md-tabs__link">
+          
+  
+  
+    
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 48h112v88c0 39.8 32.2 72 72 72h88v240c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16m160 19.9 92.1 92.1H248c-13.3 0-24-10.7-24-24zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V186.5c0-17-6.7-33.3-18.7-45.3L242.7 18.7C230.7 6.7 214.5 0 197.5 0zm106.2 295.6c8.6-10.1 7.5-25.2-2.6-33.8s-25.2-7.5-33.8 2.6l-48 56c-7.7 9-7.7 22.2 0 31.2l48 56c8.6 10.1 23.8 11.2 33.8 2.6s11.2-23.8 2.6-33.8L135.6 336zm80-31.2c-8.6-10.1-23.8-11.2-33.8-2.6s-11.2 23.8-2.6 33.8l34.6 40.4-34.6 40.4c-8.6 10.1-7.5 25.2 2.6 33.8s25.2 7.5 33.8-2.6l48-56c7.7-9 7.7-22.2 0-31.2z"></path></svg>
+    
+  
+  程序设计语言
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../ai/" class="md-tabs__link">
+          
+  
+  
+    
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 256c0-114.9 93.1-208 208-208 63.1 0 119.6 28.1 157.8 72.5 8.6 10.1 23.8 11.2 33.8 2.6s11.2-23.8 2.6-33.8C403.3 34.6 333.7 0 256 0 114.6 0 0 114.6 0 256v40c0 13.3 10.7 24 24 24s24-10.7 24-24zm458.5-52.9c-2.7-13-15.5-21.3-28.4-18.5s-21.3 15.5-18.5 28.4c2.9 13.9 4.5 28.3 4.5 43.1v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40c0-18.1-1.9-35.8-5.5-52.9zM256 80c-19 0-37.4 3-54.5 8.6-15.2 5-18.7 23.7-8.3 35.9 7.1 8.3 18.8 10.8 29.4 7.9s21.8-4.4 33.4-4.4c70.7 0 128 57.3 128 128v24.9c0 25.2-1.5 50.3-4.4 75.3-1.7 14.6 9.4 27.8 24.2 27.8 11.8 0 21.9-8.6 23.3-20.3 3.3-27.4 5-55 5-82.7v-24.9c0-97.2-78.8-176-176-176zm-105.3 68.7c-9.1-10.6-25.3-11.4-33.9-.4C93.7 178.1 80 215.4 80 256v24.9c0 24.2-2.6 48.4-7.8 71.9-3.4 15.6 7.9 31.1 23.9 31.1 10.5 0 19.9-7 22.2-17.3 6.4-28.1 9.7-56.8 9.7-85.8v-24.9c0-27.2 8.5-52.4 22.9-73.1 7.2-10.4 8-24.6-.2-34.2zM256 160c-53 0-96 43-96 96v24.9c0 35.9-4.6 71.5-13.8 106.1-3.8 14.3 6.7 29 21.5 29 9.5 0 17.9-6.2 20.4-15.4 10.5-39 15.9-79.2 15.9-119.7V256c0-28.7 23.3-52 52-52s52 23.3 52 52v24.9c0 36.3-3.5 72.4-10.4 107.9-2.7 13.9 7.7 27.2 21.8 27.2 10.2 0 19-7 21-17 7.7-38.8 11.6-78.3 11.6-118.1V256c0-53-43-96-96-96m24 96c0-13.3-10.7-24-24-24s-24 10.7-24 24v24.9c0 59.9-11 119.3-32.5 175.2l-5.9 15.3c-4.8 12.4 1.4 26.3 13.8 31s26.3-1.4 31-13.8l5.9-15.3A536.2 536.2 0 0 0 280 280.9z"></path></svg>
+    
+  
+  人工智能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../ZJU-Courses-Notes/" class="md-tabs__link">
+          
+  
+  
+    
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M96 512h320c17.7 0 32-14.3 32-32s-14.3-32-32-32v-66.7c18.6-6.6 32-24.4 32-45.3V48c0-26.5-21.5-48-48-48h-48v169.4c0 12.5-10.1 22.6-22.6 22.6-6 0-11.8-2.4-16-6.6L272 144l-41.4 41.4c-4.2 4.2-10 6.6-16 6.6-12.5 0-22.6-10.1-22.6-22.6V0H96C43 0 0 43 0 96v320c0 53 43 96 96 96m-32-96c0-17.7 14.3-32 32-32h256v64H96c-17.7 0-32-14.3-32-32"></path></svg>
+    
+  
+  ZJU Courses Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M168 56v40H89.9C75.6 96 64 107.6 64 121.9c0 4 .9 8 2.7 11.6l33.4 66.8C88.7 202.1 79.9 212 79.9 224c0 13.3 10.7 24 24 24h5.6L95.9 384l-56.2 70.3c-5 6.3-7.8 14.1-7.8 22.2 0 19.6 15.9 35.5 35.5 35.5h248.9c19.6 0 35.5-15.9 35.5-35.5 0-8.1-2.7-15.9-7.8-22.2L288 384l-13.6-136h5.6c13.3 0 24-10.7 24-24 0-11.9-8.7-21.9-20.2-23.7l33.4-66.8c1.8-3.6 2.7-7.6 2.7-11.6 0-14.3-11.6-25.9-25.9-25.9h-78.1V56h16c13.3 0 24-10.7 24-24S245.3 8 232 8h-16V-8c0-13.3-10.7-24-24-24s-24 10.7-24 24V8h-16c-13.3 0-24 10.7-24 24s10.7 24 24 24zm157.8 223.6 8.5 85.5 47.4 59.2 4.2 5.7c9.2 13.7 14.1 29.9 14.1 46.5 0 12.7-2.8 24.8-7.9 35.5h83.1c20.3 0 36.8-16.5 36.8-36.8 0-7.3-2.2-14.4-6.2-20.4L480 416.1v-64l13.3-13.3c12-12 18.7-28.3 18.7-45.3V192c0-17.7-14.3-32-32-32s-32 14.3-32 32v16h-32v-16c0-17.7-14.3-32-32-32s-32 14.3-32 32v32c0 22.4-10.2 42.4-26.2 55.6"></path></svg>
+    
+  
+  算法分析
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://docs.hollowlib.top" title="Hollow's Library" class="md-nav__button md-logo" aria-label="Hollow's Library" data-md-component="logo">
+      
+  <img src="../../../_assets/favicon.png" alt="logo">
+
+    </a>
+    Hollow's Library
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/hollowdobt/docs-site" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M202.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M496 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    hollowdobt/docs-site
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M240 6.1c9.1-8.2 22.9-8.2 32 0l232 208c9.9 8.8 10.7 24 1.8 33.9s-24 10.7-33.9 1.8l-8-7.2v205.3c0 35.3-28.7 64-64 64h-288c-35.3 0-64-28.7-64-64V242.6l-8 7.2c-9.9 8.8-25 8-33.9-1.8s-8-25 1.8-33.9zm16 50.1L96 199.7V448c0 8.8 7.2 16 16 16h48V360c0-39.8 32.2-72 72-72h48c39.8 0 72 32.2 72 72v104h48c8.8 0 16-7.2 16-16V199.7L256 56.3zM208 464h96V360c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24z"></path></svg>
+  
+  <span class="md-ellipsis">
+    Hollow's Library
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Hollow's Library
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../programlang/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 48h112v88c0 39.8 32.2 72 72 72h88v240c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16m160 19.9 92.1 92.1H248c-13.3 0-24-10.7-24-24zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V186.5c0-17-6.7-33.3-18.7-45.3L242.7 18.7C230.7 6.7 214.5 0 197.5 0zm106.2 295.6c8.6-10.1 7.5-25.2-2.6-33.8s-25.2-7.5-33.8 2.6l-48 56c-7.7 9-7.7 22.2 0 31.2l48 56c8.6 10.1 23.8 11.2 33.8 2.6s11.2-23.8 2.6-33.8L135.6 336zm80-31.2c-8.6-10.1-23.8-11.2-33.8-2.6s-11.2 23.8-2.6 33.8l34.6 40.4-34.6 40.4c-8.6 10.1-7.5 25.2 2.6 33.8s25.2 7.5 33.8-2.6l48-56c7.7-9 7.7-22.2 0-31.2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    程序设计语言
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            程序设计语言
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    § C++
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            § C++
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programlang/C%2B%2B/C%2B%2BOOP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C++ 面向对象程序设计
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ai/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 256c0-114.9 93.1-208 208-208 63.1 0 119.6 28.1 157.8 72.5 8.6 10.1 23.8 11.2 33.8 2.6s11.2-23.8 2.6-33.8C403.3 34.6 333.7 0 256 0 114.6 0 0 114.6 0 256v40c0 13.3 10.7 24 24 24s24-10.7 24-24zm458.5-52.9c-2.7-13-15.5-21.3-28.4-18.5s-21.3 15.5-18.5 28.4c2.9 13.9 4.5 28.3 4.5 43.1v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40c0-18.1-1.9-35.8-5.5-52.9zM256 80c-19 0-37.4 3-54.5 8.6-15.2 5-18.7 23.7-8.3 35.9 7.1 8.3 18.8 10.8 29.4 7.9s21.8-4.4 33.4-4.4c70.7 0 128 57.3 128 128v24.9c0 25.2-1.5 50.3-4.4 75.3-1.7 14.6 9.4 27.8 24.2 27.8 11.8 0 21.9-8.6 23.3-20.3 3.3-27.4 5-55 5-82.7v-24.9c0-97.2-78.8-176-176-176zm-105.3 68.7c-9.1-10.6-25.3-11.4-33.9-.4C93.7 178.1 80 215.4 80 256v24.9c0 24.2-2.6 48.4-7.8 71.9-3.4 15.6 7.9 31.1 23.9 31.1 10.5 0 19.9-7 22.2-17.3 6.4-28.1 9.7-56.8 9.7-85.8v-24.9c0-27.2 8.5-52.4 22.9-73.1 7.2-10.4 8-24.6-.2-34.2zM256 160c-53 0-96 43-96 96v24.9c0 35.9-4.6 71.5-13.8 106.1-3.8 14.3 6.7 29 21.5 29 9.5 0 17.9-6.2 20.4-15.4 10.5-39 15.9-79.2 15.9-119.7V256c0-28.7 23.3-52 52-52s52 23.3 52 52v24.9c0 36.3-3.5 72.4-10.4 107.9-2.7 13.9 7.7 27.2 21.8 27.2 10.2 0 19-7 21-17 7.7-38.8 11.6-78.3 11.6-118.1V256c0-53-43-96-96-96m24 96c0-13.3-10.7-24-24-24s-24 10.7-24 24v24.9c0 59.9-11 119.3-32.5 175.2l-5.9 15.3c-4.8 12.4 1.4 26.3 13.8 31s26.3-1.4 31-13.8l5.9-15.3A536.2 536.2 0 0 0 280 280.9z"></path></svg>
+  
+  <span class="md-ellipsis">
+    人工智能
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            人工智能
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ZJU-Courses-Notes/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M96 512h320c17.7 0 32-14.3 32-32s-14.3-32-32-32v-66.7c18.6-6.6 32-24.4 32-45.3V48c0-26.5-21.5-48-48-48h-48v169.4c0 12.5-10.1 22.6-22.6 22.6-6 0-11.8-2.4-16-6.6L272 144l-41.4 41.4c-4.2 4.2-10 6.6-16 6.6-12.5 0-22.6-10.1-22.6-22.6V0H96C43 0 0 43 0 96v320c0 53 43 96 96 96m-32-96c0-17.7 14.3-32 32-32h256v64H96c-17.7 0-32-14.3-32-32"></path></svg>
+  
+  <span class="md-ellipsis">
+    ZJU Courses Notes
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            ZJU Courses Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2">
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    § 微积分(甲)II
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            § 微积分(甲)II
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ZJU-Courses-Notes/A/Calculus%28A%29II/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    微积分(甲) II 复习笔记
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3">
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    § 普通化学实验(乙)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            § 普通化学实验(乙)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ZJU-Courses-Notes/A/NorCheT%28B%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    普通化学实验(乙)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    § 人工智能基础(A)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            § 人工智能基础(A)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ZJU-Courses-Notes/A/AIBasic%28A%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    人工智能基础 A
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ZJU-Courses-Notes/A/Electron/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    § 电工电子学
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            § 电工电子学
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ZJU-Courses-Notes/A/Electron/Circuitsandelectroniccomponents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    • Chap I 电路和电路元件
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ZJU-Courses-Notes/A/Electron/CircuitAnalysisBasics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    • Chap II 电路分析基础
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ZJU-Courses-Notes/A/Electron/BaseDivi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    • Chap III 分立元件基本电路
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ZJU-Courses-Notes/A/TheoreticalMechanics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    § 理论力学(甲)
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            § 理论力学(甲)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ZJU-Courses-Notes/A/TheoreticalMechanics/pointmove/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    • Chap I 点的运动学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ZJU-Courses-Notes/A/TheoreticalMechanics/rigidbodymove/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    • Chap II 刚体运动学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ZJU-Courses-Notes/A/TheoreticalMechanics/combinationmove/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    • Chap III 点的合成运动
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ZJU-Courses-Notes/A/TheoreticalMechanics/rigidbodyinflat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    • Chap IV 刚体的平面运动
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ZJU-Courses-Notes/A/TheoreticalMechanics/forcetheory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    • Chap V 静力学公理与受力分析
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ZJU-Courses-Notes/A/PhysicsII/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    § 大学物理(乙) II
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            § 大学物理(乙) II
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ZJU-Courses-Notes/A/BigData/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    § 人工智能: 大规模数据分析与机器学习模型中的算法优化
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            § 人工智能: 大规模数据分析与机器学习模型中的算法优化
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ZJU-Courses-Notes/A/BigData/GameTheory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    • LEC 1 Game Theory and Lower Bounds for Randomized Algorithms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M168 56v40H89.9C75.6 96 64 107.6 64 121.9c0 4 .9 8 2.7 11.6l33.4 66.8C88.7 202.1 79.9 212 79.9 224c0 13.3 10.7 24 24 24h5.6L95.9 384l-56.2 70.3c-5 6.3-7.8 14.1-7.8 22.2 0 19.6 15.9 35.5 35.5 35.5h248.9c19.6 0 35.5-15.9 35.5-35.5 0-8.1-2.7-15.9-7.8-22.2L288 384l-13.6-136h5.6c13.3 0 24-10.7 24-24 0-11.9-8.7-21.9-20.2-23.7l33.4-66.8c1.8-3.6 2.7-7.6 2.7-11.6 0-14.3-11.6-25.9-25.9-25.9h-78.1V56h16c13.3 0 24-10.7 24-24S245.3 8 232 8h-16V-8c0-13.3-10.7-24-24-24s-24 10.7-24 24V8h-16c-13.3 0-24 10.7-24 24s10.7 24 24 24zm157.8 223.6 8.5 85.5 47.4 59.2 4.2 5.7c9.2 13.7 14.1 29.9 14.1 46.5 0 12.7-2.8 24.8-7.9 35.5h83.1c20.3 0 36.8-16.5 36.8-36.8 0-7.3-2.2-14.4-6.2-20.4L480 416.1v-64l13.3-13.3c12-12 18.7-28.3 18.7-45.3V192c0-17.7-14.3-32-32-32s-32 14.3-32 32v16h-32v-16c0-17.7-14.3-32-32-32s-32 14.3-32 32v32c0 22.4-10.2 42.4-26.2 55.6"></path></svg>
+  
+  <span class="md-ellipsis">
+    算法分析
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            算法分析
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    § 数据结构基础与算法分析
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            § 数据结构基础与算法分析
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../array/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    • Chap I 线性表
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    • Appe I 数学基础与算法设计原则
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    • Appe II 算法分析语设计实例
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    • Appe II 算法分析语设计实例
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#f2-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      F2. 1 最大子序列和
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f2-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      F2. 2 二分查找
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f2-3-gcd" class="md-nav__link">
+    <span class="md-ellipsis">
+      F2. 3 辗转相除法(GCD)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f2-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      F2. 4 中缀表达式到后缀表达式转换算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="F2. 4 中缀表达式到后缀表达式转换算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#f2-4-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      F2. 4. 1 算法描述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f2-4-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      F2. 4. 2 引理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f2-4-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      F2. 4. 3 归纳证明
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f2-4-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      F2. 4. 4 程序实现(基于语法解析与后缀表达式的计算器)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3">
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    § Codeforces
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            § Codeforces
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cf/stencil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    模版
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#f2-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      F2. 1 最大子序列和
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f2-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      F2. 2 二分查找
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f2-3-gcd" class="md-nav__link">
+    <span class="md-ellipsis">
+      F2. 3 辗转相除法(GCD)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f2-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      F2. 4 中缀表达式到后缀表达式转换算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="F2. 4 中缀表达式到后缀表达式转换算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#f2-4-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      F2. 4. 1 算法描述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f2-4-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      F2. 4. 2 引理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f2-4-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      F2. 4. 3 归纳证明
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f2-4-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      F2. 4. 4 程序实现(基于语法解析与后缀表达式的计算器)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/hollowdobt/docs-site/edit/main/docs/algorithm/DBAA/appendix2.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/hollowdobt/docs-site/raw/main/docs/algorithm/DBAA/appendix2.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"></path></svg>
+    </a>
+  
+
+
+<h1 id="ii">附录 II  算法分析与设计实例<a class="headerlink" href="#ii" title="Permanent link">#</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>本文内容包含大量实际算法分析语设计实例. 大部分内容标注了参考内容出处. 注意, 这部分内容并不是严格按照任何书籍顺序或者讲述内容进行的, 部分算法个人进行了优化调整, 部分实例拓展了其他几种算法.</p>
+</div>
+<h2 id="f2-1">F2. 1 最大子序列和<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><a class="headerlink" href="#f2-1" title="Permanent link">#</a></h2>
+<hr>
+<ul>
+<li>问题描述: 对于某一有限数列 <span class="arithmatex">\(a_n=[a_1, a_2, a_3, \cdots]\)</span>, 我们取从第 <span class="arithmatex">\(i\)</span> 到第 <span class="arithmatex">\(j\)</span> 的项求和(包括 <span class="arithmatex">\(a_i\)</span> 和 <span class="arithmatex">\(a_j\)</span>), 求该子数列和的最大值.</li>
+</ul>
+<p>最简单的思路是完全穷举, 遍历所有选取方案. 原书图 2-5 算法 1 存在一个常见错误, 默认了总和最大值的结果不会小于 <span class="arithmatex">\(0\)</span>. 但在部分 OJ 上这样写是不会通过的, 并且这样写也不够严格. 更通用的方式是改进原本的 <code>int maxSum = 0</code> 为 <code>int maxSum = s[0]</code>. 使用改进代码表述为</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">maxSubSeq</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">length</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="hll"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">maxSum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">thisSum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">                </span><span class="n">thisSum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">h</span><span class="p">];</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">thisSum</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxSum</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">                </span><span class="n">maxSum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">thisSum</span><span class="p">;</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">maxSum</span><span class="p">;</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>我们设数列长度为 <span class="arithmatex">\(n\)</span>, 则精确复杂度显然为 </p>
+<div class="arithmatex">\[
+\begin{align*}
+S&amp;=\sum_{i=1}^{n}(1+2+3+\cdots +(n-(i-1)))\\
+&amp;=\frac{1}{2}\sum_{i=1}^{n}(i-(n+1))(i-(n+2))\\
+&amp;=\frac{1}{2}\sum_{i=1}^{n}(i^2-(2n+3)i+(n+1)(n+2))\\
+&amp;=\frac{1}{2}(\frac{1}{6}n(n+1)(2n+1)-\frac{1}{2}(2n+3)n(n+1)+n(n+1)(n+2))\\
+&amp;=\frac{1}{6}n(n+1)(n+2)=\frac{1}{6}n^3+\frac{1}{2}n^2+\frac{1}{3}n
+\end{align*}
+\]</div>
+<p>当然, 我们可以直接简单设最坏情况作为复杂度. 也就是三层嵌套循环, 时间复杂度为 <span class="arithmatex">\(O(N^3)\)</span></p>
+<p>这一时间复杂度显然可以进一步减小. 最显然的一点是, 在保留前一层 <code>for</code> 循环计算方式的前提下, 观察后两轮, 第三轮 <code>for</code> 循环完全没有必要. 假设已确定 <span class="arithmatex">\(a_i\)</span> 的位置, 而后从第 <span class="arithmatex">\(i\)</span> 开始向后计数到最后一项, 则从第 <span class="arithmatex">\(i\)</span> 项到第 <span class="arithmatex">\(j\)</span> 项的区间和可以加入到第 <span class="arithmatex">\(i\)</span> 项到第 <span class="arithmatex">\(j+1\)</span> 项的区间和. 换言之, 通过 <span class="arithmatex">\(S_{[i, j+1]}=S_{[i, j]}+a_{j+1}\)</span> 利用好上次计算的结果即可, 不需要重复计算. 使用代码表述为</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">maxSubSeq</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lst</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lst</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">length</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">maxSum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">nowSum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">            </span><span class="n">nowSum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">lst</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nowSum</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxSum</span><span class="p">)</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">                </span><span class="n">maxSum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nowSum</span><span class="p">;</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">maxSum</span><span class="p">;</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>这一简单的优化思路将原本 <span class="arithmatex">\(O(N^3)\)</span> 的时间复杂度减少到了 <span class="arithmatex">\(O(N^2)\)</span>. 但是, 这样是最完美的方式吗?</p>
+<p>显然不是. 优化这一算法最简单的思路仍然是, 检查是否出现了重复计算的情况. 为了方便表述, 我们首先将上面的算法代码进行等价替换</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">maxSubSeq</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lst</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lst</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">length</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">maxSum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">nowSum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">            </span><span class="n">nowSum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">lst</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nowSum</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxSum</span><span class="p">)</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">                </span><span class="n">maxSum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nowSum</span><span class="p">;</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">maxSum</span><span class="p">;</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>现在暂时抛开算法的具体实现, 我们考虑, 假设目前已经确定了 <span class="arithmatex">\([1,m-1]\)</span> 上的最大子数列之和, 那么 <span class="arithmatex">\([1, m]\)</span> 的最大子数列之和 <span class="arithmatex">\(S_{[1, m]}\)</span> 有且仅有两种情况</p>
+<ul>
+<li>包括了第 <span class="arithmatex">\(m\)</span> 项, 也就是必须包括第 <span class="arithmatex">\(m\)</span> 项的 <span class="arithmatex">\([1, m]\)</span> 上的最大子数列之和 <span class="arithmatex">\(S_m\)</span>. 这一 <span class="arithmatex">\(S_m\)</span> 要么就是只包括 <span class="arithmatex">\(a_m\)</span> 本身, 要么就是 <span class="arithmatex">\(a_m\)</span> 加上前面从 <span class="arithmatex">\([1,m-1]\)</span> 的包括 <span class="arithmatex">\(a_{m-1}\)</span> 最大子序列之和, 即 <span class="arithmatex">\(a_m+S_{m-1}\)</span>. 这一点取决于二者之间大小关系.</li>
+<li>不包括第 <span class="arithmatex">\(m\)</span> 项, 也就是已有的 <span class="arithmatex">\([1,m-1]\)</span> 上的最大子数列之和 <span class="arithmatex">\(S_{[1, m-1]}\)</span>.</li>
+</ul>
+<p>这一完备的包含所有情况的事实将持续到整个数列完成遍历. 因此, 该处理方式具有可行性. 下面再确定二者的递推式. 根据上面的分析, 对于前者, 显然有 <span class="arithmatex">\(S_m=\max(0, S_{m-1})+a_m\)</span>; 对于后者, 也显然有 <span class="arithmatex">\(S_{[1, m]}=\max(S_m, S_{[1, m-1]})\)</span>.</p>
+<p>这就是大名鼎鼎的 <a href="https://zh.wikipedia.org/wiki/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E5%88%97%E9%97%AE%E9%A2%98">卡丹算法</a>. 我们用程序实现为</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">maxSubSeq</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lst</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lst</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">length</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">maxSeqSum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">endSeqSum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="n">endSeqSum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">endSeqSum</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">        </span><span class="n">maxSeqSum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">endSeqSum</span><span class="p">,</span><span class="w"> </span><span class="n">maxSeqSum</span><span class="p">);</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">maxSeqSum</span><span class="p">;</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>显然, 我们成功的将算法复杂度改善到了 <span class="arithmatex">\(O(N)\)</span>. 上面这一线性时间复杂度的算法基本就是最优算法了. 但这显然不是最为通用的一种方法. 或者说, 这算是本问题的一个特解. 有没有什么更加一般的方式呢?</p>
+<p>答案是当然. 虽然接下来讲解的方法时间复杂度不如上面的优秀, 但代表了一种普遍的算法思想. 这便是, <strong>分治法</strong>. 所谓分治, 即分而治之. 下面以最简单的二分法为例解决.</p>
+<p>首先确定一般递归情况, 设数列 <span class="arithmatex">\(a_{[1, n]}\)</span>, 我们以 <span class="arithmatex">\(\left \lfloor \frac{n}{2} \right \rfloor\)</span> 为界分为 <span class="arithmatex">\(a_{[1, \left \lfloor \frac{n}{2} \right \rfloor]}\)</span> 和 <span class="arithmatex">\(a_{[\left \lfloor \frac{n}{2} \right \rfloor + 1, n]}\)</span> 两部分, 则最子数列之和要么在 <span class="arithmatex">\(a_{[1, \left \lfloor \frac{n}{2} \right \rfloor]}\)</span>, 要么在 <span class="arithmatex">\(a_{[\left \lfloor \frac{n}{2} \right \rfloor + 1, n]}\)</span>, 要么在 <span class="arithmatex">\(\left \lfloor \frac{n}{2} \right \rfloor\)</span> 两边(跨过 <span class="arithmatex">\(a_{[1, \left \lfloor \frac{n}{2} \right \rfloor]}\)</span> 和 <span class="arithmatex">\(a_{[\left \lfloor \frac{n}{2} \right \rfloor + 1, n]}\)</span> 这两数列). 以此不断递归, 直到遇到 <span class="arithmatex">\(\left \lfloor \frac{n}{2} \right \rfloor=0\)</span> 的情况, 也就 <span class="arithmatex">\(n=1\)</span> 的情况(默认不为空数列). 为了方便说明, 我们以具体数列为例. 假设 <span class="arithmatex">\(a_n=[20, 10, -30, 40, -30, -60, 30, 30]\)</span>, 则其可不断二分为:</p>
+<pre class="mermaid"><code>graph TD
+    n1[20, 10, -30, 40, -30, -60, 30, 30]--&gt;n2
+    n1[20, 10, -30, 40, -30, -60, 30, 30]--&gt;n3
+    n2[20, 10, -30, 40]--&gt;n4
+    n2[20, 10, -30, 40]--&gt;n5
+    n3[-30, -60, 30, 30]--&gt;n6
+    n3[-30, -60, 30, 30]--&gt;n7
+    n4[20, 10]--&gt;n8[20]
+    n4[20, 10]--&gt;n9[10]
+    n5[-30, 40]--&gt;n10[-30]
+    n5[-30, 40]--&gt;n11[40]
+    n6[-30, -60]--&gt;n12[-30]
+    n6[-30, -60]--&gt;n13[-60]
+    n7[30, 30]--&gt;n14[30]
+    n7[30, 30]--&gt;n15[30]</code></pre>
+<p>我们设最高层为 <span class="arithmatex">\(4\)</span>, 最底层为 <span class="arithmatex">\(1\)</span>, 因此首先对 <span class="arithmatex">\(1\)</span> 层处理. 显然 <span class="arithmatex">\(1\)</span> 层各自的最大子序列和就是其本身. 接下来看 <span class="arithmatex">\(2\)</span> 层, 如果视作二元组 <span class="arithmatex">\((20, 10)\)</span>, 则值只可能为 <span class="arithmatex">\(20\)</span>, <span class="arithmatex">\(10\)</span>, 以及跨过二者的值. 唯一跨过的方式就是同时选择 <span class="arithmatex">\(20\)</span>, <span class="arithmatex">\(10\)</span> 两项. 确定之后进一步向上到 <span class="arithmatex">\(3\)</span> 层, 则变为四元组 <span class="arithmatex">\((20, 10, -30, 40)\)</span>, 因此有且仅有两边最大值之一或者跨过中间项的值. 也就是说, 必须保证存在 <span class="arithmatex">\(10\)</span>, <span class="arithmatex">\(-30\)</span>, 再加上需要保证连续性, 因此只需要进行一次简单的两侧遍历: 首先对于左侧子数列, 必须包括 <span class="arithmatex">\(10\)</span>, 以 <span class="arithmatex">\(10\)</span> 为基础向左遍历, 确定左侧过边界点最大值; 接下来对于右侧子数列, 必须包括 <span class="arithmatex">\(-30\)</span>, 以 <span class="arithmatex">\(-30\)</span> 为基础向右遍历, 确定右侧过边界点最大值. 换言之, 过中间点的最大子数列和的值就是左侧过中间左边界点的最大子数列之和加上右侧过中间右边界点的最大子数列之和的和. 因为从边界点出发, 单轮每一层时间复杂度有且仅有 <span class="arithmatex">\(O(N)\)</span>. 而我们总共需要计算 <span class="arithmatex">\(\log N\)</span> 次. 进一步推广, 考虑其他(奇数长度)情况, 使用二分展开到最后最终得到的最下面单个分支深度只可能减少, 也就是说将 <span class="arithmatex">\(\log N\)</span> 向上估计即可, 时间复杂度总计仍然为 <span class="arithmatex">\(O(N\log N\)</span>).</p>
+<p>利用上面的思路即可完成分治法版本的最大子序列和算法</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span>
+<span class="normal"><a href="#__codelineno-4-17">17</a></span>
+<span class="normal"><a href="#__codelineno-4-18">18</a></span>
+<span class="normal"><a href="#__codelineno-4-19">19</a></span>
+<span class="normal"><a href="#__codelineno-4-20">20</a></span>
+<span class="normal"><a href="#__codelineno-4-21">21</a></span>
+<span class="normal"><a href="#__codelineno-4-22">22</a></span>
+<span class="normal"><a href="#__codelineno-4-23">23</a></span>
+<span class="normal"><a href="#__codelineno-4-24">24</a></span>
+<span class="normal"><a href="#__codelineno-4-25">25</a></span>
+<span class="normal"><a href="#__codelineno-4-26">26</a></span>
+<span class="normal"><a href="#__codelineno-4-27">27</a></span>
+<span class="normal"><a href="#__codelineno-4-28">28</a></span>
+<span class="normal"><a href="#__codelineno-4-29">29</a></span>
+<span class="normal"><a href="#__codelineno-4-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">maxSubSeq</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lst</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">beg</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">end</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="cm">/* 全部为闭区间, 包括 beg 和 end */</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="cm">/* 结束条件 */</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">end</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">beg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">lst</span><span class="p">[</span><span class="n">beg</span><span class="p">];</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">beg_max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">maxSubSeq</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span><span class="w"> </span><span class="n">beg</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">beg</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">end</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">end_max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">maxSubSeq</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">beg</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">end</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="p">);</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">lef_max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lst</span><span class="p">[(</span><span class="n">beg</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">end</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">lef_sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">beg</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">end</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">beg</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">        </span><span class="n">lef_sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lef_sum</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">lef_max</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">            </span><span class="n">lef_max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lef_sum</span><span class="p">;</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18"></a>
+<a id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">rig_max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lst</span><span class="p">[(</span><span class="n">beg</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">end</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">rig_sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">beg</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">end</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">end</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="w">        </span><span class="n">rig_sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">lst</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rig_sum</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">rig_max</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23"></a><span class="w">            </span><span class="n">rig_max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rig_sum</span><span class="p">;</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26"></a>
+<a id="__codelineno-4-27" name="__codelineno-4-27"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">lef_max</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rig_max</span><span class="p">,</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">beg_max</span><span class="p">,</span><span class="w"> </span><span class="n">end_max</span><span class="p">));</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28"></a><span class="p">}</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29"></a>
+<a id="__codelineno-4-30" name="__codelineno-4-30"></a><span class="kt">int</span><span class="w"> </span><span class="nf">solve</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lst</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">maxSubSeq</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">lst</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h2 id="f2-2">F2. 2 二分查找<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup><a class="headerlink" href="#f2-2" title="Permanent link">#</a></h2>
+<hr>
+<ul>
+<li>问题描述: 对于一个已排序的给定数列 <span class="arithmatex">\(a_n\)</span> 和确定值 <span class="arithmatex">\(X\)</span>, 满足 <span class="arithmatex">\(a_{n-1}&lt;a_{n}\)</span>, 寻找其中下标为 <span class="arithmatex">\(i\)</span> 的项 <span class="arithmatex">\(a_i\)</span>, 使得 <span class="arithmatex">\(a_i=X\)</span>.</li>
+</ul>
+<p>二分查找原理很简单, 目标值 <span class="arithmatex">\(X\)</span> 只可能出现在三个位置上:</p>
+<ul>
+<li>区间 <span class="arithmatex">\([1, \left \lfloor \frac{n+1}{2} \right \rfloor -1]\)</span> 上</li>
+<li>点 <span class="arithmatex">\(\left \lfloor \frac{n+1}{2} \right \rfloor\)</span> 处</li>
+<li>区间 <span class="arithmatex">\([\left \lfloor \frac{n+1}{2} \right \rfloor +1, n]\)</span> 上</li>
+</ul>
+<p>并且对于数列的子数列(<span class="arithmatex">\(n \ge 3\)</span>)也满足这一点. 因此, 我们使用程序语言描述为</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">find_ele</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lst</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="cm">/* 全部为闭区间 */</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lst</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="cm">/* 注意关注边缘情况 */</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">right</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lst</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mid</span><span class="p">;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lst</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>在 <span class="arithmatex">\(n=2\)</span> 和 <span class="arithmatex">\(n=1\)</span> 时带入运算, 检查确定极端情况下同样正确. 同时, 显然, 该算法的时间复杂度为 <span class="arithmatex">\(O(log N)\)</span>.</p>
+<h2 id="f2-3-gcd">F2. 3 辗转相除法(GCD)<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup><a class="headerlink" href="#f2-3-gcd" title="Permanent link">#</a></h2>
+<hr>
+<ul>
+<li>问题描述: 求两个数的最大公约数.</li>
+</ul>
+<p>首先证明这一事实: <span class="arithmatex">\(\gcd(a, b) = \gcd(a,b\ mod\ a)(b &gt; a)\)</span>:</p>
+<p>显然, 设 <span class="arithmatex">\(\gcd(a, b)=k\)</span>, 则一定有 <span class="arithmatex">\(a=ka_s\)</span>, <span class="arithmatex">\(b=kb_s\)</span>, 同时又因为 <span class="arithmatex">\(b &gt; a\)</span> 有 <span class="arithmatex">\(b=ca+d\)</span>, 因此 <span class="arithmatex">\(kb_s=cka_s + d\)</span>, 因此 <span class="arithmatex">\(d=k(b_s-ca_s)\)</span>, 因此 <span class="arithmatex">\(d\)</span>(也就是 <span class="arithmatex">\(b\ mod\ a\)</span>)一定有公因数 <span class="arithmatex">\(k\)</span>.  另一面, 对于 <span class="arithmatex">\(b_s-ca_s\)</span> 和 <span class="arithmatex">\(a_s\)</span>, 假设二者存在公因数 <span class="arithmatex">\(p\)</span>, 则 <span class="arithmatex">\(a_s=pa_t\)</span>, 且 <span class="arithmatex">\(b_s-ca_s=pb_t-pca_t\)</span>. 换言之, <span class="arithmatex">\(a=kpa_t\)</span>, <span class="arithmatex">\(b=kpb_t\)</span>, 违背了 <span class="arithmatex">\(k\)</span> 为最大公因数的假设. 因此, <span class="arithmatex">\(\gcd(a, b) = \gcd(a,b\ mod\ a)(b &gt; a)\)</span>.</p>
+<p><span class="arithmatex">\(GCD\)</span> 的程序实现为</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">gcd</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">min_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">max_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">min_num</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min_num</span><span class="p">;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">        </span><span class="n">min_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max_num</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">min_num</span><span class="p">;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">        </span><span class="n">max_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min_num</span><span class="p">;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">max_num</span><span class="p">;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>这一程序的复杂度精确分析相当困难. 不过可以很容易得到, 满足 <span class="arithmatex">\(b&gt;a\)</span> 的前提下必定有 <span class="arithmatex">\(b\ mod\ a&lt;\frac{b}{2}\)</span>. 假设 <span class="arithmatex">\(b\ mod\ a \ge \frac{b}{2}\)</span>, 那么有: <span class="arithmatex">\(b-ka\ge\frac{b}{2}\)</span>. 换言之,  <span class="arithmatex">\(b\ge 2ka\)</span>, 必须有 <span class="arithmatex">\(k=ak\)</span>, 与假设矛盾. 因此, 满足 <span class="arithmatex">\(b&gt;a\)</span> 的前提下必定有 <span class="arithmatex">\(b\ mod\ a&lt;\frac{b}{2}\)</span>.</p>
+<p>进一步, 算法至少每两轮可以减少二分之一的量, 也就是说时间复杂度至少为 <span class="arithmatex">\(O(2\log N)\)</span>, 即 <span class="arithmatex">\(O(\log N)\)</span>.</p>
+<h2 id="f2-4">F2. 4 中缀表达式到后缀表达式转换算法<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup><a class="headerlink" href="#f2-4" title="Permanent link">#</a></h2>
+<hr>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>注意下面对于算法的证明严格意义上只能作为说明存在.</p>
+</div>
+<h3 id="f2-4-1">F2. 4. 1 算法描述<a class="headerlink" href="#f2-4-1" title="Permanent link">#</a></h3>
+<p>对于输入的中缀表达式进行从左到右的扫描读取, 维护<strong>符号栈</strong>和<strong>输出序列</strong>. 我们规定</p>
+<ul>
+<li>读到操作数时: 将操作数追加到输出序列</li>
+<li>读到运算符时: 我们将符号栈的栈顶元素与读到的运算符 <span class="arithmatex">\(o\)</span> 优先级进行比较. 当栈顶元素相比于 <span class="arithmatex">\(o\)</span> 优先级更高或者相同时, 弹出栈顶元素并追加到输出序列, 并继续将更新后的栈顶元素与  的优先级进行比较, 直到这一情况结束, 而后将 <span class="arithmatex">\(o\)</span> 推入栈; 当栈顶元素优先级相比于 <span class="arithmatex">\(o\)</span> 更低时, 直接将 <span class="arithmatex">\(o\)</span> 推入栈</li>
+<li>读到左括号时: 将左括号推入栈</li>
+<li>读到右括号时: 将栈顶元素不断弹出追加到输出序列中, 直到读到左括号, 而后将左括号弹出(注意右括号没有被推入栈)</li>
+<li>读取完成栈剩余符号时: 将栈顶元素全部弹出并依次追加到输出序列</li>
+</ul>
+<h3 id="f2-4-2">F2. 4. 2 引理<a class="headerlink" href="#f2-4-2" title="Permanent link">#</a></h3>
+<ul>
+<li>左操作数完备闭合</li>
+</ul>
+<p>根据表达式从左到右的顺序, 显然, 对栈中自底向上所有运算符或者括号, 左侧的子后缀表达式一定已经完成输出全部位于<strong>输出序列</strong>; 右侧的子后缀表达式一定尚未输出或者部分输出. 为了方便描述, 我们称左侧的子后缀表达式为<strong>左操作数</strong>, 右侧的子后缀表达式为<strong>右操作数</strong>.</p>
+<ul>
+<li>右操作数完备闭合</li>
+</ul>
+<p>当运算符 <span class="arithmatex">\(o\)</span> 弹出时, 运算符 <span class="arithmatex">\(o\)</span> 的右操作数必定恰好完备闭合. 对于<strong>必定</strong>, 是因为后缀表达式中任意运算符 <span class="arithmatex">\(o\)</span> 只能作用于其左侧的数. 对于<strong>恰好</strong>, 这一点是显然的(否则 <span class="arithmatex">\(o\)</span> 的右操作数就不是中缀表达式本来的右侧部分)</p>
+<ul>
+<li>完备闭合描述</li>
+</ul>
+<p>结合前面两点, 我们可以确定</p>
+<ul>
+<li>运算符 <span class="arithmatex">\(o\)</span> 入栈 <span class="arithmatex">\(\Longleftrightarrow\)</span> <span class="arithmatex">\(o\)</span> 左操作数完备闭合</li>
+<li>运算符 <span class="arithmatex">\(o\)</span> 出栈 <span class="arithmatex">\(\Longleftrightarrow\)</span> <span class="arithmatex">\(o\)</span> 右操作数完备闭合, 也就是子后缀表达式完备闭合</li>
+</ul>
+<p>对于括号 <span class="arithmatex">\((\)</span> 与 <span class="arithmatex">\()\)</span>, 其闭合原理是显然的.</p>
+<h3 id="f2-4-3">F2. 4. 3 归纳证明<a class="headerlink" href="#f2-4-3" title="Permanent link">#</a></h3>
+<p>我们只需要考虑栈顶元素 <span class="arithmatex">\(o\)</span> 何时弹出. 每当读到相较于 <span class="arithmatex">\(o\)</span> 优先级更低的新运算符 <span class="arithmatex">\(p\)</span> 时, 因为 <span class="arithmatex">\(o\)</span> 已入栈, 其左操作数已完备, 只需要考虑右操作数是否完备. 显然, 读到优先级更低的运算符 <span class="arithmatex">\(p\)</span>, 意味着右操作数边界已确定(如 <span class="arithmatex">\(2\times3+4\)</span> 中读到了 <span class="arithmatex">\(+\)</span> 时 <span class="arithmatex">\(2\times3\)</span> 已经是一个独立完备的子表达式), 因此弹出 <span class="arithmatex">\(p\)</span> 并追加到输出序列.</p>
+<p>另外, 当中缀表达式读取完成后, 栈中剩余操作符应当依次弹出并追加到输出序列. 从完整性看, 如果不将运算符全部弹出, 那么无法还原为中缀表达式(或者说无法构建运算树); 从正确性看, 我们可以使用一个等价占位符 <span class="arithmatex">\(+0\)</span> 追加到中缀表达式, 以回归到上一段我们讨论的情况. 最后栈内残留 <span class="arithmatex">\(+\)</span>, 表达式残留 <span class="arithmatex">\(0\)</span>, 而最终后缀表达式一定形如 <span class="arithmatex">\(A_s,0,+=A_s\)</span>, 同样完成归纳.</p>
+<p>括号视作子栈与子输出序列即可.</p>
+<p>时间复杂度显然为 <span class="arithmatex">\(O(N)\)</span>, 并且实际上只需要一轮遍历.</p>
+<h3 id="f2-4-4">F2. 4. 4 程序实现(基于语法解析与后缀表达式的计算器)<a class="headerlink" href="#f2-4-4" title="Permanent link">#</a></h3>
+<p>程序实现较为繁琐(用 AI 写吧), 具体参见 <a href="https://github.com/HollowDobt/algorithm/blob/main/stack/culculator.cpp">github 仓库</a>.</p>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:1">
+<p><em>Data Structures and Algorithm Analysis in C, Second Edition 2. 4. 3</em> P23&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:2">
+<p><em>Data Structures and Algorithm Analysis in C, Second Edition 2. 4. 4</em> P28&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn:3">
+<p><em>Data Structures and Algorithm Analysis in C, Second Edition 2. 4. 4</em>  P30&nbsp;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+<li id="fn:4">
+<p><em>Data Structures and Algorithm Analysis in C, Second Edition 3. 3. 3</em> P73&nbsp;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 27, 2025 15:32:46 UTC">September 27, 2025</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 1, 2025 08:22:03 UTC">September 1, 2025</span>
+  </span>
+
+    
+    
+      
+  
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Contributors">
+      
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"></path></svg>
+      
+    </span>
+    <nav>
+      
+        <a href="mailto:2901448780@qq.com">HollowDobt</a>
+    </nav>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributors">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/HollowDobt" class="md-author" title="@HollowDobt">
+          
+          <img src="https://avatars.githubusercontent.com/u/197474030?v=4&amp;size=72" alt="HollowDobt">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
+    
+  </aside>
+
+
+  
+
+
+
+
+  <h2 id="__comments">Comments</h2>
+
+  <script src="https://giscus.app/client.js" data-repo="HollowDobt/docs-site" data-repo-id="R_kgDOOvKsgw" data-category="Comments" data-category-id="DIC_kwDOOvKsg84CqrwA" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="1" data-input-position="top" data-theme="https://docs.hollowlib.top/_stylesheets/comments.css" data-lang="en" data-loading="lazy" crossorigin="anonymous" async>
+  </script>
+
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]");
+    var palette = __md_get("__palette");
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "transparent_dark" : "light";
+      giscus.setAttribute("data-theme", theme);
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]");
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette");
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "transparent_dark" : "light";
+          var frame = document.querySelector(".giscus-frame");
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          );
+        }
+      });
+    });
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../appendix1/" class="md-footer__link md-footer__link--prev" aria-label="Previous: • Appe I 数学基础与算法设计原则">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                • Appe I 数学基础与算法设计原则
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../cf/stencil/" class="md-footer__link md-footer__link--next" aria-label="Next: 模版">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                模版
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2025 - today Hollow Dobt | <a href="https://icp.gov.moe/?keyword=20257760" target="_blank">萌ICP备20257760号</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/hollowdobt" target="_blank" rel="noopener" title="Hollow's Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:rxq@hollowlib.top" target="_blank" rel="noopener" title="Hollow's Email" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48zM0 196v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V196L313.6 344.8c-34.1 25.6-81.1 25.6-115.2 0z"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://hollowlib.top" target="_blank" rel="noopener" title="Hollow's Main Site" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="m241 87.1 15 20.7 15-20.7C296 52.5 336.2 32 378.9 32 452.4 32 512 91.6 512 165.1v2.6c0 112.2-139.9 242.5-212.9 298.2-12.4 9.4-27.6 14.1-43.1 14.1s-30.8-4.6-43.1-14.1C139.9 410.2 0 279.9 0 167.7v-2.6C0 91.6 59.6 32 133.1 32 175.8 32 216 52.5 241 87.1"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings">
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+    
+      
+        
+  
+  
+    
+    
+  
+  <li class="task-list-item">
+    <label class="task-list-control">
+      <input type="checkbox" name="analytics" checked>
+      <span class="task-list-indicator"></span>
+      Google Analytics
+    </label>
+  </li>
+
+      
+    
+    
+      
+        
+  
+  
+    
+    
+  
+  <li class="task-list-item">
+    <label class="task-list-control">
+      <input type="checkbox" name="github" checked>
+      <span class="task-list-indicator"></span>
+      GitHub
+    </label>
+  </li>
+
+      
+    
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.indexes", "navigation.tracking", "naviagtion.prune", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.preview", "search.suggest", "search.highlight", "search.share", "content.tabs.link", "content.tooltips", "content.code.copy", "content.code.annotate", "content.action.edit", "content.action.view", "toc.follow"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../../_javascripts/math.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
