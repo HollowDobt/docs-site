@@ -100,13 +100,10 @@ markdown_extensions:
 extra_css:
   - _stylesheets/extra.css
   - static/dist/output.css
-  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
 
 extra_javascript:
-  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
-  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js
   - _javascripts/math.js
-
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
 extra:
   # 图标返回到标签页面
@@ -130,6 +127,9 @@ extra:
     - icon: fontawesome/solid/envelope
       link: mailto:rxq@hollowlib.top
       name: Hollow's Email
+    - icon: fontawesome/solid/heart
+      link: https://hollowlib.top
+      name: Hollow's Main Site
 
 plugins:
   # 启用搜索
