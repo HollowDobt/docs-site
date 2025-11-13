@@ -31,7 +31,7 @@ jobs:
           pip install mkdocs-git-revision-date-localized-plugin
           pip install mkdocs-git-committers-plugin-2
           pip install mkdocs-git-authors-plugin
-          pip install mkdocs-pygments
+          pip install mkdocs-minify-plugin
 
       # 3. 构建 MkDocs 并修复 404 页面
       - name: Build the site
