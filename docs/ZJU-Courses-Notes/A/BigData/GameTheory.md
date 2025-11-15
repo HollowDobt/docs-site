@@ -32,3 +32,37 @@ For mixed strategies(That is, the shooter decides on a $p_i\in [0,1]$ while $\su
 	
 	Another one $V_L$ can be derived by analogy. And clearly $V_R+V_L=1$.
 
+### Maxmini Optimal Strategies
+
+Given your payoff matrix:
+
+| Payoff Table   | (You) $1$ | (You) $2$ | (You) $3$ |
+| -------------- | --------- | --------- | --------- |
+| (Opponent) $1$ | $-1$      | $-2$      | $+10$     |
+| (Opponent) $2$ | $-2$      | $+5$      | $+100$    |
+| (Opponent) $3$ | $-1$      | $-1$      | $-1$      |
+
+Now your aim is to **minimize losses as much as possible**, and you should choose from Strategy $1$, $2$, $3$ first (This means your opponent can know in advance what you choose, and then select the optimal choice for himself based on your selection).
+
+Clearly, by choosing Strategy $3$, you can ensure that the worst-case payoff will only reach $-1$, whereas Strategies $1$ and $2$ could potentially reach $-2$.
+
+In zero-sum game, we refer to this strategy - **minimizing other's gains to minimize one's own losses** - as the **Maxmini Optimal Strategies**.
+
+A stricter definition: Let $<\{1,2\}, (A_i), (U_i)>$ ($A_i$ is player $i$'s strategy. $U_i$ is player $i$ 's payoff) be a zero-sum game. The action $x^*\in A_1$ is minimax strategy for player $1$ when:
+
+$$
+\min_{p2\ \in\ A_2}U_1(p_1^*,p_2)\ge\min_{p2\ \in\ A_2,\ \forall p1\ \in A_1}U_1(p_1,p_2)
+$$
+
+which means:
+
+$$
+\min_{p2\ \in\ A_2}U_1(p_1^*,p_2)=\max_{p_1\ \in\ A_1}\min_{p_2\ \in\ A_2}U_1(p_1,p_2)
+$$
+
+Now let's consider the same question from another perspective: our opponent know we've chosen the strategy that minimizes their gains, which means he gets $\max_{p_1\ \in\ A_1}U_1(p_1, p_2)$, and now he needs to minimize this value:
+
+$$
+\min_{p_2\ \in\ A_2} \max_{p_1\ \in\ A_1}U_1(p_1,p_2)
+$$
+

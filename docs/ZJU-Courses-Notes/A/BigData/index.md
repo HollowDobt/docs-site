@@ -9,3 +9,4 @@
 ---
 
 - [x] [§ LEC 1       Game Theory and Lower Bounds for Randomized Algorithms](GameTheory.md)
+- [x] [§ LEC 2       Linear Programming I](LinearProgram.md)
