@@ -145,7 +145,8 @@ plugins:
       branch: main
   - git-authors
   - glightbox # 允许图片缩放
-  # 
+  - add-number:
+      order: 2
   - minify:
       minify_html: true
       minify_js: true
