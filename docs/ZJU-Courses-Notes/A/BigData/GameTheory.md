@@ -30,7 +30,7 @@ For mixed strategies(That is, the shooter decides on a $p_i\in [0,1]$ while $\su
 	V_R=\sum_{i,j}p_iq_jR_{i,j}
 	$$
 	
-	Another one $V_L$ can be derived by analogy. And clearly $V_R+V_L=1$.
+	Another one $V_L$ can be derived by analogy. And clearly $V_R+V_L=0$.
 
 ### Maxmini Optimal Strategies
 
