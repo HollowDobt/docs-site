@@ -40,7 +40,7 @@ theme:
     - naviagtion.prune
     - navigation.instant
     - navigation.instant.prefetch
-    - navigation.instant.preview
+    # - navigation.instant.preview
     # 搜索类
     - search.suggest
     - search.highlight

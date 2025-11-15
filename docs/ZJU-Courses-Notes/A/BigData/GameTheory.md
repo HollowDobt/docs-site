@@ -30,7 +30,7 @@ For mixed strategies(That is, the shooter decides on a $p_i\in [0,1]$ while $\su
 	V_R=\sum_{i,j}p_iq_jR_{i,j}
 	$$
 	
-	Another one $V_L$ can be derived by analogy. And clearly $V_R+V_L=0$.
+	Another one $V_L$ can be derived by analogy. And clearly $V_R+V_L=0$ ($V_C+V_R=\sum p_iq_jR_{i,j}+\sum p_iq_jC_{i,j}=\sum p_iq_j(R_{i,j}+C_{i,j})$).
 
 ### Maxmini Optimal Strategies
 
@@ -60,9 +60,19 @@ $$
 \min_{p2\ \in\ A_2}U_1(p_1^*,p_2)=\max_{p_1\ \in\ A_1}\min_{p_2\ \in\ A_2}U_1(p_1,p_2)
 $$
 
-Now let's consider the same question from another perspective: our opponent know we've chosen the strategy that minimizes their gains, which means he gets $\max_{p_1\ \in\ A_1}U_1(p_1, p_2)$, and now he needs to minimize this value:
+We also called it **lower bound** ($ld$). Then we further derived mathematically:
 
 $$
-\min_{p_2\ \in\ A_2} \max_{p_1\ \in\ A_1}U_1(p_1,p_2)
+\begin{align}
+&\max_{p_1\ \in\ A_1}\min_{p_2\ \in\ A_2}U_1(p_1,p_2)\\
+=&\max_{p_1\ \in\ A_1}\min_{p_2\ \in\ A_2}( -U_2(p_1,p_2))\\
+=&\max_{p_1\ \in\ A_1}(-\max_{p_2\ \in\ A_2} U_2(p_1,p_2))\\
+=&-\min_{p_1\ \in\ A_1}\max_{p_2\ \in\ A_2} U_2(p_1,p_2)\\
+\end{align}
 $$
 
+And we know that:
+
+$$
+\max_{p1\ \in\ A_2}U_2(p_1,p_2^*)=\min_{p_1\ \in\ A_1}\max_{p_2\ \in\ A_2} U_2(p_1,p_2)
+$$
