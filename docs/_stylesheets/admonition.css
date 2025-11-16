@@ -16,5 +16,5 @@
 /* 修改 admonition 的字体大小 */
 [data-md-color-scheme="slate"] .md-typeset .admonition,
 [data-md-color-scheme="slate"] .md-typeset details.admonition {
-  font-size: .75rem !important;
+  font-size: .74rem !important;
 }

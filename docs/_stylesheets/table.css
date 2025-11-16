@@ -1,16 +1,25 @@
 /* 放大表格字体 */
 .md-typeset table:not([class]) {
-  font-size: 0.75rem; /* 默认约等于 16.8px，可改为 1.1rem 等 */
+  font-size: 0.74rem; /* 默认约等于 16.8px，可改为 1.1rem 等 */
 }
 
 /* 放大表头字体（可选） */
 .md-typeset table:not([class]) th {
   font-weight: bold;
-  font-size: 0.75rem;
+  font-size: 0.74rem;
 }
 
 /* 加深表格第一行（表头）背景色 */
 .md-typeset table:not([class]) thead th {
   background-color: #2a2a2a; 
   color: #ffffff;            
+}
+
+.md-typeset table:not([class]) {
+  /* 覆盖主题中对 table 的 inline-block 设置 */
+  display: table;
+
+  /* 自动分配左右空白，从而水平居中 */
+  margin-left: auto;
+  margin-right: auto;
 }

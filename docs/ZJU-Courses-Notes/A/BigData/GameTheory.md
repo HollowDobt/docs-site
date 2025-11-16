@@ -202,3 +202,9 @@ Feeling abstract too? Let me illustrate with another example.
 	
 	The maximum value (for column player, while it's the minimum value for row player) is obtained when $p_1 = 0.5$.
 
+So what? This is the **Min-Max Theorem**. **The theorem states that in a two-player zero-sum game**:
+
+$$
+\max_p\min_qV_R(p,q)=\min_q\max_pV_R(p,q)
+$$
+
