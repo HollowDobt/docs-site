@@ -4,6 +4,9 @@
 !!! abstract
 	课程笔记以例题和习题为主. 概念可以直接参阅课程 ppt. 建议多练题, ppt 上的题都不错, 练得多了之后自然会理解很多概念.
 
+!!! quote
+	敌军围困千万重, 我自岿然不动.
+
 ## 课程简介
 ---
 教师: 张文普 学分: $4$
@@ -25,9 +28,4 @@
 - [x] [§ Chap III    点的合成运动](combinationmove.md)
 - [x] [§ Chap IV   刚体的平面运动](rigidbodyinflat.md)
 - [x] [§ Chap V    静力学公理与受力分析](forcetheory.md)
-
-## 参考答案
-
----
-
-- [理论力学习题全解 第九版 哈工大版](https://pan.moe/s/rvEqCp)  密码: aywqp7
+- [x] [§ Chap VI   平面力系](planeforce.md)
