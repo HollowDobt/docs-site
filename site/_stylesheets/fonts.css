@@ -30,7 +30,7 @@
 
 /* 正文内容相较于根字体的大小 */
 .md-typeset {
-    font-size: .75rem;
+    font-size: .74rem;
 }
 
 .md-typeset code:not(pre code) {
@@ -39,10 +39,10 @@
 }
 
 .md-typeset code {
-    font-size: .70rem;
+    font-size: .74rem;
 }
 .md-typeset .linenodiv {
-    font-size: .70rem;
+    font-size: .74rem;
 }
 
 /* 版权部分字体设置 */

@@ -34,7 +34,7 @@ theme:
     - header.autohide
     - navigation.top
     - navigation.tabs
-    # - navigation.tabs.sticky
+    - navigation.tabs.sticky
     - navigation.footer
     - navigation.indexes
     - navigation.tracking
@@ -42,7 +42,7 @@ theme:
     - navigation.instant
     - navigation.instant.prefetch
     # - navigation.instant.preview
-    - header.autohide
+    # - header.autohide
     # 搜索类
     - search.suggest
     - search.highlight
