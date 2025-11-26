@@ -1,6 +1,5 @@
 ---
 comments: false
-icon: fontawesome/solid/fingerprint
 ---
 
 # 人工智能
@@ -8,4 +7,3 @@ icon: fontawesome/solid/fingerprint
 !!! abstract
 	此部分内容**不属于**浙江大学人工智能相关专业基础课程. 
 
-`AI` 的强大, 在于其海纳百川的能力.

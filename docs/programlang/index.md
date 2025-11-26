@@ -1,6 +1,5 @@
 ---
 comments: false
-icon: fontawesome/regular/file-code
 ---
 
 # 程序设计语言

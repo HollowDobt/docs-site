@@ -31,16 +31,18 @@ theme:
   # material 特性启用
   features:
     # 导航栏类
+    - header.autohide
     - navigation.top
     - navigation.tabs
-    - navigation.tabs.sticky
+    # - navigation.tabs.sticky
     - navigation.footer
     - navigation.indexes
     - navigation.tracking
-    - naviagtion.prune
+    - navigation.prune
     - navigation.instant
     - navigation.instant.prefetch
     # - navigation.instant.preview
+    - header.autohide
     # 搜索类
     - search.suggest
     - search.highlight
@@ -157,18 +159,18 @@ plugins:
 
 
 nav:
-  - "Hollow's Library":
-    - index.md
+  # - "Hollow's Library":
+  #   - index.md
 
-  - "程序设计语言":
+  - "Programming Language":
       - programlang/index.md
       - "§ C++":
           - "C++ 面向对象程序设计": programlang/C++/C++OOP.md
 
-  - "人工智能":
+  - "AI":
       - ai/index.md
 
-  - "ZJU Courses Notes":
+  - "ZJU Courses":
       - ZJU-Courses-Notes/index.md
       - "§ 微积分(甲)II":
           - ZJU-Courses-Notes/A/Calculus(A)II.md
@@ -195,7 +197,7 @@ nav:
           - ZJU-Courses-Notes/A/BigData/index.md
           - "• LEC 1 Game Theory and Lower Bounds for Randomized Algorithms": ZJU-Courses-Notes/A/BigData/GameTheory.md
 
-  - "算法分析":
+  - "Algorithm":
       - algorithm/index.md
       - "§ 数据结构基础与算法分析":
           - algorithm/DBAA/index.md
