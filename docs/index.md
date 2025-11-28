@@ -20,16 +20,16 @@ title: Home
     display: none;
   }
 </style>
-<br><br><br><br><br><br>
+<br><br><br><br><br>
 
 <h1 style="text-align: center;">
 <span style="font-size:50px;">
-欢迎来到帆楼的图书馆 ε٩(๑> ₃ <)۶з
+欢迎来到帆楼的图书馆 ๐•ᴗ•๐
 </span>
 </h1>
 
 <h2 style="text-align: center;">
 <span style="font-size:24px;">
-	那日泛舟离岸, 花落无声; 今朝过楼听风, 叶生有凭.
+	那日泛舟离岸, 花落无声; &nbsp;今朝过楼听风, 叶生有凭.
 </span>
 </h2>
