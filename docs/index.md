@@ -9,6 +9,7 @@ nostatistics: true
 comments: false
 icon: material/home
 hide_actions: true
+title: Home
 ---
 
 
