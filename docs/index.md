@@ -19,6 +19,16 @@ title: Home
   .md-source-file {
     display: none;
   }
+
+  /* 诗句在桌面端同一行，移动端分两行 */
+  .poem-line {
+    white-space: nowrap;
+  }
+  @media (max-width: 767px) {
+    .poem-line {
+      display: block;
+    }
+  }
 </style>
 <br><br><br><br><br>
 
@@ -30,6 +40,7 @@ title: Home
 
 <h2 style="text-align: center;">
 <span style="font-size:24px;">
-	那日泛舟离岸, 花落无声; &nbsp;今朝过楼听风, 叶生有凭.
+  <span class="poem-line">那日泛舟离岸, 花落无声;</span>
+  <span class="poem-line">今朝过楼听风, 叶生有凭.</span>
 </span>
 </h2>
