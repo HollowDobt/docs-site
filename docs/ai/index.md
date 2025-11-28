@@ -1,6 +1,6 @@
 ---
 comments: false
-icon: material/model
+icon: material/chess_knight
 ---
 
 # 人工智能

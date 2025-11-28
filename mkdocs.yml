@@ -3,7 +3,7 @@ site_name: Hollow's Library
 site_url: https://docs.hollowlib.top
 site_description: Flowers' Fade, Leaves' Birth.
 site_author: Hollow Dobt
-copyright: "&copy; 2025 - today Hollow Dobt | <a href='https://icp.gov.moe/?keyword=20257760' target='_blank'>萌ICP备20257760号</a>"
+copyright: "<a href='https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh' target='_blank' class='license-link'>&copy; 2025 - today Hollow Dobt</a> | <a href='https://icp.gov.moe/?keyword=20257760' target='_blank'>萌ICP备20257760号</a>"
 repo_url: https://github.com/hollowdobt/docs-site
 repo_name: hollowdobt/docs-site
 edit_uri: edit/main/docs/
@@ -125,9 +125,12 @@ extra:
     - icon: fontawesome/solid/envelope
       link: mailto:rxq@hollowlib.top
       name: Hollow's Email
-    - icon: fontawesome/solid/heart
+    - icon: octicons/home-fill-16
       link: https://hollowlib.top
       name: Hollow's Main Site
+    - icon: octicons/rss-16
+      link: https://blogs.hollowlib.top
+      name: Hollow's Blog Site
 
 plugins:
   # 启用搜索
@@ -138,6 +141,8 @@ plugins:
   - tags   # 启用标签
   - git-revision-date-localized:
       enable_creation_date: true
+      exclude:
+        - index.md
   - git-committers:
       repository: hollowdobt/docs-site
       branch: main
@@ -145,6 +150,7 @@ plugins:
   - glightbox # 允许图片缩放
   - add-number:
       order: 2
+  - statistics
   - minify:
       minify_html: true
       minify_js: true
@@ -155,8 +161,8 @@ plugins:
 
 
 nav:
-  # - "Hollow's Library":
-  #   - index.md
+  - "Home":
+    - index.md
 
   - "Programming Language":
       - programlang/index.md
