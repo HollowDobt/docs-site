@@ -1,5 +1,6 @@
 ---
 comments: false
+icon: material/model
 ---
 
 # 人工智能

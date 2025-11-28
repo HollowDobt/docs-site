@@ -1,5 +1,6 @@
 ---
 comments:
+icon: material/chess
 ---
 
 # 首页

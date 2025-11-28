@@ -1,5 +1,8 @@
 ---
 comments: false
+hide:
+  - navigation
+  - toc
 ---
 
 # Hollow's Library
