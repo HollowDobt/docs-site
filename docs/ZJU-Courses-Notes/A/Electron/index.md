@@ -20,4 +20,4 @@
 - [x] [§ Chap I      电路和电路元件](Circuitsandelectroniccomponents.md)
 - [x] [§ Chap II     电路分析基础](CircuitAnalysisBasics.md)
 - [x] [§ Chap III    分立元件基本电路](BaseDivi.md)
-- [ ] [§ Chap V      集成运算放大电路](InteOperaAmpl)
+- [ ] [§ Chap V      集成运算放大电路](InteOperaAmpl.md)
