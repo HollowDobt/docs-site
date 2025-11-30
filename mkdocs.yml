@@ -184,6 +184,7 @@ nav:
           - "• Chap I 电路和电路元件": ZJU-Courses-Notes/A/Electron/Circuitsandelectroniccomponents.md
           - "• Chap II 电路分析基础": ZJU-Courses-Notes/A/Electron/CircuitAnalysisBasics.md
           - "• Chap III 分立元件基本电路": ZJU-Courses-Notes/A/Electron/BaseDivi.md
+          - "• Chap IV 数字集成电路": ZJU-Courses-Notes/A/Electron/DigitalCircuits.md
           - "• Chap V 集成运算放大电路": ZJU-Courses-Notes/A/Electron/InteOperaAmpl.md
       - "§ 理论力学(甲)":
           - ZJU-Courses-Notes/A/TheoreticalMechanics/index.md
