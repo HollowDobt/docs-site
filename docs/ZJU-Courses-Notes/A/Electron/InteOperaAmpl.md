@@ -395,11 +395,11 @@ $$
 联立四个方程组(为了方便直接将最后一个方程带入第三个, 化简为三个):
 
 $$
-\left\{\begin{matrix}
+\begin{cases}
 u_{o1}=-\frac{R_3}{R_1}u_I-\frac{R_3}{R_2}u_{o3} \\
 u_o=-\frac{1}{R_4C_F}\int u_{o1}\mathrm d t \\
 u_{o3}=-\frac{R_8}{R_7}\frac{R_6}{R_5+R_6}u_o
-\end{matrix}\right.
+\end{cases}
 $$
 
 未知数有 $u_{o1}$, $u_{o3}$, $u_o$, 将三个方程转化为一个仅含 $u_o$ 的表达式:
