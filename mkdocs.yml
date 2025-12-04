@@ -167,6 +167,7 @@ nav:
       - programlang/index.md
       - "§ C++":
           - "C++ 面向对象程序设计": programlang/C++/C++OOP.md
+      - "§ 环境搭建":
           - "类 Unix 系统下 CMake 与使用第三方包的 C++ 环境的搭建": programlang/CMake.md
 
   - "AI":
