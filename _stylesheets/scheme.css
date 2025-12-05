@@ -1,0 +1,55 @@
+/* 颜色主题设置 */
+
+/* 深色主题色彩设置, 默认使用 */
+[data-md-color-scheme="slate"][data-md-color-primary="custom"] {
+    --md-default-bg-color: #161616;
+    --md-default-bg-color--light: #161616;
+    --md-default-bg-color--lighter: #161616;
+    --md-default-bg-color--lightest: #161616;
+
+    --md-default-fg-color: rgba(255, 255, 255, 0.931);
+    --md-default-fg-color--light: rgba(255, 255, 255, 0.67);
+    --md-default-fg-color--lighter: rgba(255, 255, 255, 0.412);
+    --md-default-fg-color--lightest: rgba(255, 255, 255, 0.185);
+
+    --md-primary-fg-color: #101014;
+    --md-typeset-a-color: #a8a8a8;
+    --md-footer-fg-color: #ffffffe1;
+    --md-footer-bg-color: #101014;
+    --md-footer-bg-color--dark: #101014;
+    --md-footer-fg-color--light: #ffffffe6;
+    --md-footer-fg-color--lighter: #ffffffdc;
+    --md-code-bg-color: #111215;
+
+    --md-primary-fg-color--light: #66e0c2;  /* 亮一些：用于悬停/波纹 */
+    --md-primary-fg-color--dark:  #00644c;  /* 深一些：用于按下 */
+    --md-accent-fg-color:         #009d7d;
+    --md-typeset-a-color:         var(--md-accent-fg-color);
+}
+
+input.md-search__input {
+  background-color: #ffffffe8;
+}
+
+[data-md-color-scheme="slate"] input.md-search__input {
+  background-color: #000;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .md-content__button {
+  color: #ababab;
+}
+
+@media screen and (max-width: 59.9375em) {
+  .md-nav__source {
+    background-color: var(--md-primary-fg-color);
+  }
+}
+@media screen and (max-width: 76.1875em) {
+  .md-nav--primary .md-nav__title {
+    background-color: var(--md-primary-fg-color);
+  }
+}
+
+[data-md-color-scheme="slate"] .md-annotation__index:after {
+  background-color: #4c4c4c;
+}
