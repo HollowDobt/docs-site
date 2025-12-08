@@ -22,13 +22,10 @@ theme:
     accent: custom
   
   icon:
-    # 仓库图标
     repo: fontawesome/brands/github-alt
-    # 标签(tags)图标注册
     tag: 
       learn: fontawesome/solid/book
   
-  # material 特性启用
   features:
     # 导航栏类
     - navigation.top
@@ -188,6 +185,7 @@ nav:
           - "• Chap III 分立元件基本电路": ZJU-Courses-Notes/A/Electron/BaseDivi.md
           - "• Chap IV 数字集成电路": ZJU-Courses-Notes/A/Electron/DigitalCircuits.md
           - "• Chap V 集成运算放大电路": ZJU-Courses-Notes/A/Electron/InteOperaAmpl.md
+          - "• Chap VI 波形产生与变换": ZJU-Courses-Notes/A/Electron/sincos.md
           - "• Chap VIII 功率电子电路": ZJU-Courses-Notes/A/Electron/powercontrol.md
       - "§ 理论力学(甲)":
           - ZJU-Courses-Notes/A/TheoreticalMechanics/index.md

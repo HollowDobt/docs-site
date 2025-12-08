@@ -22,4 +22,5 @@
 - [x] [§ Chap III    分立元件基本电路](BaseDivi.md)
 - [x] [§ Chap IV     数字集成电路](DigitalCircuits.md)
 - [x] [§ Chap V      集成运算放大电路](InteOperaAmpl.md)
+- [x] [§ Chap VI     波形产生与变换](sincos.md)
 - [x] [§ Chap VIII   功率电子电路](powercontrol.md)

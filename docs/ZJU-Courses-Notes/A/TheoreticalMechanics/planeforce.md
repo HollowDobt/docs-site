@@ -18,10 +18,10 @@ $$
 - 平面力系的所有力最终都可以简化为**一个力**(主矢)和**一个力偶**(主矩), 表达为:
 
 $$
-\left\{\begin{matrix}
+\begin{cases}
 \overrightarrow{F_R'} = \sum_{i=1}^n \overrightarrow{F_i}\\
 \overrightarrow {M_R' }=\sum_{ i=1}^n \overrightarrow{M_i} 
-\end{matrix}\right.
+\end{cases}
 $$
 
 - 无论以哪个作为参考点简化为一个力和一个力偶, **主矢都保持不变**; 与此同时, **主矩会发生变化**. 前者是显而易见的, 对于后者, 我们前面已经提到, 力在平面力系中的平移可以等价为一个同样的力和力偶, 因此主矩肯定会发生变化.
@@ -31,11 +31,11 @@ $$
 - 在平面系统中, 由 $n$ 个物体组成的物体系, 总共有不多于 $3n$ 个独立的平衡方程, 且分别为:
 
 $$
-\left\{\begin{matrix}
+\begin{cases}
 \sum_{i=1}^n \overrightarrow{F_{i_x}} = 0 \\
 \sum_{i=1}^n \overrightarrow{F_{i_y}} = 0 \\
 \sum_{i=1}^n \overrightarrow{M_i} = 0
-\end{matrix}\right.
+\end{cases}
 $$
 
 也就是 $x$, $y$, 方向三个刚体的自由度.
