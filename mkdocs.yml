@@ -197,6 +197,10 @@ nav:
           - "• Chap VI 平面力系": ZJU-Courses-Notes/A/TheoreticalMechanics/planeforce.md
       - "§ 大学物理(乙) II":
           - ZJU-Courses-Notes/A/PhysicsII/index.md
+          - "• Chap I 静电场": ZJU-Courses-Notes/A/PhysicsII/Electrostaticfield.md
+          - "• Chap II 恒稳电流/磁场": ZJU-Courses-Notes/A/PhysicsII/Constantcurrentmagneticfield.md
+          - "• Chap III 物质中的磁场": ZJU-Courses-Notes/A/PhysicsII/Magneticfieldinamedium.md
+          - "• Chap IV 光的干涉与衍射": ZJU-Courses-Notes/A/PhysicsII/InterferenceandDiffractionofLight.md
       - "§ 人工智能: 大规模数据分析与机器学习模型中的算法优化":
           - ZJU-Courses-Notes/A/BigData/index.md
           - "• LEC 1 Game Theory and Lower Bounds for Randomized Algorithms": ZJU-Courses-Notes/A/BigData/GameTheory.md
