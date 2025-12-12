@@ -53,3 +53,7 @@ input.md-search__input {
 [data-md-color-scheme="slate"] .md-annotation__index:after {
   background-color: #4c4c4c;
 }
+
+[data-md-color-scheme = "slate"] .md-typeset strong {
+  color: #97D077;
+}
