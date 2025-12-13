@@ -96,8 +96,8 @@ extra_css:
   - _stylesheets/extra.css
 
 extra_javascript:
-  - https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js
   - _javascripts/math.js
+  - https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js
 
 extra:
   # 图标返回到标签页面
