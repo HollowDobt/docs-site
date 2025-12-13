@@ -94,11 +94,11 @@ markdown_extensions:
 
 extra_css:
   - _stylesheets/extra.css
-  # - static/dist/output.css
+  - https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css
 
 extra_javascript:
   - _javascripts/math.js
-  - https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js
 
 extra:
   # 图标返回到标签页面
