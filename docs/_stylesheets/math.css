@@ -1,6 +1,6 @@
-:root .md-typeset .katex-display {
-  margin-top: 0em !important;
-  margin-bottom: 0em !important;
+.katex-display {
+  margin-top: -1em !important;
+  margin-bottom: -1em !important;
   display: block;
 }
 
