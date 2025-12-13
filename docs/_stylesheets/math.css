@@ -1,0 +1,9 @@
+:root .md-typeset .katex-display {
+  margin-top: 0em !important;
+  margin-bottom: 0em !important;
+  display: block;
+}
+
+:root .katex:not(.katex-display) {
+  margin-inline: 0.15em;
+}

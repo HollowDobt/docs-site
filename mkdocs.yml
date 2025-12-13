@@ -15,7 +15,6 @@ theme:
   logo: _assets/favicon.png
   favicon: _assets/favicon.png
 
-  # 界面永久夜间模式, 减少作者图片设置等工作量(hhh)
   palette:
     scheme: slate
     primary: custom
@@ -34,7 +33,7 @@ theme:
     - navigation.indexes
     - navigation.tracking
     - navigation.prune
-    # - navigation.instant
+    - navigation.instant
     # - navigation.instant.prefetch
     # 搜索类
     - search.suggest
@@ -94,10 +93,13 @@ markdown_extensions:
 
 extra_css:
   - _stylesheets/extra.css
+  - https://cdn.jsdelivr.net/npm/katex@0.16.27/dist/katex.min.css
+  - _stylesheets/math.css
 
 extra_javascript:
   - _javascripts/math.js
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.27/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.27/dist/contrib/auto-render.min.js
 
 extra:
   # 图标返回到标签页面
