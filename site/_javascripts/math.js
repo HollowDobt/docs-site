@@ -1,67 +1,111 @@
-(() => {
-  // Do NOT clobber MathJax object created by the loader; just extend its config.
-  const mj = window.MathJax || {};
-
-  mj.tex = {
-    ...mj.tex,
-    inlineMath: [["\\(", "\\)"], ["$", "$"]],
-    displayMath: [["\\[", "\\]"], ["$$", "$$"]],
-    processEscapes: true,
-    processEnvironments: true
+(function () {
+  // Merge helper to avoid relying on modern syntax (better mobile compatibility)
+  var extend = function (target, source) {
+    var out = target || {};
+    if (!source) return out;
+    for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        out[key] = source[key];
+      }
+    }
+    return out;
   };
 
-  mj.options = {
-    ...mj.options,
-    ignoreHtmlClass: ".*|",
-    processHtmlClass: "arithmatex"
-  };
+  var mj = window.MathJax || {};
 
-  mj.chtml = {
-    ...mj.chtml,
-    scale: 0.9
-  };
+  var tex = extend({}, mj.tex);
+  tex.inlineMath = [["\\(", "\\)"], ["$", "$"]];
+  tex.displayMath = [["\\[", "\\]"], ["$$", "$$"]];
+  tex.processEscapes = true;
+  tex.processEnvironments = true;
+  mj.tex = tex;
 
-  // Ensure the global is kept (don’t overwrite if already set)
+  var options = extend({}, mj.options);
+  options.ignoreHtmlClass = ".*|";
+  options.processHtmlClass = "arithmatex";
+  mj.options = options;
+
+  var chtml = extend({}, mj.chtml);
+  chtml.scale = 0.9;
+  mj.chtml = chtml;
+
   window.MathJax = mj;
 
-  let firstFixPending = true;
+  var firstFixPending = true;
 
-  const typesetMath = (root = document.body, isRetry = false) => {
-    const tryTypeset = () => {
-      if (!window.MathJax?.typesetPromise || !MathJax.startup?.promise) {
+  var getFontsReadyPromise = function () {
+    try {
+      var fonts = document.fonts;
+      if (fonts && fonts.ready && typeof fonts.ready.then === "function") {
+        return typeof fonts.ready.catch === "function"
+          ? fonts.ready.catch(function () {})
+          : fonts.ready.then(
+              function () {},
+              function () {}
+            );
+      }
+    } catch (err) {}
+    return Promise.resolve();
+  };
+
+  var typesetMath = function (root, isRetry) {
+    if (!root) {
+      root = document.body;
+    }
+    if (typeof isRetry === "undefined") {
+      isRetry = false;
+    }
+
+    var tryTypeset = function () {
+      var mjGlobal = window.MathJax;
+      var startup = mjGlobal && mjGlobal.startup;
+
+      if (!mjGlobal || !mjGlobal.typesetPromise || !startup || !startup.promise) {
         setTimeout(tryTypeset, 25);
         return;
       }
 
-      const fontsReady = window.document?.fonts?.ready?.catch?.(() => {}) || Promise.resolve();
-
-      MathJax.startup.promise
-        .then(() => fontsReady)
-        .then(() => {
-          // Clear any cached render info so navigation.instant pages don't carry stale math
-          MathJax.startup.document?.clear?.();
-          MathJax.startup.output?.clearCache?.();
-          MathJax.typesetClear?.();
-          MathJax.texReset?.();
-          return MathJax.typesetPromise([root]);
+      mjGlobal.startup.promise
+        .then(function () {
+          return getFontsReadyPromise();
         })
-        .then(() => {
-          // On the very first render, run a quick follow-up typeset to correct
-          // any late-loading fonts/CSS that might shift layout after deploy.
+        .then(function () {
+          if (startup.document && typeof startup.document.clear === "function") {
+            startup.document.clear();
+          }
+          if (startup.output && typeof startup.output.clearCache === "function") {
+            startup.output.clearCache();
+          }
+          if (typeof mjGlobal.typesetClear === "function") {
+            mjGlobal.typesetClear();
+          }
+          if (typeof mjGlobal.texReset === "function") {
+            mjGlobal.texReset();
+          }
+          return mjGlobal.typesetPromise([root]);
+        })
+        .then(function () {
           if (!isRetry && firstFixPending) {
             firstFixPending = false;
-            setTimeout(() => typesetMath(root, true), 60);
+            setTimeout(function () {
+              typesetMath(root, true);
+            }, 60);
           }
         })
-        .catch((err) => console.error("[MathJax] typeset failed:", err));
+        .catch(function (err) {
+          console.error("[MathJax] typeset failed:", err);
+        });
     };
 
     tryTypeset();
   };
 
-  // First page load (after MathJax finishes startup)
   typesetMath(document.body);
 
-  // Subsequent instant-navigation loads
-  document$.subscribe(({ body }) => typesetMath(body));
+  if (typeof document$ !== "undefined" && document$ && typeof document$.subscribe === "function") {
+    document$.subscribe(function (ctx) {
+      var body = ctx && ctx.body ? ctx.body : document.body;
+      typesetMath(body);
+    });
+  }
 })();
