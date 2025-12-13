@@ -34,8 +34,8 @@ theme:
     - navigation.indexes
     - navigation.tracking
     - navigation.prune
-    - navigation.instant
-    - navigation.instant.prefetch
+    # - navigation.instant
+    # - navigation.instant.prefetch
     # 搜索类
     - search.suggest
     - search.highlight
