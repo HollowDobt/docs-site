@@ -13,9 +13,14 @@
 - 课堂内作业 $10\%$
 - 期末卷面成绩 $50\%$
 
+!!! note
+	本门课程和电工电子学实验关联十分密切, 基本上是讲完理论就进行实验操作, 因此实验课的复习资料同样整理在此. 博主的老师是赵江萍, 这门课不同老师的期末随堂验收风格很不一样, 因此其他老师的仅供参考.
+
 ## 笔记列表
 
 ---
+
+- [x] [§ Appendix      电工电子学实验复习](ElectricalandElectronicExperiments.md)
 
 - [x] [§ Chap I      电路和电路元件](Circuitsandelectroniccomponents.md)
 - [x] [§ Chap II     电路分析基础](CircuitAnalysisBasics.md)
