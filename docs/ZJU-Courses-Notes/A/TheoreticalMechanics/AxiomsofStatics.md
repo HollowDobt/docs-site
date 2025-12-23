@@ -99,13 +99,13 @@ $$
 
 - **平面汇交力系** 所有力的作用线交于一点. 此类力系的最终化简结果是一个作用在汇交点的合力:$\sum\overrightarrow {F_i}=\overrightarrow {F_R}$. 其平衡条件显然是:$\overrightarrow {F_R} = 0$.
 - **平面力偶系** 只受到力偶的作用. 此类力系最终化简结果是一个力偶:$\sum\overrightarrow {M_i}=\overrightarrow {M_R}$. 其平衡条件显然是:$\overrightarrow {M_R} = 0$.
-- **平面任意力系** 既受到力的作用也受到力偶的作用. 此类力系的最终化简结果是一个合力(主矢)和一个合力偶(主矩). 设简化中心为$O$, 则有:$\sum\overrightarrow {F_i}=\overrightarrow {F_R}$且$\sum\overrightarrow {M(O)_i}=\overrightarrow {M(O)_R}$. 其平衡条件显然是:$\overrightarrow {F_R} = 0$且$\overrightarrow {M(O)_R} = 0$.
+- **平面任意力系** 既受到力的作用也受到力偶的作用. 此类力系的最终化简结果是一个合力(主矢)和一个主矩(注意区别合力偶与主矩. 合力偶只是各个力偶之和, 而主矩则需要在合力偶的基础上加上$\sum\overrightarrow{r_i}\times\overrightarrow{F_i}$). 设简化中心为$O$, 则有:$\sum\overrightarrow {F_i}=\overrightarrow {F_R}$且$\sum\overrightarrow {M(O)_i}=\overrightarrow {M(O)_R}$. 其平衡条件显然是:$\overrightarrow {F_R} = 0$且$\overrightarrow {M(O)_R} = 0$.
 
 !!! note
-	 将简化中心从$O$改到$O'$, 很容易证明前后主矢不变. 而主矩则由主矢和两简化中心之间的相对位矢决定, 满足:
+	 将简化中心从$O$改到$O'$, 很容易证明前后主矢不变. 而主矩则由主矢和两简化中心之间的相对位矢决定, 因为$\overrightarrow {M(O')_R} = \sum{(r_{O'O} + r_{OP})}\times\overrightarrow{F_i}$, $\overrightarrow {M(O)_R} = \sum{r_{OP}}\times\overrightarrow{F_i}$. 因此满足:
 	
 	$$
-	\overrightarrow {M(O')_R} = \overrightarrow{M(O)_R} +\overrightarrow{r_{OO'}} \times \overrightarrow{F_R}
+	\overrightarrow {M(O')_R} = \overrightarrow{M(O)_R} -\overrightarrow{r_{OO'}} \times \overrightarrow{F_R}
 	$$
 	
 	从这个表达式可以进一步推导出, 对平面力偶系而言, 刚体上任意一点作为简化中心, 其合力偶都是不变的.
@@ -125,12 +125,12 @@ $$
 #### 一力二矩
 
 - **定义** 所谓"二矩", 指分别选择两个简化中心简化力矩, 合力矩都为$0$. "一力", 指选择一个方向(作用线)简化力, 合力为$0$, **并且这个方向不垂直于两个简化中心连成的直线的作用线**.
-- **证明** 假定两个力矩简化中心$A$, $B$, 已知$M(A)=0$, $M(B)=0$, 我们知道单个合力矩方程无法导出有约束的合力方程, 那么可以考虑$\overrightarrow {M(O')_R} = \overrightarrow{M(O)_R} +\overrightarrow{r_{OO'}} \times \overrightarrow{F_R}$, 带入数据, 即:${M(B)} = {M(A)} +{r_{AB}} \times {F_R}$(其中$F_R$垂直于$r_{AB}$). 又因为$M(A)=M(B)=0$, 可以确定垂直于$AB$方向的合力为$0$. 再加上额外补充的一个不垂直于$AB$方向的合力方程, 其值为$0$, 因此原式等效为二力一矩方程, 可以确定刚体的静力平衡.
+- **证明** 假定两个力矩简化中心$A$, $B$, 已知$M(A)=0$, $M(B)=0$, 我们知道单个合力矩方程无法导出有约束的合力方程, 那么可以考虑$\overrightarrow {M(O')_R} = \overrightarrow{M(O)_R} -\overrightarrow{r_{OO'}} \times \overrightarrow{F_R}$, 带入数据, 即:${M(B)} = {M(A)} -{r_{AB}} \times {F_R}$(其中$F_R$垂直于$r_{AB}$). 又因为$M(A)=M(B)=0$, 可以确定垂直于$AB$方向的合力为$0$. 再加上额外补充的一个不垂直于$AB$方向的合力方程, 其值为$0$, 因此原式等效为二力一矩方程, 可以确定刚体的静力平衡.
 
 #### 三矩
 
 - **定义** 与上面类似, 即选择三个简化中心简化力矩, 合力矩都为$0$, **并且三个简化中心必须构成一个三角形**.
-- **证明** 类似地, 单个合力矩方程无法导出有约束的合力方程. 设三个简化中心$A$, $B$, $C$, 根据$\overrightarrow {M(O')_R} = \overrightarrow{M(O)_R} +\overrightarrow{r_{OO'}} \times \overrightarrow{F_R}$确定${M(B)} = {M(A)} +{r_{AB}} \times {F_R}$与${M(C)} = {M(A)} +{r_{AC}} \times {F_L}$. 已知三个简化中心构成一个三角形, 则$\angle BAC\ne 0$, 自然$F_R$与$F_L$不共线. 根据平面向量基底原理, $F_R$与$F_L$不共线意味着两个方向力的分量皆为$0$, 等效于二力一矩方程, 因此同样可以确定刚体的静力平衡.
+- **证明** 类似地, 单个合力矩方程无法导出有约束的合力方程. 设三个简化中心$A$, $B$, $C$, 根据$\overrightarrow {M(O')_R} = \overrightarrow{M(O)_R} -\overrightarrow{r_{OO'}} \times \overrightarrow{F_R}$确定${M(B)} = {M(A)} -{r_{AB}} \times {F_R}$与${M(C)} = {M(A)} -{r_{AC}} \times {F_L}$. 已知三个简化中心构成一个三角形, 则$\angle BAC\ne 0$, 自然$F_R$与$F_L$不共线. 根据平面向量基底原理, $F_R$与$F_L$不共线意味着两个方向力的分量皆为$0$, 等效于二力一矩方程, 因此同样可以确定刚体的静力平衡.
 
 ### 理论力学可解性
 
@@ -289,3 +289,73 @@ $$
 
 !!! success
 	首先, 3 杆显然是零力杆. 接下来, 整体法三个未知量三个方程, 可解出$B$, $E$处的约束. 以$GDEF$为整体做$CH$与$DG$之间的截面可以求出 1, 2 杆所受的约束力.
+
+## 空间力系
+
+---
+
+!!! note
+	力系中各力的作用线不处于同一平面内时, 这样的力系称为**空间力系**. 空间力系中同样分为空间汇交力系, 空间力偶系, 空间平行力系以及前三者混合组成的空间任意力系.
+	
+	因为定义几乎完全一样, 这里不再过多赘述这些概念定义.
+
+### 基本定义
+
+- **力矩矢** 空间中力对点的矩, 定义为: $\overrightarrow{M(O)}=\overrightarrow{r_i}\times\overrightarrow{F_i}$. 可以利用下面的行列式计算. 但是注意, 这个力矩矢的大小在非纯力偶系下显然是会随着选定的简化中心改变而改变的, 这称为"定位矢量".
+
+$$
+\overrightarrow{M(O)}=\overrightarrow{r_i}\times\overrightarrow{F_i}=(x_i,y_i,z_i)\times (F_x,F_y,F_z)=\begin{vmatrix}
+ i & j & k\\
+ x & y & z\\
+ F_x & F_y & F_z
+\end{vmatrix}
+$$
+
+- **力对轴的矩** 设力的作用点到轴的距离为$\overrightarrow r$(方向: 从轴到力的作用点), 那么对应值为: $\overrightarrow{M(X)}=\overrightarrow{r_i}\times\overrightarrow{F_i}$.
+- **力矩矢与力对轴的矩的关系** 力矩矢对某一轴的分量等于力对该轴的矩. 具体举例而言: $\overrightarrow{M(O)_x}=\overrightarrow{M(X)}$.
+- **力偶矩矢** 就是力偶, 因为在空间力系中方向不是只凭借$\pm$能够表示的, 因此添加"矢"字强调这是一个矢量. 另外, 在空间中, 力偶只能在其作用的刚体同一表面上移动. 实例见下图所示.
+
+![](https://pan.xxbyq.net/f/y1A4FZ/%E6%88%AA%E5%B1%8F2025-12-18%2014.23.11.png)
+
+- **力螺旋** 由一力与一力偶组成的力系, 并且力垂直于力偶作用的平面. 我们区分**左螺旋**和**右螺旋**. 区分标准: 若力与力偶形成右手螺旋, 那么是右螺旋; 否则是左螺旋.
+
+### 基本结论(空间任意力系简化结果)
+
+- **一个合力偶** 没什么好说的, $\overrightarrow{F_R}=0$, $\overrightarrow{M}\ne0$.
+- **一个合力** 也没什么好说的, $\overrightarrow{F_R}=0$.
+- **主矢&主矩混合** 也就是所谓的$\overrightarrow{F_R}\ne0$且$\overrightarrow{M}\ne0$分为几种情况. (1)简化的主矩与主矢垂直: 可以将简化中心切换到另一点, 只剩下一个**主矢**; (2)简化的主矩与主矢平行: 不能再做简化, 构成一个**力螺旋**; (3)既不平行也不垂直: 最终简化结果同样一定是**力螺旋**. 示例如下, 最终只留下了与$\overrightarrow{F_R}$平行的一个主矩分量$\overrightarrow{M_R(y)}$
+
+![](https://pan.xxbyq.net/f/j8oRhB/%E6%97%A0%E6%A0%87%E9%A2%98%E7%9A%84%E7%AC%94%E8%AE%B0%E6%9C%AC%20%2810%29-5.jpg)
+
+### 基本结论(空间任意力系平衡方程)
+
+平衡条件(基本):
+
+$$
+\sum_{i=1}^n{F_x} = 0\ \ \ \ \ 
+\sum_{i=1}^n{F_y} = 0\ \ \ \ \ 
+\sum_{i=1}^n{F_z} = 0\ \ \ \ \ 
+\sum_{i=1}^n{M_x} = 0\ \ \ \ \ 
+\sum_{i=1}^n{M_y} = 0\ \ \ \ \ 
+\sum_{i=1}^n{M_z} = 0\ \ \ \ \ 
+$$
+
+当然, 还可以衍生出"四矩二力"等等解法, 但是因为空间力系本身求解的繁琐性, 一般根本用不到这么复杂的结论. 关键是记住, 空间物体系中单个物体至多可以形成六个约束方程(当然可能少于这个量, 原因同样是非任意力系形成的方程少于六个).
+
+!!! note
+	空间汇交力系, 空间力偶系, 空间平行力系这另外三种力系可提供的约束方程数目都是三个.
+
+### 基本结论(重心与形心)
+
+!!! note
+	此处研究的问题基本都是"怎么求解重心", 只是因为匀质物体求解质心时比较灵活, 因此我们更常研究匀质物体的质心, 也就是形心.
+
+- **形心/重心公式直接求解** 一般不可用, 可以直接用形心公式求解得到的基本也能一眼看出来: $x_c=\frac{\sum x_im_i}{\sum m_i}$, $y_c=\frac{\sum y_im_i}{m_i}$.
+- **有限割补法** 思路就是将不规则物体分割成几个规则物体, 再将分割得到的规则物体视作微元代回到$x_c=\frac{\sum x_im_i}{\sum m_i}$和$y_c=\frac{\sum y_im_i}{m_i}$, 与上一种方法本质上是一致的, 但是更灵活常用. 下面是一道例题:
+
+![](https://pan.xxbyq.net/f/A4MWcP/%E6%88%AA%E5%B1%8F2025-12-18%2016.32.29.png)
+
+## 摩擦
+
+---
+

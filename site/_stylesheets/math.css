@@ -1,26 +1,9 @@
-/* KaTeX block display spacing tweaks.
- * KaTeX upstream sets `.katex-display { margin: 1em 0; }` (see katex.min.css),
- * which is a bit loose next to paragraph text in Material.
- */
-
-/* Primary override: tighter vertical rhythm for display math */
-:root .md-typeset .katex-display {
-  margin-top: 0.35em !important;
-  margin-bottom: 0.5em !important;
+.katex-display {
+  margin-top: -1em !important;
+  margin-bottom: -1em !important;
   display: block;
 }
 
-/* Arithmatex wrapper (pymdownx) rendered by KaTeX still carries this class */
-:root .md-typeset .arithmatex {
-  display: block;
-  margin-top: 0.35em !important;
-  margin-bottom: 0.5em !important;
-}
-
-/* If a display formula lives directly inside a paragraph wrapper, trim it too */
-:root .md-typeset p > .katex-display,
-:root .md-typeset p > .arithmatex {
-  margin-top: 0.35em !important;
-  margin-bottom: 0.35em !important;
-  display: block;
+:root .katex:not(.katex-display) {
+  margin-inline: 0.15em;
 }
