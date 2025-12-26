@@ -102,7 +102,7 @@ $$
 - **平面任意力系** 既受到力的作用也受到力偶的作用. 此类力系的最终化简结果是一个合力(主矢)和一个主矩(注意区别合力偶与主矩. 合力偶只是各个力偶之和, 而主矩则需要在合力偶的基础上加上$\sum\overrightarrow{r_i}\times\overrightarrow{F_i}$). 设简化中心为$O$, 则有:$\sum\overrightarrow {F_i}=\overrightarrow {F_R}$且$\sum\overrightarrow {M(O)_i}=\overrightarrow {M(O)_R}$. 其平衡条件显然是:$\overrightarrow {F_R} = 0$且$\overrightarrow {M(O)_R} = 0$.
 
 !!! note
-	 将简化中心从$O$改到$O'$, 很容易证明前后主矢不变. 而主矩则由主矢和两简化中心之间的相对位矢决定, 因为$\overrightarrow {M(O')_R} = \sum{(r_{O'O} + r_{OP})}\times\overrightarrow{F_i}$, $\overrightarrow {M(O)_R} = \sum{r_{OP}}\times\overrightarrow{F_i}$. 因此满足:
+	 将简化中心从$O$改到$O'$, 很容易证明前后主矢不变. 而主矩则由主矢和两简化中心之间的相对位矢决定, 因为$\overrightarrow {M(O')_R} = \sum{(\overrightarrow{r_{O'O}} + \overrightarrow{r_{OP}})}\times\overrightarrow{F_i}$, $\overrightarrow {M(O)_R} = \sum{\overrightarrow{r_{OP}}}\times\overrightarrow{F_i}$. 因此满足:
 	
 	$$
 	\overrightarrow {M(O')_R} = \overrightarrow{M(O)_R} -\overrightarrow{r_{OO'}} \times \overrightarrow{F_R}
@@ -170,11 +170,11 @@ $$
 	对整体分析, 总计有三个未知量: $A$处铰链产生的$x$, $y$方向的力的约束, $BC$产生的二力杆件类约束. 对整体列出$x$, $y$方向受力平衡方程和力矩平衡方程即可:
 	
 	$$
-	\left\{\begin{align*}
+	\left\{\begin{aligned}
 	&\sum F_x=0\longrightarrow F_{A_x}=F_B\cos\theta \\
 	&\sum F_y=0\longrightarrow P_1=F_{A_y}+F_B\sin \theta \\
 	&\sum M(A)=0\longrightarrow  F_B\sin \theta\cdot |AB|=P_1\cdot |AD|
-	\end{align*}\right.
+	\end{aligned}\right.
 	$$
 
 #### EX3 整体法+局部补充方程求解
@@ -187,11 +187,11 @@ $$
 	对整体分析, 总计有四个未知量: $A$处产生的$x$, $y$方向的力的约束与约束力偶, $B$产生的竖直向上的约束力.仅列出整体的三个方程是不够的, 但是可以先列出, 如果不引入其他未知量就只需要额外一个补充方程:
 	
 	$$ 
-	\left\{\begin{align*}
+	\left\{\begin{aligned}
 	&\sum F_x=0\longrightarrow F_{A_x}=0 \\
 	&\sum F_y=0\longrightarrow F_{A_y}+F_B=P_1 + p\cdot 1+P_2+\frac{1}{2}\cdot q\cdot 1 \\
 	&\sum M(A)=0\longrightarrow  M_A-0.5\times P_1-\frac{3}{2}\times (p\cdot 1) -2.5\times P_2 +3\times F_B - \frac{10}{3}\times (\frac{1}{2}q\cdot 1) = 0
-	\end{align*}\right.
+	\end{aligned}\right.
 	$$
 	
 	我们知道, 唯一可能不引入其他未知量的, 还想要得到补充方程的方法有且仅有力矩方程. 因为$CD$杆受力情况相对简单, 我们研究$CD$杆部分的受力情况. $C$处显然不会提供额外的力矩, 因此让$CD$对$C$处列力矩平衡方程, 得到补充方程:

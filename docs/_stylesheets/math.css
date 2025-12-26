@@ -1,9 +1,0 @@
-.katex-display {
-  margin-top: -1em !important;
-  margin-bottom: -1em !important;
-  display: block;
-}
-
-:root .katex:not(.katex-display) {
-  margin-inline: 0.15em;
-}
