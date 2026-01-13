@@ -20,8 +20,6 @@
 
 ---
 
-- [x] [§ Appendix      电工电子学实验复习](ElectricalandElectronicExperiments.md)
-
 - [x] [§ Chap I      电路和电路元件](Circuitsandelectroniccomponents.md)
 - [x] [§ Chap II     电路分析基础](CircuitAnalysisBasics.md)
 - [x] [§ Chap III    分立元件基本电路](BaseDivi.md)
@@ -29,3 +27,4 @@
 - [x] [§ Chap V      集成运算放大电路](InteOperaAmpl.md)
 - [x] [§ Chap VI     波形产生与变换](sincos.md)
 - [x] [§ Chap VIII   功率电子电路](powercontrol.md)
+- [x] [§ Appendix   2025 秋冬学期期末复习](review.md)
