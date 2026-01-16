@@ -19,6 +19,7 @@ title: Home
   .md-source-file {
     display: none;
   }
+  .md-content__button { display: none; }
 
   /* 诗句在桌面端同一行，移动端分两行 */
   .poem-line {

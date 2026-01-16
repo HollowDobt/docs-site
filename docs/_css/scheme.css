@@ -10,8 +10,9 @@
 
     --md-primary-fg-color: #efedec;
     --md-primary-bg-color: #000000;
-    --md-footer-bg-color--dark: #dedede;
 
+    --md-footer-bg-color: #efedec;
+    --md-footer-bg-color--dark: #dedede;
     --md-footer-fg-color: #000000;
     --md-footer-fg-color--light: #000000;
     --md-footer-fg-color--lighter: #000000;
@@ -54,3 +55,11 @@
 }
 
 .md-header .md-search__input::placeholder { color: transparent; }
+.md-nav__source {
+    background: var(--md-default-bg-color);
+    color: var(--md-default-fg-color);
+    border-bottom: 0.05rem solid var(--md-default-fg-color--lightest);
+}
+.md-nav__source a,
+.md-nav__source .md-source__repository { color: inherit; }
+.md-nav__source svg { fill: currentColor; }

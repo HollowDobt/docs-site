@@ -10,8 +10,9 @@
 
     --md-primary-fg-color: #efedec;
     --md-primary-bg-color: #000000;
-    --md-footer-bg-color--dark: #dedede;
 
+    --md-footer-bg-color: #efedec;
+    --md-footer-bg-color--dark: #dedede;
     --md-footer-fg-color: #000000;
     --md-footer-fg-color--light: #000000;
     --md-footer-fg-color--lighter: #000000;

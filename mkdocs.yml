@@ -114,13 +114,13 @@ plugins:
   - search:
       separator: '[\s\u200b\-]'
       lang: [zh, en]
-  # - git-revision-date-localized:
-  #     enable_creation_date: true
-  #     exclude:
-  #       - index.md
-  # - git-committers:
-  #     repository: hollowdobt/docs-site
-  #     branch: main
+  - git-revision-date-localized:
+      enable_creation_date: true
+      exclude:
+        - index.md
+  - git-committers:
+      repository: hollowdobt/docs-site
+      branch: main
   - add-number:
       order: 2
   - minify:
