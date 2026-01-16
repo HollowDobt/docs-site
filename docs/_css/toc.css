@@ -1,0 +1,9 @@
+/*
+ * -------------------
+ * TOC Style Settings
+ * -------------------
+ */
+
+.md-sidebar--secondary .md-nav .md-nav__item > .md-nav { display: none; }
+.md-sidebar--secondary .md-nav .md-nav__item:has(.md-nav__link--active) > .md-nav { display: block; }
+.md-sidebar--secondary .md-nav > .md-nav__list > .md-nav__item:has(> a.md-nav__link--active) > .md-nav { display: block; }

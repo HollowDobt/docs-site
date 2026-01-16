@@ -1,0 +1,9 @@
+/*
+ * -------------------
+ * Screen Style Settings
+ * -------------------
+ */
+
+@media screen and (min-width: 76.25em) { .md-grid { max-width: 1330px; } }
+
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4 { letter-spacing: 0.0; }

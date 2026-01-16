@@ -1,0 +1,102 @@
+/*
+ * -------------------
+ * Font Style Settings
+ * -------------------
+ */
+
+@import url("https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-web/style.css");
+
+:root {
+    --md-text-font: "Spectral", "LXGW WenKai Screen";
+    --md-code-font: "Noto Sans Mono", "LXGW WenKai Mono Screen";
+}
+
+/* spectral-latin-400-normal */
+@font-face {
+    font-family: "Spectral";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src:
+        url("https://cdn.jsdelivr.net/fontsource/fonts/spectral@latest/latin-400-normal.woff2") format("woff2"),
+        url("https://cdn.jsdelivr.net/fontsource/fonts/spectral@latest/latin-400-normal.woff") format("woff");
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* noto-sans-mono-latin-400-normal */
+@font-face {
+    font-family: "Noto Sans Mono";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src:
+        url("https://cdn.jsdelivr.net/fontsource/fonts/noto-sans-mono@latest/latin-400-normal.woff2") format("woff2"),
+        url("https://cdn.jsdelivr.net/fontsource/fonts/noto-sans-mono@latest/latin-400-normal.woff") format("woff");
+}
+
+/*
+ * -------------------
+ * Font Size Settings
+ * -------------------
+ */
+
+/* Title Font Size h1-h3 */
+.md-typeset h1 {
+    font-weight: 900;
+}
+.md-typeset h2 {
+    font-weight: 700;
+}
+.md-typeset h3 {
+    font-weight: 600;
+}
+
+/* Code Font Size */
+.md-typeset { font-size: .85rem; }
+.md-typeset code:not(pre code) { font-size: .73rem; }
+.md-typeset code { font-size: .73rem; }
+.md-typeset .linenodiv { font-size: .73rem; }
+
+/* Reference Font Size */
+.footnote p { font-size: .75rem; }
+.footnote ol { counter-reset: li; }
+.footnote li {
+    padding-left: .85rem;
+    counter-increment: li;
+    word-break: break-all;
+}
+.footnote li::marker {
+    content: counter(li);
+    font-size: .85rem;
+}
+
+/* Other Fonts Size */
+.md-typeset :is(.emojione,.twemoji,.gemoji) { vertical-align: sub; }
+.md-source-file__fact, .md-source__repository { font-size: .8rem; }
+.hr-before-source-file:not(:has(+ aside)) { display: none; }
+.md-tooltip2 > .md-typeset, .md-tooltip > .md-typeset {
+    font-size: .7rem;
+    line-height: 1.4;
+}
+.md-tooltip, .md-tooltip--inline {
+    max-width: 20rem;
+    word-break: break-word;
+    white-space: normal;
+}
+.md-sidebar--primary .md-nav__title,
+.md-sidebar--primary .md-nav__link,
+.md-sidebar--secondary .md-nav__title,
+.md-sidebar--secondary .md-nav__link, 
+.md-tabs__link { font-size: .8rem; }
+.md-header__title {font-size: 1.1rem;}
+
+.md-typeset mjx-container:not([display]),
+.md-typeset mjx-container[display="false"] {
+  font-size: 1em !important;
+}
+
+.md-typeset mjx-container[display="block"],
+.md-typeset mjx-container[display="true"] {
+  font-size: 1.15em !important;
+  margin-block: 0.0em !important;
+}

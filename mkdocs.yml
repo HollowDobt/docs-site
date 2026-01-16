@@ -1,60 +1,78 @@
-## Info
-site_name: Hollow's Library
+# Hollow's Library
+
+site_name: 帆楼的图书馆
 site_url: https://docs.hollowlib.top
 site_description: Flowers' Fade, Leaves' Birth.
 site_author: Hollow Dobt
-copyright: "<a href='https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh' target='_blank' class='license-link'>&copy; 2025 - today Hollow Dobt</a> | <a href='https://icp.gov.moe/?keyword=20257760' target='_blank'>萌ICP备20257760号</a>"
+copyright: "<a href='https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh'
+            target='_blank' class='license-link'>Copyright &copy; 2025 - 2026 Hollow Dobt</a> &nbsp;
+            <a href='https://icp.gov.moe/?keyword=20257760' target='_blank'>萌ICP备20257760号</a>"
 repo_url: https://github.com/hollowdobt/docs-site
 repo_name: hollowdobt/docs-site
 edit_uri: edit/main/docs/
 
-## Style
 theme:
   name: material
   custom_dir: overrides
-  logo: _assets/favicon.png
   favicon: _assets/favicon.png
+  language: zh
 
   palette:
-    scheme: slate
-    primary: custom
-    accent: custom
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/theme-light-dark
+        name: Follow System
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Dark Mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/white-balance-sunny
+        name: Light Mode
   
   icon:
+    logo: material/pencil-ruler-outline
     repo: fontawesome/brands/github-alt
     tag: 
       learn: fontawesome/solid/book
-  
+
   features:
-    # 导航栏类
     - navigation.top
     - navigation.tabs
-    - navigation.footer
     - navigation.indexes
     - navigation.tracking
     - navigation.prune
     - navigation.instant
-    # - navigation.instant.prefetch
-    # 搜索类
     - search.suggest
     - search.highlight
     - search.share
-    # Contents 访问者操作
     - content.tabs.link
     - content.tooltips
     - content.code.copy
     - content.code.annotate
     - content.action.edit
     - content.action.view
-    # 目录
+    - content.social
     - toc.follow
 
-
-## Markdown文件编辑加强
 markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - footnotes
+  - attr_list
+  - md_in_html
+
   - toc:
       toc_depth: 1-4
-      permalink: "#"
+      permalink: "§"
 
   - pymdownx.arithmatex:
       generic: true
@@ -62,7 +80,7 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-
+  
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -72,70 +90,37 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
       clickable_checkbox: false
-  ### Admonitions
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
-  ###
-  - pymdownx.caret
-  - pymdownx.mark
-  - pymdownx.tilde
+  
   - pymdownx.highlight:
       use_pygments: true
       anchor_linenums: true
       linenums: true
-      pygments_style: one-dark
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - footnotes
-  - attr_list
-  - md_in_html
 
 extra_css:
-  - _stylesheets/extra.css
+  - _css/extra.css
 
 extra_javascript:
-  - _javascripts/math.js
+  - _js/math.js
   - https://cdn.jsdelivr.net/npm/mathjax@4.1.0/tex-mml-chtml.js
 
 extra:
-  # 图标返回到标签页面
-  homepage: https://docs.hollowlib.top
-
   analytics:
     provider: google
     property: G-TCDSJEFYY3
 
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/hollowdobt
-      name: Hollow's Github
-    - icon: fontawesome/solid/envelope
-      link: mailto:rxq@hollowlib.top
-      name: Hollow's Email
-    - icon: octicons/home-fill-16
-      link: https://hollowlib.top
-      name: Hollow's Main Site
-    - icon: octicons/rss-16
-      link: https://blogs.hollowlib.top
-      name: Hollow's Blog Site
-
 plugins:
-  # 启用搜索
+  - glightbox
+  # - git-authors
   - search:
       separator: '[\s\u200b\-]'
-      lang:
-        - zh
-  - tags   # 启用标签
-  - git-revision-date-localized:
-      enable_creation_date: true
-      exclude:
-        - index.md
-  - git-committers:
-      repository: hollowdobt/docs-site
-      branch: main
-  - git-authors
-  - glightbox # 允许图片缩放
+      lang: [zh, en]
+  # - git-revision-date-localized:
+  #     enable_creation_date: true
+  #     exclude:
+  #       - index.md
+  # - git-committers:
+  #     repository: hollowdobt/docs-site
+  #     branch: main
   - add-number:
       order: 2
   - minify:
@@ -145,64 +130,3 @@ plugins:
       htmlmin_opts:
           remove_comments: true
       cache_safe: true
-
-
-nav:
-  - "Home":
-    - index.md
-
-  - "Programming Language":
-      - programlang/index.md
-      - "§ C++":
-          - "C++ 面向对象程序设计": programlang/C++/C++OOP.md
-      - "§ 环境搭建":
-          - "类 Unix 系统下 CMake 与使用第三方包的 C++ 环境的搭建": programlang/CMake.md
-
-  - "AI":
-      - ai/index.md
-
-  - "ZJU Courses":
-      - ZJU-Courses-Notes/index.md
-      - "§ 微积分(甲)II":
-          - ZJU-Courses-Notes/A/Calculus(A)II.md
-      - "§ 普通化学实验(乙)":
-          - ZJU-Courses-Notes/A/NorCheT(B).md
-      - "§ 人工智能基础(A)":
-          - ZJU-Courses-Notes/A/AIBasic(A).md
-      - "§ 电工电子学":
-          - ZJU-Courses-Notes/A/Electron/index.md
-          - "• Chap I 电路和电路元件": ZJU-Courses-Notes/A/Electron/Circuitsandelectroniccomponents.md
-          - "• Chap II 电路分析基础": ZJU-Courses-Notes/A/Electron/CircuitAnalysisBasics.md
-          - "• Chap III 分立元件基本电路": ZJU-Courses-Notes/A/Electron/BaseDivi.md
-          - "• Chap IV 数字集成电路": ZJU-Courses-Notes/A/Electron/DigitalCircuits.md
-          - "• Chap V 集成运算放大电路": ZJU-Courses-Notes/A/Electron/InteOperaAmpl.md
-          - "• Chap VI 波形产生与变换": ZJU-Courses-Notes/A/Electron/sincos.md
-          - "• Chap VIII 功率电子电路": ZJU-Courses-Notes/A/Electron/powercontrol.md
-      - "§ 理论力学(甲)":
-          - ZJU-Courses-Notes/A/TheoreticalMechanics/index.md
-          - "• Chap I 点的运动学": ZJU-Courses-Notes/A/TheoreticalMechanics/pointmove.md
-          - "• Chap II 刚体运动学": ZJU-Courses-Notes/A/TheoreticalMechanics/rigidbodymove.md
-          - "• Chap III 点的合成运动": ZJU-Courses-Notes/A/TheoreticalMechanics/combinationmove.md
-          - "• Chap IV 刚体的平面运动": ZJU-Courses-Notes/A/TheoreticalMechanics/rigidbodyinflat.md
-          - "• Chap V 静力学公理与受力分析": ZJU-Courses-Notes/A/TheoreticalMechanics/forcetheory.md
-          - "• Chap VI 平面力系": ZJU-Courses-Notes/A/TheoreticalMechanics/planeforce.md
-          - "• Chap I 静力学": ZJU-Courses-Notes/A/TheoreticalMechanics/AxiomsofStatics.md
-      - "§ 大学物理(乙) II":
-          - ZJU-Courses-Notes/A/PhysicsII/index.md
-          - "• Chap I 静电场": ZJU-Courses-Notes/A/PhysicsII/Electrostaticfield.md
-          - "• Chap II 恒稳电流/磁场": ZJU-Courses-Notes/A/PhysicsII/Constantcurrentmagneticfield.md
-          - "• Chap III 物质中的磁场": ZJU-Courses-Notes/A/PhysicsII/Magneticfieldinamedium.md
-          - "• Chap IV 光的干涉与衍射": ZJU-Courses-Notes/A/PhysicsII/InterferenceandDiffractionofLight.md
-      - "§ 人工智能: 大规模数据分析与机器学习模型中的算法优化":
-          - ZJU-Courses-Notes/A/BigData/index.md
-          - "• LEC 1 Game Theory and Lower Bounds for Randomized Algorithms": ZJU-Courses-Notes/A/BigData/GameTheory.md
-
-  - "Algorithm":
-      - algorithm/index.md
-      - "§ 数据结构基础与算法分析":
-          - algorithm/DBAA/index.md
-          - "• Chap I 线性表": algorithm/DBAA/array.md
-          - "• Appe I 数学基础与算法设计原则": algorithm/DBAA/appendix1.md
-          - "• Appe II 算法分析语设计实例": algorithm/DBAA/appendix2.md
-      - "§ Codeforces":
-          - "模版": algorithm/cf/stencil.md
