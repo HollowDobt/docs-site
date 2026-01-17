@@ -1,4 +1,5 @@
-{% if page.meta.comments %}
+{# Default to showing comments unless explicitly disabled on the page #}
+{% if page.meta.comments is not sameas false %}
   <h2 id="__comments">{{ lang.t("meta.comments") }}</h2>
 
   <script src="https://giscus.app/client.js"
@@ -40,8 +41,8 @@
         var palette = __md_get("__palette")
         if (palette && typeof palette.color === "object") {
           var theme = palette.color.scheme === "slate"
-            ? "transparent_dark"
-            : "light"
+            ? "https://cdn.jsdelivr.net/gh/HollowDobt/one-html-page@main/giscus-css/hollow-dark.css"
+            : "https://cdn.jsdelivr.net/gh/HollowDobt/one-html-page@main/giscus-css/hollow-light.css"
 
           // Instruct Giscus to change theme
           var frame = document.querySelector(".giscus-frame")
