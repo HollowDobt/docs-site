@@ -144,7 +144,7 @@ nav:
   - "AI":
       - ai/index.md
 
-  - "ZJU Courses":
+  - "ZJU Courses Notes":
       - ZJU-Courses-Notes/index.md
       - "§ 微积分(甲)II":
           - ZJU-Courses-Notes/A/Calculus(A)II.md
@@ -182,6 +182,8 @@ nav:
 
   - "Algorithm":
       - algorithm/index.md
+      - "§ CS61B: Data Structures and Algorithms":
+        - algorithm/cs61b/index.md
       - "§ 数据结构基础与算法分析":
           - algorithm/DBAA/index.md
           - "• Chap I 线性表": algorithm/DBAA/array.md
