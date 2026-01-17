@@ -1,23 +1,29 @@
-# 大学物理(乙) II
+# 大学物理(乙)
 
 !!! abstract
 	博主补天时记录的笔记, 是根据 [NoughtQ 前辈提供的 whc 老师的每周要点](https://github.com/NoughtQ/ZJU-Courses-Resources/tree/main/Physics-D1CX-D2QD) 结合历年习题复习时重写的.
+
+!!! danger
+	鉴于 2025-2026 年秋冬学期 ydd 老师在大学物理甲课程上对于期中和期末考试内容大刀阔斧的改革, 历年卷的作用可能会越来越微乎其微. 大学物理乙很可能会受此影响!!!! 因此还是建议认真上课, 尽可能避免只做历年卷, 只看 Savia 前辈的大物教材.
+	
+	博主默默吐槽一句, 真的很少见一个老师能在校内论坛上掀起如此的惊涛骇浪. 关于他对考试的改革, 博主有自己的看法. 不过对学生来说的确很难改变什么, 这里提供的帖子也只是为了帮助大家明白此后可能在大学物理这门课上遇到哪些和何种程度的困难. CC98 有关 ydd 老师对于大物考试的改革争论的帖子:
+	
+	【学习天地】ydd同志对大学物理期末考试发表重要讲话 <https://www.cc98.org/topic/6400846> 复制本链接到浏览器或者打开【CC98】微信小程序查看~
+	
+	【开怀一笑】ydd的点名表扬 <https://www.cc98.org/topic/6400812> 复制本链接到浏览器或者打开【CC98】微信小程序查看~
+	
+	【学习天地】为啥要骂ydd？我觉得大物期末卷挺正常的 <https://www.cc98.org/topic/6400280> 复制本链接到浏览器或者打开【CC98】微信小程序查看~
+	
+	【似水流年】再也不见ydd和大物🙄 <https://www.cc98.org/topic/6400013> 复制本链接到浏览器或者打开【CC98】微信小程序查看~
+	
+	【学习天地】万一ydd期末出正常试卷了呢 <https://www.cc98.org/topic/6399237> 复制本链接到浏览器或者打开【CC98】微信小程序查看~
 
 ## 历年卷与其他前辈的资源
 
 ---
 
-| 传送门                                                | 密码     |
-| -------------------------------------------------- | ------ |
-| [浙江大学大学物理II历年卷2018-2021](https://pan.moe/s/82eKU0) | v9wzx7 |
-| [工程物理学(第三版)-诸葛向彬(电子版)](https://pan.moe/s/WWVXcE)   | 6qjgte |
-
-## 笔记列表
-
----
-
-
-- [x] [§ Chap I      静电场](Electrostaticfield.md)
-- [x] [§ Chap II     恒稳电流/磁场](Constantcurrentmagneticfield.md)
-- [x] [§ Chap III    物质中的磁场](Magneticfieldinamedium.md)
-- [x] [§ Chap IV   光的干涉与衍射](InterferenceandDiffractionofLight.md)
+- **萌盘链接** [浙江大学大学物理II历年卷2018-2021](https://pan.moe/s/82eKU0)  密码: v9wzx7
+- **萌盘链接** [工程物理学(第三版)-诸葛向彬(电子版)](https://pan.moe/s/WWVXcE) 密码: 6qjgte
+- **个人博客** [Savia 前辈的大学物理教材](https://savia7582.github.io/Exterior/Physics/)
+- **CC98 站内** 【学习天地】用AI写了点大物知识汇总辅助复习（大学物理甲Ⅱ，大物二，大物甲二） <https://www.cc98.org/topic/6398547> 复制本链接到浏览器或者打开【CC98】微信小程序查看~
+- **CC98**【学习天地】【2025-2026秋冬】大学物理（甲）II期末考试试卷及AI解答【tag：ydd 大物甲 大学物理甲 历年卷 回忆题 】 <https://www.cc98.org/topic/6400005> 复制本链接到浏览器或者打开【CC98】微信小程序查看~
