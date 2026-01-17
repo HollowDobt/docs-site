@@ -110,7 +110,7 @@ extra:
 
 plugins:
   - glightbox
-  # - git-authors
+  - git-authors
   - search:
       separator: '[\s\u200b\-]'
       lang: [zh, en]
