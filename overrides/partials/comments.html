@@ -1,6 +1,9 @@
 {# Default to showing comments unless explicitly disabled on the page #}
 {% if page.meta.comments is not sameas false %}
   <h2 id="__comments">{{ lang.t("meta.comments") }}</h2>
+  <p class="giscus-refresh-hint" style="font-size: 0.9em; opacity: 0.8;">
+  Tips: 若评论区未随主题同步, 刷新页面即可.
+  </p>
 
   <script src="https://giscus.app/client.js"
         data-repo="HollowDobt/docs-site"
@@ -17,41 +20,76 @@
         data-loading="lazy"
         crossorigin="anonymous"
         async>
-</script>
+  </script>
 
   <!-- Synchronize Giscus theme with palette -->
   <script>
     var giscus = document.querySelector("script[src*=giscus]")
+    var themeMap = {
+      dark: "https://cdn.jsdelivr.net/gh/HollowDobt/one-html-page@main/giscus-css/hollow-dark.css",
+      light: "https://cdn.jsdelivr.net/gh/HollowDobt/one-html-page@main/giscus-css/hollow-light.css"
+    }
+
+    function getTheme() {
+      var palette = __md_get("__palette")
+      var isDark = palette && typeof palette.color === "object" && palette.color.scheme === "slate"
+      return isDark ? themeMap.dark : themeMap.light
+    }
+
+    var pendingTheme = null
+
+    function applyGiscusTheme() {
+      var frame = document.querySelector(".giscus-frame")
+      var theme = getTheme()
+      pendingTheme = theme
+
+      // Update iframe if it already exists
+      if (frame && frame.contentWindow) {
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme: theme } } },
+          "https://giscus.app"
+        )
+      } else {
+        // Otherwise update the script so the iframe loads with the right theme
+        giscus.setAttribute("data-theme", theme)
+      }
+    }
 
     // Set palette on initial load
     var palette = __md_get("__palette")
     if (palette && typeof palette.color === "object") {
-      var theme = palette.color.scheme === "slate"
-        ? "https://cdn.jsdelivr.net/gh/HollowDobt/one-html-page@main/giscus-css/hollow-dark.css"
-        : "https://cdn.jsdelivr.net/gh/HollowDobt/one-html-page@main/giscus-css/hollow-light.css"
+      giscus.setAttribute("data-theme", getTheme())
+    }
 
-      // Instruct Giscus to set theme
-      giscus.setAttribute("data-theme", theme) 
+    // Ensure the iframe picks up the right theme once it is injected
+    function watchForGiscusFrame() {
+      if (!document.body) return
+
+      var observer = new MutationObserver(function() {
+        var frame = document.querySelector(".giscus-frame")
+        if (frame) {
+          // Apply as soon as frame loads; fallback to pending theme if set
+          frame.addEventListener("load", function() {
+            if (pendingTheme) {
+              applyGiscusTheme()
+            }
+          }, { once: true })
+          observer.disconnect()
+        }
+      })
+      observer.observe(document.body, { childList: true, subtree: true })
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", watchForGiscusFrame, { once: true })
+    } else {
+      watchForGiscusFrame()
     }
 
     // Register event handlers after documented loaded
     document.addEventListener("DOMContentLoaded", function() {
       var ref = document.querySelector("[data-md-component=palette]")
-      ref.addEventListener("change", function() {
-        var palette = __md_get("__palette")
-        if (palette && typeof palette.color === "object") {
-          var theme = palette.color.scheme === "slate"
-            ? "https://cdn.jsdelivr.net/gh/HollowDobt/one-html-page@main/giscus-css/hollow-dark.css"
-            : "https://cdn.jsdelivr.net/gh/HollowDobt/one-html-page@main/giscus-css/hollow-light.css"
-
-          // Instruct Giscus to change theme
-          var frame = document.querySelector(".giscus-frame")
-          frame.contentWindow.postMessage(
-            { giscus: { setConfig: { theme } } },
-            "https://giscus.app"
-          )
-        }
-      })
+      ref.addEventListener("change", applyGiscusTheme)
     })
   </script>
 {% endif %}
