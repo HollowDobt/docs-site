@@ -151,15 +151,7 @@ nav:
       - "§ 大学物理(乙)": ZJU-Courses-Notes/A/PhysicsII/index.md
       - "§ 人工智能基础(A)": ZJU-Courses-Notes/A/AIBasic(A).md
       - "§ 电工电子学": ZJU-Courses-Notes/A/Electron/index.md
-      - "§ 理论力学(甲)":
-          - ZJU-Courses-Notes/A/TheoreticalMechanics/index.md
-          - "• Chap I 点的运动学": ZJU-Courses-Notes/A/TheoreticalMechanics/pointmove.md
-          - "• Chap II 刚体运动学": ZJU-Courses-Notes/A/TheoreticalMechanics/rigidbodymove.md
-          - "• Chap III 点的合成运动": ZJU-Courses-Notes/A/TheoreticalMechanics/combinationmove.md
-          - "• Chap IV 刚体的平面运动": ZJU-Courses-Notes/A/TheoreticalMechanics/rigidbodyinflat.md
-          - "• Chap V 静力学公理与受力分析": ZJU-Courses-Notes/A/TheoreticalMechanics/forcetheory.md
-          - "• Chap VI 平面力系": ZJU-Courses-Notes/A/TheoreticalMechanics/planeforce.md
-          - "• Chap I 静力学": ZJU-Courses-Notes/A/TheoreticalMechanics/AxiomsofStatics.md
+      - "§ 理论力学(甲)": ZJU-Courses-Notes/A/TheoreticalMechanics/index.md
       - "§ 人工智能: 大规模数据分析与机器学习模型中的算法优化":
           - ZJU-Courses-Notes/A/BigData/index.md
           - "• LEC 1 Game Theory and Lower Bounds for Randomized Algorithms": ZJU-Courses-Notes/A/BigData/GameTheory.md

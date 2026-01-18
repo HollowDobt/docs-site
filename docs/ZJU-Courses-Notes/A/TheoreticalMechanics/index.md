@@ -2,7 +2,7 @@
 # 理论力学(甲)
 
 !!! abstract
-	课程笔记以例题和习题为主. 概念可以直接参阅课程 ppt. 建议多练题, ppt 上的题都不错, 练得多了之后自然会理解很多概念.
+	课程笔记以例题和习题为主, 很多概念理解其实没有要求的十分深入. 不是很清楚的可以直接参阅课程 ppt. 建议上课认真听讲, 多练题. 如果只是希望考试取得一个好成绩, 那么可以提前看看前些年的理论力学最后一节课, 看看历年卷, 确定刷题的方向和重点理解的内容范围.
 
 !!! quote
 	敌军围困千万重, 我自岿然不动.
@@ -19,15 +19,10 @@
 - (附加到平时成绩. 平时成绩无法影响期末卷面成绩, 期末成绩, 线上成绩)竞赛, 专题报告等 $5\%$
 - 期末卷面成绩 $50\%$
 
-## 笔记列表
+## 历年卷与其他前辈的资源
 
 ---
 
-- [x] [§ Chap I      点的运动学](pointmove.md)
-- [x] [§ Chap II     刚体的简单运动学](rigidbodymove.md)
-- [x] [§ Chap III    点的合成运动](combinationmove.md)
-- [x] [§ Chap IV   刚体的平面运动](rigidbodyinflat.md)
-- [x] [§ Chap V    静力学公理与受力分析](forcetheory.md)
-- [x] [§ Chap VI   平面力系](planeforce.md)
-
-- [x] [§ Chap I      静力学](AxiomsofStatics.md)
+- **萌盘链接** [理论力学习题全解 第九版 哈工大.pdf](https://pan.moe/s/bDw5IQ)  密码: m0nu1j
+- **萌盘链接** [理论力学 第九版 Ⅰ哈工大.pdf](https://pan.moe/s/9YVkue) 密码: 0zike3
+- **萌盘链接** [理论力学 第九版 Ⅱ 哈工大 .pdf](https://pan.moe/s/YdPbUk) 密码: 2uz129
