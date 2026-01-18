@@ -1,0 +1,20 @@
+/*
+ * -------------------
+ * Table Style Settings
+ * -------------------
+ */
+
+.md-typeset table:not([class]) { font-size: 0.8rem; }
+.md-typeset table:not([class]) th {
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+[data-md-color-scheme="slate"][data-md-color-primary="indigo"] .md-typeset table:not([class]) thead th {
+    background-color: #282828;
+    color: #ffffff;
+}
+[data-md-color-scheme="default"] .md-typeset table:not([class]) thead th {
+    background-color: #e9e9e9;
+    color: #0e0e0e;
+}
