@@ -13,4 +13,10 @@
 
 ---
 
+### Lecture
+
+- [x] [§ LEC 3       Testing & TDD](tdd.md)
+
+### Project
+
 - [x] [§ PROJECT 0       Game: 2048](2048.md)
