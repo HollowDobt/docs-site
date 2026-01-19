@@ -93,15 +93,12 @@ $$
 其中
 
 $$
-a_0=\frac{1}{l}\int_{-l}^{l}f(x)\mathrm{d}x
-$$
+\begin{array}{@{}r@{\;}c@{\;}l@{}}
+a_0 & = & \dfrac{1}{l}\int_{-l}^{l} f(x)\,\mathrm{d}x \\[3pt]
+a_n & = & \dfrac{1}{l}\int_{-l}^{l} f(x)\cos\!\left(\dfrac{n\pi x}{l}\right)\,\mathrm{d}x \\[3pt]
+b_n & = & \dfrac{1}{l}\int_{-l}^{l} f(x)\sin\!\left(\dfrac{n\pi x}{l}\right)\,\mathrm{d}x
+\end{array}
 
-$$
-a_n=\frac{1}{l}\int_{-l}^{l}f(x)\cos\frac{n\pi x}{l}\mathrm{d}x
-$$
-
-$$
-b_n=\frac{1}{l}\int_{-l}^{l}f(x)\sin\frac{n\pi x}{l}\mathrm{d}x
 $$
 
 其中 $l$ 代表半周期. 注意, 因为 $n=0$ 处 $\cos 0=1$, 不存在三角函数的振荡性, $a_0$ 往往不能用$a_n$求得.
@@ -126,15 +123,15 @@ $$
 设 $a=(a_1, a_2, a_3), b= (b_1, b_2, b_3), c= (c_1, c_2, c_3)$, 有
 
 $$
-a\ //\ b \Longleftrightarrow a\times b=0
+\overrightarrow a\ //\ \overrightarrow b \Longleftrightarrow\overrightarrow a\times\overrightarrow b=0
 $$
 
 $$
-a\ \perp \ b \Longleftrightarrow a\cdot b=0
+\overrightarrow a\ \perp \ \overrightarrow b \Longleftrightarrow\overrightarrow a\cdot\overrightarrow b=0
 $$
 
 $$
-a,b,c\ 共面 \Longleftrightarrow \begin{vmatrix}
+\overrightarrow a,\overrightarrow b,\overrightarrow c\ 共面 \Longleftrightarrow \begin{vmatrix}
 a_1  &a_2  &a_3 \\
 b_1  &b_2  &b_3 \\
 c_1  &c_2  &c_3
@@ -145,13 +142,13 @@ $$
 - 点到直线的距离公式(其中 $x$ 为点到直线上某一点构成的向量, $u$ 为直线的方向向量)
 
 $$
-d=\frac{\left|u\times x\right|}{\left|u\right|}
+d=\frac{\left|\overrightarrow u\times\overrightarrow x\right|}{\left|\overrightarrow u\right|}
 $$
 
 - 异面直线之间的距离公式(其中 $x$ 为两直线上各取一点构成的向量, 也就是 $(x_0-x_1, y_0-y_1,z_0-z_1)$. $u_1, u_2$ 分别为两条直线的方向向量)
 
 $$
-d=\frac{\left|(u_1\times u_2)\cdot x \right|}{\left|u_1\times u_2\right|}
+d=\frac{\left|(\overrightarrow u_1\times\overrightarrow u_2)\cdot\overrightarrow x \right|}{\left|\overrightarrow u_1\times\overrightarrow u_2\right|}
 $$
 
 - 平面束方程: 已知直线的一般式方程, 所有过直线的平面表示为两个方程的线性组合.
@@ -275,7 +272,7 @@ $$
 - 高斯公式(针对**封闭曲面**! 比如球壳)
 
 $$
-\iint_{\Sigma}P\mathrm{d}y\mathrm{d}z+Q\mathrm{d}x\mathrm{d}z+R\mathrm{d}x\mathrm{d}y=\iiint\limits_{V}(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z})\mathrm{d}x\mathrm{d}y\mathrm{d}z
+\oiint_{\Sigma}P\mathrm{d}y\mathrm{d}z+Q\mathrm{d}x\mathrm{d}z+R\mathrm{d}x\mathrm{d}y=\iiint\limits_{V}(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z})\mathrm{d}x\mathrm{d}y\mathrm{d}z
 $$
 
 ## 场论初步
