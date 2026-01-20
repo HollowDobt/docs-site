@@ -1,9 +1,10 @@
 ---
 icon: material/book
+comments: false
 ---
 
 
-# ZJU 课程笔记目录
+# ZJU 课程笔记
 
 !!! question
 	结课之后博主就没再看过笔记了, 所以笔记中可能存在错别字, 语病等问题. 遇到相关问题欢迎在评论区留言.

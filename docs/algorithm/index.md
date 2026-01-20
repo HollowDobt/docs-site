@@ -1,9 +1,9 @@
 ---
-comments:
+comments: false
 icon: material/chess
 ---
 
-# 首页
+# 算法与计算机科学课程笔记
 
 (不专业的)算法学习笔记.
 

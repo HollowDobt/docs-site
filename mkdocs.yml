@@ -134,37 +134,32 @@ plugins:
 nav:
   - "Home":
     - index.md
-  - "Programming Language":
+  - "Embedded programming":
     - programlang/index.md
-    - "§ C++":
-      - "C++ 面向对象程序设计": programlang/C++/C++OOP.md
-      - "§ 环境搭建":
-          - "类 Unix 系统下 CMake 与使用第三方包的 C++ 环境的搭建": programlang/CMake.md
-
-  - "AI":
-      - ai/index.md
+    - "§ 环境搭建":
+      - "类 Unix 系统下 CMake 与使用第三方包的 C++ 环境的搭建": programlang/CMake.md
 
   - "ZJU Courses Notes":
-      - ZJU-Courses-Notes/index.md
-      - "§ 微积分(甲)II": ZJU-Courses-Notes/A/Calculus(A)II.md
-      - "§ 普通化学实验(乙)": ZJU-Courses-Notes/A/NorCheT(B).md
-      - "§ 大学物理(乙)": ZJU-Courses-Notes/A/PhysicsII/index.md
-      - "§ 人工智能基础(A)": ZJU-Courses-Notes/A/AIBasic(A).md
-      - "§ 电工电子学": ZJU-Courses-Notes/A/Electron/index.md
-      - "§ 理论力学(甲)": ZJU-Courses-Notes/A/TheoreticalMechanics/index.md
+    - ZJU-Courses-Notes/index.md
+    - "§ 微积分(甲)II": ZJU-Courses-Notes/A/Calculus(A)II.md
+    - "§ 普通化学实验(乙)": ZJU-Courses-Notes/A/NorCheT(B).md
+    - "§ 大学物理(乙)": ZJU-Courses-Notes/A/PhysicsII/index.md
+    - "§ 人工智能基础(A)": ZJU-Courses-Notes/A/AIBasic(A).md
+    - "§ 电工电子学": ZJU-Courses-Notes/A/Electron/index.md
+    - "§ 理论力学(甲)": ZJU-Courses-Notes/A/TheoreticalMechanics/index.md
 
-  - "Algorithm":
-      - algorithm/index.md
-      - "§ CS61B: Data Structures and Algorithms":
-        - algorithm/cs61b/index.md
-        - "• Lec 3 Testing & TDD": algorithm/cs61b/tdd.md
-        - "• Proj 0 2048": algorithm/cs61b/2048.md
-      - "§ CMU CSAPP 15-213":
-        - algorithm/csapp/index.md
-      - "§ 数据结构基础与算法分析":
-          - algorithm/DBAA/index.md
-          - "• Chap I 线性表": algorithm/DBAA/array.md
-          - "• Appe I 数学基础与算法设计原则": algorithm/DBAA/appendix1.md
-          - "• Appe II 算法分析语设计实例": algorithm/DBAA/appendix2.md
-      - "§ Codeforces":
-          - "模版": algorithm/cf/stencil.md
+  - "CS Notes":
+    - algorithm/index.md
+    - "§ CS61B: Data Structures and Algorithms":
+      - algorithm/cs61b/index.md
+      - "• Lec 3 Testing & TDD": algorithm/cs61b/tdd.md
+      - "• Proj 0 2048": algorithm/cs61b/2048.md
+    - "§ CMU CSAPP 15-213":
+      - algorithm/csapp/index.md
+    - "§ 数据结构基础与算法分析":
+      - algorithm/DBAA/index.md
+      - "• Chap I 线性表": algorithm/DBAA/array.md
+      - "• Appe I 数学基础与算法设计原则": algorithm/DBAA/appendix1.md
+      - "• Appe II 算法分析语设计实例": algorithm/DBAA/appendix2.md
+    - "§ Codeforces":
+      - "模版": algorithm/cf/stencil.md
