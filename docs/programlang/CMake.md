@@ -30,7 +30,7 @@ brew install opencv
 
 ---
 
-首先理清一个概念, `CMake` 是生成编译脚本的工具, **本身不具备编译功能**!!! 最终生成的编译脚本如 `Makefile`, `ninja.build` 等都需要对应的构建工具和编译工具链执行. 一个比较直观的功能示意图如下所示
+首先理清一个概念, `CMake` 是生成编译脚本的工具, **本身不具备编译功能**!!! 最终生成的编译脚本如 `Makefile`, `build.ninja` 等都需要对应的构建工具和编译工具链执行. 一个比较直观的功能示意图如下所示
 
 ![](https://pan.xxbyq.net/f/O0PIa/5Gv149z.png)
 
@@ -52,13 +52,15 @@ brew install opencv
 cmake_minimum_required(VERSION 3.31) ## CMake 最低版本限制
 ```
 
-接下来设定项目名称, 这一名称也是最终生成的二进制文件的名称:
+接下来设定项目名称:
 
 ```cmake hl_lines="3"
 cmake_minimum_required(VERSION 3.31) ## CMake 最低版本限制
 
 project(OpenCVProject) ## 项目名称
 ```
+
+注意, 可执行文件(编译的二进制文件产物)的名称是由 `add_excutable(<name> ...)` 决定的. 此设置后面将做出额外的说明, 本例中目标文件(即二进制产物)名称恰好与项目名称相同.
 
 然后指定使用的 `C++` 标准, 保证编译链可以看懂对应的 `C++` 代码:
 
@@ -78,11 +80,11 @@ cmake_minimum_required(VERSION 3.31) ## CMake 最低版本限制
 project(OpenCVProject) ## 项目名称
 
 set(CMAKE_CXX_STANDARD 11) ## 设置 C++ 编译标准: C++11
-set(CMAKE_CXX_STANDARD_REQUIRED ON) ## 在编译链没有 C++11 版本时不允许自动降级
+set(CMAKE_CXX_STANDARD_REQUIRED ON) ## 要求编译器必须支持所设定的标准，否则报错
 set(CMAKE_CXX_EXTENSIONS OFF) ## 禁止编译器非 ISO 标准的编译功能
 ```
 
-指定所有被编译的源代码. 因为是示例工程, 因此只有放在 `src/` 子目录下的 `main.cpp` 这一个源代码文件:
+指定所有被编译的源代码与编译产物的名字. 因为是示例工程, 因此只有放在 `src/` 子目录下的 `main.cpp` 这一个源代码文件:
 
 ```cmake hl_lines="9 10"
 cmake_minimum_required(VERSION 3.31) ## CMake 最低版本限制
@@ -90,7 +92,7 @@ cmake_minimum_required(VERSION 3.31) ## CMake 最低版本限制
 project(OpenCVProject) ## 项目名称
 
 set(CMAKE_CXX_STANDARD 11) ## 设置 C++ 编译标准: C++11
-set(CMAKE_CXX_STANDARD_REQUIRED ON) ## 在编译链没有 C++11 版本时不允许自动降级
+set(CMAKE_CXX_STANDARD_REQUIRED ON) ## 要求编译器必须支持所设定的标准，否则报错
 set(CMAKE_CXX_EXTENSIONS OFF) ## 禁止编译器非 ISO 标准的编译功能
 
 ## 编译对象(源代码)
@@ -105,37 +107,37 @@ cmake_minimum_required(VERSION 3.31) ## CMake 最低版本限制
 project(OpenCVProject) ## 项目名称
 
 set(CMAKE_CXX_STANDARD 11) ## 设置 C++ 编译标准: C++11
-set(CMAKE_CXX_STANDARD_REQUIRED ON) ## 在编译链没有 C++11 版本时不允许自动降级
+set(CMAKE_CXX_STANDARD_REQUIRED ON) ## 要求编译器必须支持所设定的标准，否则报错
 set(CMAKE_CXX_EXTENSIONS OFF) ## 禁止编译器非 ISO 标准的编译功能
 
 ## 编译对象(源代码)
 add_executable(OpenCVProject src/main.cpp)
 
 ## 必要的第三方库: OpenCV
-find_package(OpenCV REQUIRED) ## 包名: OpenCV, 通过查找 OpenCVconfig.cmake
-target_link_libraries(OpenCVProject PRIVATE ${OpenCV_LIBS}) ## OpenCV 的 CMake 配置中自带的变量名 OpenCV_LIBS
+find_package(OpenCV REQUIRED) ## 包名: OpenCV, 通过查找 OpenCVConfig.cmake
+target_link_libraries(OpenCVProject PRIVATE ${OpenCV_LIBRARIES}) ## OpenCV 的 CMake 配置中自带的变量名 OpenCV_LIBS
 target_include_directories(OpenCVProject PRIVATE ${OpenCV_INCLUDE_DIRS}) ## 类似于上一条
 ```
 
 !!! note
 	如果你也使用 VSCode, 当 `OpenCV` 安装完毕后, 重启 VSCode 才能刷新刷出 `OpenCV` 包. 大部分时候 VSCode 自动执行 `CMake` 报错没有此包而已经安装了对应的包都是此类问题.
 
-这里必须要注意 , 可以直接指定 `find_package` 寻找 `OpenCV` 这个包是因为这个包本来就是这个名字(一般而言是因为安装的 `OpenCV` 等 `C++` 第三方库自带 `CMake` 配置文件 `OpenCVConfig.cmake`(其他的也差不多叫 `XXXConfig.cmake`), `CMake` 可以直接从系统路径查找符合这一文件名的 `CMake` 配置文件, 查找完成之后会将内部的内容导入到目前的 `CMake` 配置文件中. 后面的 `${OpenCV_LIBS}` 和 `${OpenCV_INCLUDE_DIRS}` 就是导入的 `CMake` 配置文件 `OpenCVConfig.cmake` 中定义的常量, 因此才不需要我们手动指定).
+这里必须要注意 , 可以直接指定 `find_package` 寻找 `OpenCV` 这个包是因为这个包本来就是这个名字(一般而言是因为安装的 `OpenCV` 等 `C++` 第三方库自带 `CMake` 配置文件 `OpenCVConfig.cmake`(其他的也差不多叫 `XXXConfig.cmake`), `CMake` 会在一系列前缀路径与提示变量中查找(如 `OpenCV_DIR`, `CMAKE_PREFIX_PATH` 等), 找到 `OpenCVConfig.cmake` 后导入其定义到当前的 `CMake` 配置文件中. 后面的 `${OpenCV_LIBRARIES}` 和 `${OpenCV_INCLUDE_DIRS}` 就是导入的 `CMake` 配置文件 `OpenCVConfig.cmake` 中定义的常量, 因此才不需要我们手动指定).
 
 为了方便大家检验 `CMake` 是否正常运行, 我们再在 `OpenCVProject/` 目录下新建目录 `src/`, 进入 `src/` 目录, 创建源代码文件 `main.cpp`:
 
 ```cpp
 #include <iostream>
-#include <opencv2/highgui.hpp> // 在正常的编辑器中(比如 VSCode), 使用 CMake 完成配置之后会自动生静态检查器的解析路径, 正常而言是不会报错的.
+#include <opencv2/highgui.hpp> // 在常用的几种编辑器中(比如 VSCode), 使用 CMake 完成配置之后会自动生成静态检查器的解析路径, 正常而言是不会报错的.
 #include <opencv2/opencv.hpp>
 
 using namespace std;
 using namespace cv;
 
 int main() {
-    Mat p1 = imread("..."); // ... 替换为图片路径. 建议使用绝对路径
+    Mat p1 = imread("/absolute/path/to/test.jpg"); // /absolute/path/to/test.jpg 替换为图片路径. 建议使用绝对路径
     
-    if (!p1.data) {
+    if (p1.empty()) {
         cout << "Couldn't find the image..." << endl;
         return 1;
     }
@@ -160,7 +162,7 @@ cmake -S . -B build
 
 其中的 `-S` 表示源代码(项目)根目录, 也就是 `CMakeLists.txt` 所在的目录; `-B` 表示构建配置生成的位置, 一般而言指定为 `build`, 生成位置是项目根目录所在目录的子目录.
 
-接下来是根据 `cmake` 中指定的编译链完成编译(如果没有指定, 也会自动查找和调用编译工具链. 当然, VSCode 只会生成配置, 不会自动编译):
+接下来是根据 `cmake` 中指定的编译链完成编译(如果没有指定, 也会自动查找和调用编译工具链. 当然, VSCode 常见流程是先 Configure 再手动触发 Build(可通过 CMake Tools 一键构建, 是否自动构建取决于设置):
 
 ```bash
 cmake --build build
@@ -179,15 +181,15 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_SOURCE_DIR}/bin")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE "${CMAKE_SOURCE_DIR}/bin")
 
 set(CMAKE_CXX_STANDARD 11) ## 设置 C++ 编译标准: C++11
-set(CMAKE_CXX_STANDARD_REQUIRED ON) ## 在编译链没有 C++11 版本时不允许自动降级
+set(CMAKE_CXX_STANDARD_REQUIRED ON) ## 要求编译器必须支持所设定的标准, 否则报错
 set(CMAKE_CXX_EXTENSIONS OFF) ## 禁止编译器非 ISO 标准的编译功能
 
 ## 编译对象(源代码)
 add_executable(OpenCVProject src/main.cpp)
 
 ## 必要的第三方库: OpenCV
-find_package(OpenCV REQUIRED) ## 包名: OpenCV, 通过查找 OpenCVconfig.cmake
-target_link_libraries(OpenCVProject PRIVATE ${OpenCV_LIBS}) ## OpenCV 的 CMake 配置中自带的变量名 OpenCV_LIBS
+find_package(OpenCV REQUIRED) ## 包名: OpenCV, 通过查找 OpenCVConfig.cmake
+target_link_libraries(OpenCVProject PRIVATE ${OpenCV_LIBRARIES}) ## OpenCV 的 CMake 配置中自带的变量名 OpenCV_LIBS
 target_include_directories(OpenCVProject PRIVATE ${OpenCV_INCLUDE_DIRS}) ## 类似于上一条
 ```
 
