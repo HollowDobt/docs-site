@@ -138,6 +138,8 @@ nav:
     - programlang/index.md
     - "§ 环境搭建":
       - "类 Unix 系统下 CMake 与使用第三方包的 C++ 环境的搭建": programlang/CMake.md
+    - "§ 控制算法":
+      - "卡尔曼滤波: Kalman Filter": programlang/Kalmanfilter.md
 
   - "ZJU Courses Notes":
     - ZJU-Courses-Notes/index.md
