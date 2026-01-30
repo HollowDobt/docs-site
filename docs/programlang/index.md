@@ -14,4 +14,4 @@ icon: material/code
 
 ## 控制算法
 
-- [x] [卡尔曼滤波](Kalmanfilter.md)
+- [x] [卡尔曼滤波: Kalman Filter](Kalmanfilter.md)
