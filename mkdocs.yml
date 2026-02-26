@@ -101,7 +101,7 @@ extra_css:
 
 extra_javascript:
   - _js/math.js
-  - https://cdn.jsdelivr.net/npm/mathjax@4.1.0/tex-mml-chtml.js
+  - https://unpkg.com/mathjax@4.1.0/tex-mml-chtml.js
 
 extra:
   analytics:
