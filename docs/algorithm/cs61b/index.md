@@ -20,6 +20,6 @@
 
 ### Next Step(TBD)
 
-| Lecture                         | Lab                                                                                                | Assignments                                                                      |
-| ------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| 7. ALists, Resizing, vs. SLists | [Randomizing Testing and Timing (due 02/05)](https://sp21.datastructur.es/materials/lab/lab3/lab3) | [Project 1 (due 02/16)](https://sp21.datastructur.es/materials/proj/proj1/proj1) |
+| Lecture                                     | Lab                                                                                                | Assignments                                                                      |
+| ------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| 9. Extends, Casting, Higher Order Functions | [Randomizing Testing and Timing (due 02/05)](https://sp21.datastructur.es/materials/lab/lab3/lab3) | [Project 1 (due 02/16)](https://sp21.datastructur.es/materials/proj/proj1/proj1) |
