@@ -10,8 +10,16 @@
 ### Lecture
 
 - [x] [§ LEC 3       Testing & TDD](tdd.md)
+- [x] [§ LEC 8       Inheritance & Implements](iai.md)
 - [x] [§ LEC X       Others](others.md)
 
 ### Project
 
 - [x] [§ PROJECT 0       Game: 2048](2048.md)
+
+
+### Next Step(TBD)
+
+| Lecture                         | Lab                                                                                                | Assignments                                                                      |
+| ------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| 7. ALists, Resizing, vs. SLists | [Randomizing Testing and Timing (due 02/05)](https://sp21.datastructur.es/materials/lab/lab3/lab3) | [Project 1 (due 02/16)](https://sp21.datastructur.es/materials/proj/proj1/proj1) |

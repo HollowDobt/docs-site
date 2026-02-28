@@ -155,6 +155,8 @@ nav:
     - "§ CS61B: Data Structures and Algorithms":
       - algorithm/cs61b/index.md
       - "• Lec 3 Testing & TDD": algorithm/cs61b/tdd.md
+      - "• Lec 8 Inheritance & Implements": algorithm/cs61b/iai.md
+      - "• Lec X: 杂项": algorithm/cs61b/others.md
       - "• Proj 0 2048": algorithm/cs61b/2048.md
     - "§ CMU CSAPP 15-213":
       - algorithm/csapp/index.md
