@@ -1,0 +1,368 @@
+/* 导入霞鹜文楷 Screen 字体 */
+@import url('https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-web/style.css');
+
+main {
+  --color-prettylights-syntax-comment: #6e7781;
+  --color-prettylights-syntax-constant: #0550ae;
+  --color-prettylights-syntax-entity: #8250df;
+  --color-prettylights-syntax-storage-modifier-import: #24292f;
+  --color-prettylights-syntax-entity-tag: #116329;
+  --color-prettylights-syntax-keyword: #cf222e;
+  --color-prettylights-syntax-string: #0a3069;
+  --color-prettylights-syntax-variable: #953800;
+  --color-prettylights-syntax-brackethighlighter-unmatched: #82071e;
+  --color-prettylights-syntax-invalid-illegal-text: #f6f8fa;
+  --color-prettylights-syntax-invalid-illegal-bg: #82071e;
+  --color-prettylights-syntax-carriage-return-text: #f6f8fa;
+  --color-prettylights-syntax-carriage-return-bg: #cf222e;
+  --color-prettylights-syntax-string-regexp: #116329;
+  --color-prettylights-syntax-markup-list: #3b2300;
+  --color-prettylights-syntax-markup-heading: #0550ae;
+  --color-prettylights-syntax-markup-italic: #24292f;
+  --color-prettylights-syntax-markup-bold: #24292f;
+  --color-prettylights-syntax-markup-deleted-text: #82071e;
+  --color-prettylights-syntax-markup-deleted-bg: #ffebe9;
+  --color-prettylights-syntax-markup-inserted-text: #116329;
+  --color-prettylights-syntax-markup-inserted-bg: #dafbe1;
+  --color-prettylights-syntax-markup-changed-text: #953800;
+  --color-prettylights-syntax-markup-changed-bg: #ffd8b5;
+  --color-prettylights-syntax-markup-ignored-text: #eaeef2;
+  --color-prettylights-syntax-markup-ignored-bg: #0550ae;
+  --color-prettylights-syntax-meta-diff-range: #8250df;
+  --color-prettylights-syntax-brackethighlighter-angle: #57606a;
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #8c959f;
+  --color-prettylights-syntax-constant-other-reference-link: #0a3069;
+
+  /* 主要颜色 */
+  --color-fg-default: #1f2937;
+  --color-fg-muted: #6b7280;
+  --color-fg-subtle: #9ca3af;
+  --color-canvas-default: #ffffff;
+  --color-canvas-subtle: #f9fafb;
+  --color-border-default: #e5e7eb;
+  --color-border-muted: #f3f4f6;
+  --color-neutral-muted: rgba(175,184,193,0.2);
+  --color-accent-fg: #3b82f6;
+  --color-accent-emphasis: #2563eb;
+  --color-attention-subtle: #fff8c5;
+  --color-danger-fg: #ef4444;
+
+  --color-btn-text: #1f2937;
+  --color-btn-bg: #f9fafb;
+  --color-btn-border: #e5e7eb;
+  --color-btn-shadow: 0 1px 0 rgba(31,35,40,0.04);
+  --color-btn-inset-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+  --color-btn-hover-bg: #f3f4f6;
+  --color-btn-hover-border: #d1d5db;
+  --color-btn-active-bg: #e5e7eb;
+  --color-btn-active-border: #9ca3af;
+  --color-btn-selected-bg: #e5e7eb;
+  
+  /* 主要按钮 */
+  --color-btn-primary-text: #ffffff;
+  --color-btn-primary-bg: #3b82f6;
+  --color-btn-primary-border: #2563eb;
+  --color-btn-primary-shadow: 0 1px 0 rgba(31,35,40,0.1);
+  --color-btn-primary-inset-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+  --color-btn-primary-hover-bg: #2563eb;
+  --color-btn-primary-hover-border: #1d4ed8;
+  --color-btn-primary-selected-bg: #1d4ed8;
+  --color-btn-primary-selected-shadow: inset 0 1px 0 rgba(0,45,104,0.2);
+  --color-btn-primary-disabled-text: rgba(255,255,255,0.8);
+  --color-btn-primary-disabled-bg: #93c5fd;
+  --color-btn-primary-disabled-border: #bfdbfe;
+
+  /* 反应按钮 */
+  --color-social-reaction-bg-hover: #f3f4f6;
+  --color-social-reaction-bg-reacted-hover: #dbeafe;
+
+  /* 其他 */
+  --color-primer-shadow-inset: inset 0 1px 0 rgba(208,215,222,0.2);
+}
+
+main .pagination-loader-container {
+  background-image: url("https://github.com/images/modules/pulls/progressive-disclosure-line.svg");
+}
+
+main .gsc-loading-image {
+  background-image: url("https://github.githubassets.com/images/mona-loading-default.gif");
+}
+
+/* ============================================
+   暗色模式样式
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+  main {
+    --color-prettylights-syntax-comment: #8b949e;
+    --color-prettylights-syntax-constant: #79c0ff;
+    --color-prettylights-syntax-entity: #d2a8ff;
+    --color-prettylights-syntax-storage-modifier-import: #c9d1d9;
+    --color-prettylights-syntax-entity-tag: #7ee787;
+    --color-prettylights-syntax-keyword: #ff7b72;
+    --color-prettylights-syntax-string: #a5d6ff;
+    --color-prettylights-syntax-variable: #ffa657;
+    --color-prettylights-syntax-brackethighlighter-unmatched: #f85149;
+    --color-prettylights-syntax-invalid-illegal-text: #f0f6fc;
+    --color-prettylights-syntax-invalid-illegal-bg: #8e1519;
+    --color-prettylights-syntax-carriage-return-text: #f0f6fc;
+    --color-prettylights-syntax-carriage-return-bg: #b62324;
+    --color-prettylights-syntax-string-regexp: #7ee787;
+    --color-prettylights-syntax-markup-list: #f2cc60;
+    --color-prettylights-syntax-markup-heading: #1f6feb;
+    --color-prettylights-syntax-markup-italic: #c9d1d9;
+    --color-prettylights-syntax-markup-bold: #c9d1d9;
+    --color-prettylights-syntax-markup-deleted-text: #ffdcd7;
+    --color-prettylights-syntax-markup-deleted-bg: #67060c;
+    --color-prettylights-syntax-markup-inserted-text: #aff5b4;
+    --color-prettylights-syntax-markup-inserted-bg: #033a16;
+    --color-prettylights-syntax-markup-changed-text: #ffdfb6;
+    --color-prettylights-syntax-markup-changed-bg: #5a1e02;
+    --color-prettylights-syntax-markup-ignored-text: #c9d1d9;
+    --color-prettylights-syntax-markup-ignored-bg: #1158c7;
+    --color-prettylights-syntax-meta-diff-range: #d2a8ff;
+    --color-prettylights-syntax-brackethighlighter-angle: #8b949e;
+    --color-prettylights-syntax-sublimelinter-gutter-mark: #484f58;
+    --color-prettylights-syntax-constant-other-reference-link: #a5d6ff;
+
+    /* 主要颜色 */
+    --color-fg-default: #e5e7eb;
+    --color-fg-muted: #9ca3af;
+    --color-fg-subtle: #6b7280;
+    --color-canvas-default: #1f2937;
+    --color-canvas-subtle: #111827;
+    --color-border-default: #374151;
+    --color-border-muted: #374151;
+    --color-neutral-muted: rgba(110,118,129,0.4);
+    --color-accent-fg: #60a5fa;
+    --color-accent-emphasis: #3b82f6;
+    --color-attention-subtle: rgba(187,128,9,0.15);
+    --color-danger-fg: #f87171;
+
+    /* 按钮颜色 */
+    --color-btn-text: #e5e7eb;
+    --color-btn-bg: #374151;
+    --color-btn-border: #4b5563;
+    --color-btn-shadow: 0 0 transparent;
+    --color-btn-inset-shadow: 0 0 transparent;
+    --color-btn-hover-bg: #4b5563;
+    --color-btn-hover-border: #6b7280;
+    --color-btn-active-bg: #6b7280;
+    --color-btn-active-border: #9ca3af;
+    --color-btn-selected-bg: #4b5563;
+    
+    /* 主要按钮 */
+    --color-btn-primary-text: #ffffff;
+    --color-btn-primary-bg: #3b82f6;
+    --color-btn-primary-border: #2563eb;
+    --color-btn-primary-shadow: 0 0 transparent;
+    --color-btn-primary-inset-shadow: 0 0 transparent;
+    --color-btn-primary-hover-bg: #2563eb;
+    --color-btn-primary-hover-border: #1d4ed8;
+    --color-btn-primary-selected-bg: #1d4ed8;
+    --color-btn-primary-selected-shadow: 0 0 transparent;
+    --color-btn-primary-disabled-text: rgba(255,255,255,0.5);
+    --color-btn-primary-disabled-bg: rgba(59,130,246,0.6);
+    --color-btn-primary-disabled-border: rgba(37,99,235,0.6);
+
+    /* 反应按钮 */
+    --color-social-reaction-bg-hover: #374151;
+    --color-social-reaction-bg-reacted-hover: #1e3a5f;
+
+    /* 其他 */
+    --color-primer-shadow-inset: 0 0 transparent;
+  }
+
+  main .pagination-loader-container {
+    background-image: url("https://github.com/images/modules/pulls/progressive-disclosure-line-dark.svg");
+  }
+
+  main .gsc-loading-image {
+    background-image: url("https://github.githubassets.com/images/mona-loading-dark.gif");
+  }
+}
+
+/* ============================================
+   全局字体设置 - 霞鹜文楷
+   ============================================ */
+html {
+  font-family: "LXGW WenKai Screen", -apple-system, BlinkMacSystemFont, "Segoe UI", 
+               "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", 
+               "Segoe UI Emoji" !important;
+}
+
+main,
+main * {
+  font-family: "LXGW WenKai Screen", -apple-system, BlinkMacSystemFont, "Segoe UI", 
+               "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", 
+               "Segoe UI Emoji" !important;
+}
+
+/* 代码块字体保持等宽 */
+main code,
+main pre,
+main .blob-code,
+main .blob-code-inner,
+main .highlight pre,
+main .markdown-body pre code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, 
+               "Liberation Mono", monospace !important;
+}
+
+/* ============================================
+   样式优化
+   ============================================ */
+
+/* 圆角优化 */
+main .gsc-comment-box,
+main .gsc-comment,
+main .gsc-reply,
+main button {
+  border-radius: 0.5rem;
+}
+
+main .gsc-comment-box-tabs,
+main .gsc-timeline {
+  border-radius: 0.5rem;
+}
+
+/* 输入框样式 */
+main textarea,
+main input {
+  border-radius: 0.375rem;
+  border: 1px solid var(--color-border-default);
+  background-color: var(--color-canvas-default);
+  color: var(--color-fg-default);
+}
+
+main textarea:focus,
+main input:focus {
+  outline: 2px solid var(--color-accent-emphasis);
+  outline-offset: 2px;
+  border-color: transparent;
+}
+
+/* 按钮样式优化 */
+main button {
+  transition: all 0.2s ease;
+}
+
+main button:hover {
+  transform: translateY(-1px);
+}
+
+main button:active {
+  transform: translateY(0);
+}
+
+/* 评论样式优化 */
+main .gsc-comment {
+  border: 1px solid var(--color-border-default);
+  transition: box-shadow 0.2s ease;
+}
+
+main .gsc-comment:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* 链接样式 */
+main a {
+  color: var(--color-accent-fg);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+main a:hover {
+  color: var(--color-accent-emphasis);
+  text-decoration: underline;
+}
+
+/* 反应按钮优化 */
+main .gsc-reactions-count {
+  border-radius: 9999px;
+  padding: 0.25rem 0.5rem;
+}
+
+/* 头像圆角 */
+main img[alt*="avatar"],
+main .avatar {
+  border-radius: 9999px;
+}
+
+/* 滚动条样式 */
+main ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+main ::-webkit-scrollbar-track {
+  background: var(--color-canvas-subtle);
+  border-radius: 4px;
+}
+
+main ::-webkit-scrollbar-thumb {
+  background: var(--color-border-muted);
+  border-radius: 4px;
+}
+
+main ::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-default);
+}
+
+/* 加载动画优化 */
+main .gsc-loading {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+/* 分页按钮 */
+main .gsc-pagination {
+  gap: 0.5rem;
+}
+
+/* Markdown 内容样式 */
+main .markdown-body {
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+main .markdown-body h1,
+main .markdown-body h2,
+main .markdown-body h3,
+main .markdown-body h4,
+main .markdown-body h5,
+main .markdown-body h6 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+main .markdown-body p {
+  margin-bottom: 1em;
+}
+
+main .markdown-body ul,
+main .markdown-body ol {
+  padding-left: 2em;
+  margin-bottom: 1em;
+}
+
+main .markdown-body blockquote {
+  border-left: 4px solid var(--color-border-default);
+  padding-left: 1em;
+  color: var(--color-fg-muted);
+  margin: 1em 0;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  main .markdown-body {
+    font-size: 0.875rem;
+  }
+  
+  main .gsc-comment-box,
+  main .gsc-comment {
+    border-radius: 0.375rem;
+  }
+}
