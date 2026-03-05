@@ -13,12 +13,17 @@
 - [x] [§ LEC 8       Inheritance & Implements](iai.md)
 - [x] [§ LEC X       Others](others.md)
 
+### Lab
+
+- [x] [§ Lab 3       Timing Tests & Randomized Comparison Tests](ttrct.md)
+
 ### Project
 
 - [x] [§ PROJECT 0       Game: 2048](2048.md)
 
 
-### Next Step(TBD)
+
+### Next Step(TD)
 
 | Lecture                                     | Lab                                                                                                | Assignments                                                                      |
 | ------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
