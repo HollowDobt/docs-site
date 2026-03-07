@@ -41,7 +41,7 @@ public class TestAddNumber {
         int expected = 3;  
         int actual = AddNumber.add(a, b);  
   
-        assertSame(expected, actual);  
+        assertEquals(expected, actual);  
     }  
   
     @Test  
@@ -50,10 +50,13 @@ public class TestAddNumber {
         int expected = 1;  
         int actual = AddNumber.add(a, b);  
   
-        assertSame(expected, actual);  
+        assertEquals(expected, actual);  
     }  
 }
 ```
+
+!!! error
+	`assertSame()` 比较的是同一个对象引用, 不是比较数值内容. 不过 `-128~127` 的 `Integer` 有缓存, 偶尔会让 `assertSame` 看起来可用, 但这实际上仍然不是对数值的比较.
 
 ### Python
 
