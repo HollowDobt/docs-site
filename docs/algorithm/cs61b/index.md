@@ -20,11 +20,11 @@
 ### Project
 
 - [x] [§ PROJECT 0       Game: 2048](2048.md)
+- [ ] [§ PROJECT 1       Data Structures](dastru.md)
 
 
+## Next Step(TD)
 
-### Next Step(TD)
-
-| Lecture                                     | Lab                                                                                                | Assignments                                                                      |
-| ------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| 9. Extends, Casting, Higher Order Functions | [Randomizing Testing and Timing (due 02/05)](https://sp21.datastructur.es/materials/lab/lab3/lab3) | [Project 1 (due 02/16)](https://sp21.datastructur.es/materials/proj/proj1/proj1) |
+| Lecture                                     | Lab                                                                                   | Assignments                                                                      |
+| ------------------------------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| 9. Extends, Casting, Higher Order Functions | [Git and Debugging (due 02/16)](https://sp21.datastructur.es/materials/lab/lab4/lab4) | [Project 1 (due 02/16)](https://sp21.datastructur.es/materials/proj/proj1/proj1) |
