@@ -154,12 +154,15 @@ nav:
     - algorithm/index.md
     - "§ CS61B: Data Structures and Algorithms":
       - algorithm/cs61b/index.md
-      - "• Lec 3 Testing & TDD": algorithm/cs61b/tdd.md
-      - "• Lec 8 Inheritance & Implements": algorithm/cs61b/iai.md
-      - "• Lec X: 杂项": algorithm/cs61b/others.md
-      - "• Lab 3 Timing Tests & Randomized Comparison Tests": algorithm/cs61b/ttrct.md
-      - "• Proj 0 2048": algorithm/cs61b/2048.md
-      - "• Proj 1 Data Structures": algorithm/cs61b/dastru.md
+      - "Lecture":
+        - "Lec 3 | Testing & TDD": algorithm/cs61b/tdd.md
+        - "Lec 8 | Inheritance & Implements": algorithm/cs61b/iai.md
+        - "Lec X | 杂项": algorithm/cs61b/others.md
+      - "Lab":
+        - "Lab 3 | Timing Tests & Randomized Comparison Tests": algorithm/cs61b/ttrct.md
+      - "Project":
+        - "Proj 0 | 2048": algorithm/cs61b/2048.md
+        - "Proj 1 | Data Structures": algorithm/cs61b/dastru.md
     - "§ CMU CSAPP 15-213":
       - algorithm/csapp/index.md
     - "§ Codeforces":
