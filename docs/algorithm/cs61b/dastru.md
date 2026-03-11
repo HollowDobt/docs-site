@@ -71,7 +71,7 @@ private int toOffset(int index) {
 	if (index >= 0) {
 		return index;
 	} else {
-		return array.length - index;
+		return array.length + index;
 	}
 }
 ```
@@ -137,5 +137,5 @@ private void resetCapacity(int capacity) {
 }
 ```
 
-在只涉及我们提到的前面这几个函数时, 两种方案都能正常工作. 但是, 一旦涉及到 `remove` 操作时, 第二种方法就失效了. 第二种方法是博主一开始想到的方法, 后面测试时反应过来发现了这个问题. 因为第二种方法假定了 `begin` 一定小于 0, `end` 一定大于 0, 因此在移除到 `begin` 大于 0 时就会出现问题.
+在只涉及我们提到的前面这几个函数时, 两种方案都能正常工作. 但是, 一旦涉及到 `remove` 操作时, 第二种方法就失效了. 第二种方法是博主一开始想到的方法, 后面测试时反应过来发现了这个问题. 因为第二种方法假定了 `begin` 一定小于 0, `end` 一定大于 0, 因此在移除到 `begin` 大于 0 或者 `end` 小于 0 的情况就会出现问题.
 
