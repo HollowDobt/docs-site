@@ -7,11 +7,11 @@
 @import url("https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-web/style.css");
 
 :root {
-    /* Font Families */
+    /* 增加安全回退字体 sans-serif 和 monospace 防止 CDN 加载失败时排版崩溃 */
     --md-text-font: "Spectral", "LXGW WenKai Screen", sans-serif;
     --md-code-font: "Noto Sans Mono", "LXGW WenKai Mono Screen", monospace;
 
-    /* Base Font Sizes (Optimized for 13" MacBook Air / smaller screens) */
+    /* 基础字体大小定义 (以你的 Macbook Air 13' 舒适观感为绝对基准) */
     --custom-base-size: .85rem;
     --custom-code-size: .73rem;
     --custom-footnote-size: .75rem;
@@ -20,9 +20,7 @@
     --custom-header-size: 1.1rem;
 }
 
-/* * Responsive Font Sizing for Larger Screens
- * 当屏幕宽度 >= 1440px 时，缩小 rem 的基础值，抵消大屏幕带来的物理放大感
- */
+/* 响应式缩放：当屏幕物理宽度 >= 1440px (大屏笔记本/外接显示器) 时，整体按比例微调缩小 */
 @media screen and (min-width: 1440px) {
     :root {
         --custom-base-size: .78rem;
@@ -74,6 +72,20 @@
 .md-typeset code { font-size: var(--custom-code-size); }
 .md-typeset .linenodiv { font-size: var(--custom-code-size); }
 
+/* --- 核心修复区：强制 Admonitions/Details 的各个层级字体大小与正文保持绝对一致 --- */
+.md-typeset .admonition,
+.md-typeset details,
+.md-typeset .admonition-title,
+.md-typeset summary,
+.md-typeset .admonition p,
+.md-typeset details p,
+.md-typeset .admonition ul,
+.md-typeset .admonition ol,
+.md-typeset .admonition ul li,
+.md-typeset .admonition ol li {
+    font-size: var(--custom-base-size);
+}
+
 /* Reference Font Size */
 .footnote p { font-size: var(--custom-footnote-size); }
 .footnote ol { counter-reset: li; }
@@ -81,6 +93,7 @@
     padding-left: var(--custom-base-size);
     counter-increment: li;
     word-break: break-all;
+    font-size: var(--custom-footnote-size); /* 确保覆盖上方可能的列表样式污染 */
 }
 .footnote li::marker {
     content: counter(li);
@@ -91,7 +104,6 @@
 .md-typeset :is(.emojione,.twemoji,.gemoji) { vertical-align: sub; }
 .md-source-file__fact, .md-source__repository { font-size: var(--custom-nav-size); }
 .hr-before-source-file:not(:has(+ aside)) { display: none; }
-
 .md-tooltip2 > .md-typeset, .md-tooltip > .md-typeset {
     font-size: var(--custom-tiny-size);
     line-height: 1.4;
@@ -101,18 +113,14 @@
     word-break: break-word;
     white-space: normal;
 }
-
 .md-sidebar--primary .md-nav__title,
 .md-sidebar--primary .md-nav__link,
 .md-sidebar--secondary .md-nav__title,
 .md-sidebar--secondary .md-nav__link, 
-.md-tabs__link { 
-    font-size: var(--custom-nav-size); 
-}
+.md-tabs__link { font-size: var(--custom-nav-size); }
+.md-header__title {font-size: var(--custom-header-size);}
 
-.md-header__title { font-size: var(--custom-header-size); }
-
-/* MathJax (由于使用的是 em，它会自动相对于父元素 var(--custom-base-size) 进行等比例缩放，无需改动) */
+/* MathJax (由于使用的是 em，它会自动相对于父元素 var(--custom-base-size) 进行等比缩放，无需改动) */
 .md-typeset mjx-container:not([display]),
 .md-typeset mjx-container[display="false"] {
   font-size: 1em !important;
