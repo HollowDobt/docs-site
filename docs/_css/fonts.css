@@ -52,7 +52,7 @@
 }
 
 /* Code Font Size */
-.md-typeset { font-size: .85rem; }
+.md-typeset { font-size: .75rem; }
 .md-typeset code:not(pre code) { font-size: .73rem; }
 .md-typeset code { font-size: .73rem; }
 .md-typeset .linenodiv { font-size: .73rem; }
