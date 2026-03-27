@@ -101,7 +101,7 @@ extra_css:
 
 extra_javascript:
   - _js/math.js
-  - https://unpkg.com/mathjax@4.1.0/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/mathjax@4.1.0/tex-mml-chtml.js
 
 extra:
   analytics:
@@ -149,7 +149,6 @@ nav:
     - "§ 人工智能基础(A)": ZJU-Courses-Notes/A/AIBasic(A).md
     - "§ 电工电子学": ZJU-Courses-Notes/A/Electron/index.md
     - "§ 理论力学(甲)": ZJU-Courses-Notes/A/TheoreticalMechanics/index.md
-    - "§ 工程材料": ZJU-Courses-Notes/A/engmat.md
 
   - "CS Notes":
     - algorithm/index.md

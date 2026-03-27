@@ -2,3 +2,7 @@
 .obsidian
 **/.obsidian/
 **/.venv/
+.aux
+.log
+.out
+.nav
