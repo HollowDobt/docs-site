@@ -1,0 +1,20 @@
+/*
+ * -------------------
+ * Admonitions Style Settings
+ * -------------------
+ */
+
+.md-typeset .admonition > :not(.admonition-title),
+.md-typeset .admonition-content > * {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  border-width: 0;
+  border-left-width: 4px;
+}
+
+.md-typeset .admonition,
+.md-typeset details.admonition { font-size: .85rem !important; }
