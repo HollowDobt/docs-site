@@ -140,7 +140,6 @@ plugins:
 nav:
   - "Home":
     - index.md
-    - "§ Share Code Demo": share-code-demo.md
   - "Embedded programming":
     - programlang/index.md
     - "§ 环境搭建":

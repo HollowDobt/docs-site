@@ -35,7 +35,6 @@ jobs:
             mkdocs-git-authors-plugin \
             mkdocs-minify-plugin \
             mkdocs-add-number-plugin
-          python -m pip install -e ./packages/mkdocs-material-share-code
 
       # 3. 构建 MkDocs 并修复 404 页面
       - name: Build the site
