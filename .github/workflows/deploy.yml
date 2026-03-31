@@ -24,15 +24,18 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install jieba
-          pip install mkdocs
-          pip install mkdocs-material
-          pip install mkdocs-glightbox
-          pip install mkdocs-git-revision-date-localized-plugin
-          pip install mkdocs-git-committers-plugin-2
-          pip install mkdocs-git-authors-plugin
-          pip install mkdocs-minify-plugin
-          pip install mkdocs-add-number-plugin
+          python -m pip install --upgrade pip
+          python -m pip install \
+            jieba \
+            mkdocs \
+            mkdocs-material \
+            mkdocs-glightbox \
+            mkdocs-git-revision-date-localized-plugin \
+            mkdocs-git-committers-plugin-2 \
+            mkdocs-git-authors-plugin \
+            mkdocs-minify-plugin \
+            mkdocs-add-number-plugin
+          python -m pip install -e ./packages/mkdocs-material-share-code
 
       # 3. 构建 MkDocs 并修复 404 页面
       - name: Build the site

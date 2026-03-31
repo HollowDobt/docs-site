@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mkdocs-material-share-code"
+version = "0.1.0"
+description = "Material-native share code exchange widget for MkDocs"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "mkdocs>=1.6",
+  "mkdocs-material>=9.5",
+]
+authors = [
+  { name = "Hollow Dobt" },
+]
+classifiers = [
+  "Framework :: MkDocs",
+  "Framework :: MkDocs :: Theme",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Internet :: WWW/HTTP :: Site Management",
+]
+
+[project.entry-points."mkdocs.plugins"]
+"material/share-code" = "mkdocs_material_share_code.plugin:ShareCodePlugin"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+mkdocs_material_share_code = [
+  "theme/assets/javascripts/*.js",
+  "theme/assets/stylesheets/*.css",
+]

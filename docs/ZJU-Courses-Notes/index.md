@@ -39,6 +39,7 @@ comments: false
 ### 大二下
 
 - [ ] [§ 概率论与数理统计](A/ProbabilityTheory.md)
+- [ ] [§ 工程材料](A/EngineeringMaterial.md)
 
 ## 杂七杂八的资源
 
