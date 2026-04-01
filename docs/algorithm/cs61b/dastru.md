@@ -13,129 +13,188 @@
 
 原文: <https://sp21.datastructur.es/materials/proj/proj1/proj1>
 
-- `public void addFirst(T item)`: Adds an item of type `T` to the front of the deque. You can assume that `item` is never `null`.
-- `public void addLast(T item)`: Adds an item of type `T` to the back of the deque. You can assume that `item` is never `null`.
-- `public boolean isEmpty()`: Returns `true` if deque is empty, `false` otherwise.
-- `public int size()`: Returns the number of items in the deque.
-- `public void printDeque()`: Prints the items in the deque from first to last, separated by a space. Once all the items have been printed, print out a new line.
-- `public T removeFirst()`: Removes and returns the item at the front of the deque. If no such item exists, returns `null`.
-- `public T removeLast()`: Removes and returns the item at the back of the deque. If no such item exists, returns `null`.
-- `public T get(int index)`: Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth. If no such item exists, returns `null`. Must not alter the deque!
+| API (Signature)                   | Functions                                                                                                                                                                                                                                                                                                                                                                                    |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `public void addFirst(T item)`    | Adds an item of type `T` to the front of the deque. **You can assume that `item` is never `null`.**                                                                                                                                                                                                                                                                                          |
+| `public void addLast(T item)`     | Adds an item of type `T` to the back of the deque. **You can assume that `item` is never `null`.**                                                                                                                                                                                                                                                                                           |
+| `public boolean isEmpty()`        | Returns `true` if deque is empty, `false` otherwise.                                                                                                                                                                                                                                                                                                                                         |
+| `public int size()`               | Returns the number of items in the deque.                                                                                                                                                                                                                                                                                                                                                    |
+| `public void printDeque()`        | Prints the items in the deque from first to last, separated by a space. **Once all the items have been printed, print out a new line.**                                                                                                                                                                                                                                                      |
+| `public T removeFirst()`          | Removes and returns the item at the front of the deque. **If no such item exists, returns `null`.**                                                                                                                                                                                                                                                                                          |
+| `public T removeLast()`           | Removes and returns the item at the back of the deque. **If no such item exists, returns `null`.**                                                                                                                                                                                                                                                                                           |
+| `public T get(int index)`         | Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth. **If no such item exists, returns `null`. Must not alter the deque!**                                                                                                                                                                                                                              |
+| `public Iterator<T> iterator()`   | The Deque objects we’ll make are iterable (i.e. `Iterable<T>`) so we must provide this method to return an iterator.                                                                                                                                                                                                                                                                         |
+| `public boolean equals(Object o)` | Returns whether or not the parameter `o` is equal to the Deque. `o` is considered equal if it is a Deque and if it contains the same contents (as goverened by the generic `T`’s `equals` method) in the same order. (ADDED 2/12: You’ll need to use the `instance of` keywords for this. Read [here](https://www.javatpoint.com/downcasting-with-instanceof-operator) for more information) |
 
-In addition, we also want our two Deques to implement these two special methods:
-
-- `public Iterator<T> iterator()`: The Deque objects we’ll make are iterable (i.e. `Iterable<T>`) so we must provide this method to return an iterator.
-- `public boolean equals(Object o)`: Returns whether or not the parameter `o` is equal to the Deque. `o` is considered equal if it is a Deque and if it contains the same contents (as goverened by the generic `T`’s `equals` method) in the same order. (ADDED 2/12: You’ll need to use the `instance of` keywords for this. Read [here](https://www.javatpoint.com/downcasting-with-instanceof-operator) for more information)
-
-## Array Deque
+## 实现之一: 链表队列(LinkedListDeque)
 
 ---
 
-!!! note
-	因为文档查看顺序的原因, 我先完成了数组版本的双端队列. 但是从实际实现难度看, 建议先做链表版本.
+我的思路是, 采用循环链表的方式完成. 这一实现方式下实现 `addFirst` 和 `addLast` 以及 `removeFirst` 和 `removeLast` 会方便许多.
 
-实验文档中有提示: 
+因为链表结构本身的特性, 文档对此类型的队列做出了其他更多的要求. 此后在实现每一个方法时, 如果有额外要求将补充说明, 这里不再单独列举.
 
->You will need to somehow keep track of what array indices hold the Deque’s front and back elements. We _strongly recommend_ that you treat your array as circular for this exercise. In other words, if your front item is at position zero, and you `addFirst`, the new front should loop back around to the end of the array (so the new front item in the deque will be the last item in the underlying array). 
+### 节点类设计
 
-具体而言, 我的思路来自于 `Python` 列表对于索引为负数的处理模式. 因此, 我们必须要维护三个内部私有变量(其中 `begin` 与 `end` 是核心的元数据):
-
-- `array`: 内部数组, 队列元素实际存储的位置. 根据实验文档要求, 初始容量(`length`)为 8.
-- `begin`: 指向对数组队列来说首个元素的前一个元素(注意不是内部数组 `array` 的). 初始值为 -1.
-- `end`: 指向对数组队列来说最后一个元素的后一个元素(注意不是内部数组 `array` 的). 初始值为 0.
-
-据此可以确定队列大小(`size`)的计算方式: `end - begin - 1`, 得到两个函数:
+由于 `Java` 的语法特性, 类可以直接访问其定义的内部私有类的成员变量, 因此无需为 `Node` 设计过多的 `API`:
 
 ```java
-/**  
- * 构造: 初始时大小为 8, 首位上一位为 -1, 末位下一位为 0  
- */
-public ArrayDeque() {  
-    array = (T[]) new Object[8];  
-    begin = -1;  
-    end = 0;  
-}
-
-/**  
- * @return 当前已占用数组的大小  
- */  
-private int size() {  
-    return end - begin - 1;  
-}
-```
-
-接下来, 首先实现类似于 `Python` 模式的将负数向实际指向位置的函数 `int toOffset(int index)`:
-
-```java
-private int toOffset(int index) {
-	if (index >= 0) {
-		return index;
-	} else {
-		return array.length + index;
-	}
-}
-```
-
-!!! warning
-	这里不是对 `Python` 列表的访问模式的完整复现. 有关其实际运行方式, 请自行在 `Python` 环境中测试.
-
-接下来考虑在首位/末位添加元素的方法 `addFirst(T item)` & `addLast(T item)`:
-
-```java
-
-/**  
- * 如果超过了可以存储的大小, 首先扩容为原来的两倍; 
- * 否则直接在 begin/end 指向的地方插入元素  
- */
-
-public void addFirst(T item) {  
-    if (size() >= array.length) {  
-        resetCapacity(array.length * 2);  
+private class Node {  
+    T data; // 此项目中 T 都表示泛型类型参数(type parameter)的占位符
+    Node next;  
+    Node prev;  
+  
+    public Node(T data) {  
+        this.data = data;  
+        next = null;  
+        prev = null;  
     }  
-    array[toOffset(begin)] = item;  
-    --begin;  
+}
+```
+
+###  必要的私有成员变量
+
+下面是必须有的私有成员变量:
+
+```java
+private Node sentinel; // 哨兵节点  
+private int size;
+```
+
+我们采用的是循环链表, 因此 `sentinel` 指向的前一个节点就是 `last` 节点, 后一个节点就是 `first` 节点. 在此情况下, 我们便可以满足文档中对 `last` 和 `first` 操作的要求:
+
+> `add` and `remove` operations (这里指的应该是 `public void addFirst(T item)` 等四个添加和移除的 API) must not involve any looping or recursion. A single such operation must take “constant time”, i.e. execution time should not depend on the size of the deque. This means that you cannot use loops that go over all/most elements of the deque.
+
+同时下面这一对 `size` 获取的要求也得到了满足:
+
+> `size` must take constant time.
+
+### 构造函数
+
+把哨兵节点和大小设置好就行:
+
+```java
+public LinkedListDeque() {  
+    sentinel = new Node(null);
+    sentinel.next = sentinel;  // 循环链表, 初始时刻前一个与后一个都指向自己
+	sentinel.prev = sentinel;
+	
+    size = 0;  
+}
+```
+
+### 元数据获取函数
+
+主要是针对 `size` 这一元数据的函数. 利用此元数据很容易实现下面两个函数:
+
+```java
+/**  
+ * * @return Returns `true` if deque is empty, `false` otherwise.  
+ */
+public boolean isEmpty() {  
+    return size == 0;  
 }  
   
-public void addLast(T item) {  
-    if (size() >= array.length) {  
-        resetCapacity(array.length * 2);  
-    }  
-    array[toOffset(end)] = item;  
-    ++end;  
+/**  
+ * * @return Returns the number of items in the deque.  
+ */
+public int size() {  
+    return size;  
 }
 ```
 
-这里涉及到了一个关键的方法: `resetCapacity(int capacity)`. 这个函数本质是做了两件事: 创造一个全新的用于替代旧数组队列的 `Array Deque` 实例, 然后将旧的数组队列的元素完整复制到这个新队列里面. 对于前者, 这意味着需要拟定新的 `array`, `begin`, `end`; 对于后者, 我们需要用 `for` 循环复制所有的旧元素. 我有两个方案, 大家可以先思考两个方案是不是都是正确的.
+### 打印函数
+
+这一函数理论上用迭代器可以很容易实现, 而且这样不同的数据结构面对一个需要迭代的情况时可以用同一个函数. 但是这里我们暂且先不使用迭代器(目前我只知道 `C++` 中的迭代器怎么写, 不清楚 `Java` 中的语法规则)来实现这一方法.
+
+我们先确定函数的终止条件:
+
+- 整个节点中只有哨兵节点的 `data` 为 `null`, 其他的节点的这一值不可能为 `null`, 因此考虑作为终止条件. 但是这一判断方式可行的前提是 `next` 和 `prev` 不能为空指针, 否则会出现对空指针访问 `data` 的报错.
+- 我们又考虑到这是循环链表, 因此任何节点的 `next` 和 `prev` 在任何时刻都不可能为 `null`, 因此上面这种思路是可行的. 换言之, 我们确定了这个函数的终止条件: 当节点存储的 `data` 值为 `null` 时停止打印.
+
+然后再思考整个循环过程:
+
+- 可以分为两步, 打印和更新节点. 即: 打印当前节点的值, 然后将当前节点变为当前节点指向的下一个节点. 这样, 每一个链表上的节点都可以被打印.
+
+最后, 考虑初始情况:
+
+- 我们从哨兵节点开始考虑, 发现哨兵节点的下一个节点才是真正的有效节点. 因此需要读取哨兵节点的下一个作为初始节点.
+
+将上述考虑综合, 得到代码:
 
 ```java
-// METHOD 1
-private void resetCapacity(int capacity) {  
-    T[] newArray = (T[]) new Object[capacity];  
-    int j = 0;  
-    for (int i = begin + 1; i < end; ++i) {  
-        newArray[j] = array[toOffset(i)];  
-        array[toOffset(i)] = null;  
-        ++j;  
+/**  
+ * Prints the items in the deque from first to last, separated by a space. 
+ * Once all the items have been printed, print out a new line. 
+ */
+public void printDeque() {  
+    Node current = sentinel.next;  
+    while (current.data != null) {  
+        System.out.print(current.data + " ");  
+        current = current.next;  
     }  
-    array = newArray;  
-    end = size();  
-    begin = -1;  
-}
-
-// METHOD 2
-private void resetCapacity(int capacity) {  
-    T[] newArray = (T[]) new Object[capacity];  
-    for (int i = 0; i < end; i++) {  
-        newArray[i] = array[i];  
-        array[i] = null;  
-    }  
-    for (int i = begin; i < 0; i++) {  
-        newArray[capacity + i] = array[offset(i)];  
-        array[offset(i)] = null;  
-    }  
-    array = newItems;  
+    System.out.println();  
 }
 ```
 
-在只涉及我们提到的前面这几个函数时, 两种方案都能正常工作. 但是, 一旦涉及到 `remove` 操作时, 第二种方法就失效了. 第二种方法是博主一开始想到的方法, 后面测试时反应过来发现了这个问题. 因为第二种方法假定了 `begin` 一定小于 0, `end` 一定大于 0, 因此在移除到 `begin` 大于 0 或者 `end` 小于 0 的情况就会出现问题.
+### Get 方法
+
+文档要求我们实现两个 `get`, 一个使用迭代另一个使用递归. 先说明迭代的版本.
+
+- 这一 `get(int index)` 函数实现的是 `C/C++` 和 `Java` 同一类的偏移量风格读取模式, 与 `Python` 中循环读取的模式不同, 不允许大于等于 `size` 和小于零的访问. 基于此, 我们可以首先根据这一规则限制这一边界条件. 
+- 迭代读取的本质是不断访问当前节点的 `next` 节点. 
+- 最终的结束条件: 如果一开始将哨兵节点作为初始值, 执行 `index + 1` 次这种 `next` 访问后停止, 停止时的节点对应的值就是我们需要获取的值.
+
+```java
+/**  
+ * * @param index  
+ * @return Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth.  
+ * If no such item exists, returns `null`. Must not alter the deque! 
+ */
+public T get(int index) {  
+    if (index < 0 || index >= size) {  
+        return null;  
+    }  
+  
+    Node current = sentinel;  
+    for (int i = 0; i <= index; ++i) {  
+        current = current.next;  
+    }  
+    return current.data;  
+}
+```
+
+接下来是递归版本的 `get`, 即文档要求的 `public T getRecursive(int index)`. 考虑的方式类似, 只是将循环变成了一个单独的递归函数. 为了方便边界条件的判断, 我们将额外添加一个辅助函数.
+
+这一辅助函数的功能是不考虑边界情况地进行递归式读取. 其思路是, 读取第 `i` 个节点的 `j` 个偏移量的值就等于读取第 `i + 1` 个节点的 `j - 1` 个偏移量的值. 通过上面迭代方式实现的考虑, 从哨兵节点开始读取总计需要读取 `index + 1` 次, 如果我们设置这一辅助函数的退出机制是 `j = 0`, 那么需要满足在 `i = 0` (即哨兵节点)时 `j = index + 1`. 因此, 该辅助函数可以实现为:
+
+```java
+/**  
+ * * @param current  
+ * @param restOffset  
+ * @return 在不考虑边界条件的情况下的对值的递归式读取  
+ */  
+private T getRecursiveWithoutNull(Node current, int restOffset) {  
+    if (restOffset == 0) {  
+        return current.data;  
+    }  
+    return getRecursiveWithoutNull(current.next, restOffset - 1);  
+}
+```
+
+我们需要的递归读取的函数便可实现为:
+
+```java
+/**  
+ * * @param index  
+ * @return Same as get, but uses recursion.  
+ */
+public T getRecursive(int index) {  
+    if (index < 0 || index >= size) {  
+        return null;  
+    }  
+  
+    return getRecursiveWithoutNull(sentinel, index + 1);  
+}
+```
 
