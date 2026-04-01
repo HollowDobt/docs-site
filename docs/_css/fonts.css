@@ -11,25 +11,13 @@
     --md-text-font: "Spectral", "LXGW WenKai Screen", sans-serif;
     --md-code-font: "Noto Sans Mono", "LXGW WenKai Mono Screen", monospace;
 
-    /* 基础字体大小定义 (以你的 Macbook Air 13' 舒适观感为绝对基准) */
-    --custom-base-size: .85rem;
-    --custom-code-size: .73rem;
+    /* 桌面端字号保持稳定，不再用屏幕宽度猜设备大小 */
+    --custom-base-size: .88rem;
+    --custom-code-size: .76rem;
     --custom-footnote-size: .75rem;
     --custom-tiny-size: .7rem;
     --custom-nav-size: .8rem;
     --custom-header-size: 1.1rem;
-}
-
-/* 响应式缩放：当屏幕物理宽度 >= 1440px (大屏笔记本/外接显示器) 时，整体按比例微调缩小 */
-@media screen and (min-width: 1440px) {
-    :root {
-        --custom-base-size: .78rem;
-        --custom-code-size: .68rem;
-        --custom-footnote-size: .7rem;
-        --custom-tiny-size: .65rem;
-        --custom-nav-size: .75rem;
-        --custom-header-size: 1.0rem;
-    }
 }
 
 /* spectral-latin-400-normal */

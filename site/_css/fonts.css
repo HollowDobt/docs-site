@@ -7,8 +7,15 @@
 @import url("https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-web/style.css");
 
 :root {
-    --md-text-font: "Spectral", "LXGW WenKai Screen";
-    --md-code-font: "Noto Sans Mono", "LXGW WenKai Mono Screen";
+    --md-text-font: "Spectral", "LXGW WenKai Screen", sans-serif;
+    --md-code-font: "Noto Sans Mono", "LXGW WenKai Mono Screen", monospace;
+
+    --custom-base-size: .88rem;
+    --custom-code-size: .76rem;
+    --custom-footnote-size: .75rem;
+    --custom-tiny-size: .7rem;
+    --custom-nav-size: .8rem;
+    --custom-header-size: 1.1rem;
 }
 
 /* spectral-latin-400-normal */
@@ -52,30 +59,44 @@
 }
 
 /* Code Font Size */
-.md-typeset { font-size: .85rem; }
-.md-typeset code:not(pre code) { font-size: .73rem; }
-.md-typeset code { font-size: .73rem; }
-.md-typeset .linenodiv { font-size: .73rem; }
+.md-typeset { font-size: var(--custom-base-size); }
+.md-typeset code:not(pre code) { font-size: var(--custom-code-size); }
+.md-typeset code { font-size: var(--custom-code-size); }
+.md-typeset .linenodiv { font-size: var(--custom-code-size); }
+
+.md-typeset .admonition,
+.md-typeset details,
+.md-typeset .admonition-title,
+.md-typeset summary,
+.md-typeset .admonition p,
+.md-typeset details p,
+.md-typeset .admonition ul,
+.md-typeset .admonition ol,
+.md-typeset .admonition ul li,
+.md-typeset .admonition ol li {
+    font-size: var(--custom-base-size);
+}
 
 /* Reference Font Size */
-.footnote p { font-size: .75rem; }
+.footnote p { font-size: var(--custom-footnote-size); }
 .footnote ol { counter-reset: li; }
 .footnote li {
-    padding-left: .85rem;
+    padding-left: var(--custom-base-size);
     counter-increment: li;
     word-break: break-all;
+    font-size: var(--custom-footnote-size);
 }
 .footnote li::marker {
     content: counter(li);
-    font-size: .85rem;
+    font-size: var(--custom-base-size);
 }
 
 /* Other Fonts Size */
 .md-typeset :is(.emojione,.twemoji,.gemoji) { vertical-align: sub; }
-.md-source-file__fact, .md-source__repository { font-size: .8rem; }
+.md-source-file__fact, .md-source__repository { font-size: var(--custom-nav-size); }
 .hr-before-source-file:not(:has(+ aside)) { display: none; }
 .md-tooltip2 > .md-typeset, .md-tooltip > .md-typeset {
-    font-size: .7rem;
+    font-size: var(--custom-tiny-size);
     line-height: 1.4;
 }
 .md-tooltip, .md-tooltip--inline {
@@ -87,8 +108,8 @@
 .md-sidebar--primary .md-nav__link,
 .md-sidebar--secondary .md-nav__title,
 .md-sidebar--secondary .md-nav__link, 
-.md-tabs__link { font-size: .8rem; }
-.md-header__title {font-size: 1.1rem;}
+.md-tabs__link { font-size: var(--custom-nav-size); }
+.md-header__title {font-size: var(--custom-header-size);}
 
 .md-typeset mjx-container:not([display]),
 .md-typeset mjx-container[display="false"] {
@@ -97,6 +118,6 @@
 
 .md-typeset mjx-container[display="block"],
 .md-typeset mjx-container[display="true"] {
-  font-size: 1.15em !important;
-  margin-block: 0.0em !important;
+  font-size: 1.10em !important;
+  margin-block: 0.5em !important;
 }

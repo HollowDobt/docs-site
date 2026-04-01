@@ -4,6 +4,19 @@
  * -------------------
  */
 
-@media screen and (min-width: 76.25em) { .md-grid { max-width: 1330px; } }
+@media screen and (min-width: 76.25em) {
+    .md-grid {
+        max-width: clamp(1200px, 90vw, 1520px);
+    }
+}
+
+/* Material 默认会在超宽屏继续放大 rem，桌面端观感会变得失衡，这里固定住 */
+@media screen and (min-width: 100em) {
+    html { font-size: 125%; }
+}
+
+@media screen and (min-width: 125em) {
+    html { font-size: 125%; }
+}
 
 .md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4 { letter-spacing: 0.0; }

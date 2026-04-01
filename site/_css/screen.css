@@ -4,6 +4,18 @@
  * -------------------
  */
 
-@media screen and (min-width: 76.25em) { .md-grid { max-width: 1330px; } }
+@media screen and (min-width: 76.25em) {
+    .md-grid {
+        max-width: clamp(1200px, 90vw, 1520px);
+    }
+}
+
+@media screen and (min-width: 100em) {
+    html { font-size: 125%; }
+}
+
+@media screen and (min-width: 125em) {
+    html { font-size: 125%; }
+}
 
 .md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4 { letter-spacing: 0.0; }
