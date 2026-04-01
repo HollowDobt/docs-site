@@ -27,7 +27,7 @@ comments: false
 ### 大一下
 
 - [x] [§ 普通化学实验(乙)](A/NorCheT(B).md)
-- [x] [§ 人工智能基础(A)](A/AIBasic(A)II.md)
+- [x] [§ 人工智能基础(A)](A/AIBasic(A).md)
 - [x] [§ 微积分(甲) II](A/Calculus(A)II.md)
 
 ### 大二上
