@@ -110,12 +110,6 @@ extra:
 
 plugins:
   - glightbox
-  - share-code:
-      default_enabled: false
-      exchange_path: /@/share-code
-      request_credentials: include
-      provider: custom
-      custom_token_resolver: acquireShareCodeToken
   - git-authors
   - search:
       separator: '[\s\u200b\-]'
