@@ -5,20 +5,24 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
+env:
+  NO_MKDOCS_2_WARNING: "1"
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. 拉取代码
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # 获取完整历史，方便部署分支操作
+          fetch-depth: 0
 
-      # 2. 安装 Python 和 MkDocs
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
@@ -26,45 +30,35 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install \
-            jieba \
-            mkdocs \
-            mkdocs-material \
-            mkdocs-glightbox \
-            mkdocs-git-revision-date-localized-plugin \
-            mkdocs-git-committers-plugin-2 \
-            mkdocs-git-authors-plugin \
-            mkdocs-minify-plugin \
-            mkdocs-add-number-plugin
+            "mkdocs-material==9.*" \
+            "mkdocs<2" \
+            "mkdocs-glightbox" \
+            "mkdocs-git-revision-date-localized-plugin" \
+            "mkdocs-git-committers-plugin-2" \
+            "mkdocs-git-authors-plugin" \
+            "mkdocs-minify-plugin" \
+            "mkdocs-add-number-plugin"
 
-      # 3. 构建 MkDocs 并修复 404 页面
       - name: Build the site
         run: |
-          mkdocs build
-          cp site/static/404.html site/404.html
+          mkdocs build --strict
+          if [ -f site/static/404.html ]; then
+            cp site/static/404.html site/404.html
+          fi
 
-      # 4. 将构建产物部署到 pages 分支
       - name: Deploy to pages branch
         run: |
-          set -eux  # 遇错立即退出，打印每条命令
+          set -eux
 
-          REMOTE_REPO="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
-
-          rm -rf ../output-dir
-          mkdir ../output-dir
-          cp -r site/* ../output-dir/
-
-          cd ../output-dir
+          cd site
           git init
           git checkout -b pages
 
-          # 设置 Git 用户信息（必须在 init 之后！）
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add .
+          git add -A
+          git commit -m "Deploy: ${GITHUB_SHA}" || echo "WARNING: Nothing to commit"
 
-          # 如果没有变化可提交，也继续执行
-          git commit -m "Deploy: ${{ github.sha }}" || echo "WARNING: Nothing to commit"
-
-          git remote add origin $REMOTE_REPO
-          git push --force origin pages || echo "WARNING: Nothing to push"
+          git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
+          git push --force origin pages
