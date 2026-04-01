@@ -69,6 +69,9 @@ private int size;
 
 > `size` must take constant time.
 
+!!! note
+	一个比较良好的习惯(建议)是, 每多写一个元数据, 那么在后面每次写函数的时候都需要全部考虑一遍, 尤其是会写入/更新数据的一类.
+
 ### 构造函数
 
 把哨兵节点和大小设置好就行:
@@ -198,3 +201,99 @@ public T getRecursive(int index) {
 }
 ```
 
+### 移除/添加函数
+
+这几个函数涉及到了对数据的增删改, 因此需要关注元数据的变动. 这些函数本质上的操作可以描述为:
+
+- 确认增/删, 若是增那么需要增什么样的值.
+- 解除现在哨兵节点和首位元素/末位元素的指针指向, 并根据增删的要求增加/减少节点, 而后更新重建节点之间的指针指向.
+- 更新元数据.
+
+据此, 我们可以用相同的思路实现这四个函数:
+
+```java
+/**  
+ * Adds an item of type `T` to the front of the deque. 
+ * You can assume that `item` is never `null`. 
+ * @param data  
+ */  
+public void addFirst(T data) {  
+    Node newNode = new Node(data);  
+    newNode.prev = sentinel;  
+    newNode.next = sentinel.next;  
+    sentinel.next.prev = newNode;  
+    sentinel.next = newNode;  
+  
+    size++;  
+}  
+  
+/**  
+ * Adds an item of type `T` to the back of the deque. 
+ * You can assume that `item` is never `null`. 
+ * @param data  
+ */  
+public void addLast(T data) {  
+    Node newNode = new Node(data);  
+    newNode.next = sentinel;  
+    newNode.prev = sentinel.prev;  
+    sentinel.prev.next = newNode;  
+    sentinel.prev = newNode;  
+  
+    size++;  
+}  
+  
+/**  
+ * * @return Removes and returns the item at the front of the deque.  
+ * If no such item exists, returns `null`. 
+ */
+public T removeFirst() {  
+    if (size == 0) {  
+        return null;  
+    }  
+    Node toBeRemoved = sentinel.next;  
+    T data = toBeRemoved.data;  
+    toBeRemoved.next.prev = sentinel;  
+    sentinel.next = toBeRemoved.next;  
+  
+    toBeRemoved.data = null;  
+    toBeRemoved.prev = null;  
+    toBeRemoved.next = null;  
+  
+    size--;  
+    return data;  
+}  
+  
+/**  
+ * * @return Removes and returns the item at the back of the deque.  
+ * If no such item exists, returns `null`. 
+ */
+public T removeLast() {  
+    if (size == 0) {  
+        return null;  
+    }  
+    Node toBeRemoved = sentinel.prev;  
+    T data = toBeRemoved.data;  
+    toBeRemoved.prev.next = sentinel;  
+    sentinel.prev = toBeRemoved.prev;  
+  
+    toBeRemoved.data = null;  
+    toBeRemoved.next = null;  
+    toBeRemoved.prev = null;  
+  
+    size--;  
+    return data;  
+}
+```
+
+这四个函数的代码初看会觉得不太清晰, 不过如果画图去模拟 `JVM` (`Java` 虚拟机) 的行为后就能理解了. 这里提示几个可能会造成误解的地方.
+
+!!! question
+	`sentinel.prev.next = newNode;` 这个是什么意思? 比如按照人类的眼光来看, 这不应该等价于 `sentinel = newNode;` 吗?
+	
+	首先我们需要知道, `Java` 中(或者说大多数程序语言中)都分为栈和堆两个内存区域, 栈上存储了引用对象和基本类型数据, 堆上存储了引用对象指向的实例对象. `.` 操作符的功能是从这个操作符左边的对象中读取右边的值(如 `sentinel.prev` 的 `next`), 并且可以返回右边这个值所在的内存空间或值本身(如果把内存看做盒子, 盒子中放的东西就是值). 
+	
+	**这种 `.` 操作改不了栈上的 `sentinel` 本身, 因为一旦执行了第一个 `.`, 操作目标就已经从栈上的变量空间转移到了堆中的内存块, 在堆内部不论怎样修改地址值, 都无法逆向触及并改写栈帧里存储的原始变量.** 
+	
+	`=` 操作符本质是赋值, 会将右边的值赋给左边的空间. 这里的操作就是把 `sentinel.prev.next` 这个堆上的盒子的值设置为 `newNode`.
+	
+	这样实际上还可以解释不少类似让初学者困惑的问题, 如 `i = i + 1` 本质上是将 `i` 所在的空间赋值为 `i` 这个值加上 `1` 的计算结果.
