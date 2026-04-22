@@ -149,6 +149,7 @@ nav:
     - "§ 人工智能基础(A)": ZJU-Courses-Notes/A/AIBasic(A).md
     - "§ 电工电子学": ZJU-Courses-Notes/A/Electron/index.md
     - "§ 理论力学(甲)": ZJU-Courses-Notes/A/TheoreticalMechanics/index.md
+    - "§ 工程材料": ZJU-Courses-Notes/A/EngineeringMaterial.md
 
   - "CS Notes":
     - algorithm/index.md
