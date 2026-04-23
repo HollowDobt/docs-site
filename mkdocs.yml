@@ -14,7 +14,7 @@ edit_uri: edit/main/docs/
 theme:
   name: material
   custom_dir: overrides
-  favicon: _assets/favicon.png
+  favicon: assets/custom/favicon.png
   language: zh
 
   palette:
@@ -97,10 +97,10 @@ markdown_extensions:
       linenums: true
 
 extra_css:
-  - _css/extra.css
+  - assets/custom/extra.css
 
 extra_javascript:
-  - _js/math.js
+  - assets/custom/math.js
   - https://cdn.jsdelivr.net/npm/mathjax@4.1.0/tex-mml-chtml.js
 
 extra:
