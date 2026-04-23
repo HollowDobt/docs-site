@@ -4,18 +4,18 @@
         <meta charset="UTF-8" />
         <title>404 - Page Not Found</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="assets/favicon.png" />
         <link
             href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="/dist/output.css" />
         <script src="https://unpkg.com/lucide@latest"></script>
         <style>
             body {
                 font-family: "Quicksand", sans-serif;
                 margin: 0;
-                background-color: #17181c;
+                background:
+                    radial-gradient(circle at top, rgba(118, 148, 255, 0.16), transparent 32%),
+                    linear-gradient(180deg, #101216 0%, #17181c 45%, #111318 100%);
                 color: #ededed;
                 backdrop-filter: blur(10px);
                 overflow: hidden;
@@ -33,17 +33,34 @@
                 width: 100%;
                 height: 100%;
                 z-index: -1;
-                background-image: url('./rain.svg');
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
+                background-image:
+                    linear-gradient(
+                        120deg,
+                        transparent 0%,
+                        transparent 46%,
+                        rgba(180, 203, 255, 0.08) 46.5%,
+                        rgba(180, 203, 255, 0.08) 47.5%,
+                        transparent 48%,
+                        transparent 100%
+                    );
+                background-size: 16rem 16rem;
+                opacity: 0.8;
+                transform: skewY(-10deg);
+                transform-origin: top left;
             }
 
             .container {
                 text-align: center;
                 z-index: 1;
                 padding: 2rem;
+                width: min(42rem, calc(100vw - 2rem));
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 24px;
+                background: rgba(17, 19, 24, 0.72);
+                box-shadow:
+                    0 30px 80px rgba(0, 0, 0, 0.35),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+                backdrop-filter: blur(14px);
             }
 
             h1 {
@@ -59,9 +76,14 @@
                 margin-bottom: 2rem;
             }
 
-            /* ——— 以下代码替换原来 .btn 和 .btn:hover ——— */
+            .button-row {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+                padding: 1rem 0;
+            }
 
-            /* 按钮默认样式：bg-white/10 + shadow */
             .btn {
                 display: inline-flex;
                 align-items: center;
@@ -78,31 +100,27 @@
                 ); /* Tailwind 的 bg-white/10 */
                 border-radius: 9999px;
                 text-decoration: none;
-                /* 只对背景色和阴影做过渡 */
                 transition:
                     background-color 0.2s ease-in-out,
-                    box-shadow 0.2s ease-in-out;
-                /* 对应 Tailwind 的 shadow */
+                    box-shadow 0.2s ease-in-out,
+                    transform 0.2s ease-in-out;
                 box-shadow:
                     0 1px 3px rgba(0, 0, 0, 0.1),
                     0 1px 2px rgba(0, 0, 0, 0.06);
             }
 
-            /* 悬停时：bg-white/20 + shadow-lg */
             .btn:hover {
                 background-color: rgba(
                     255,
                     255,
                     255,
                     0.2
-                ); /* Tailwind 的 bg-white/20 */
-
-                /* 对应 Tailwind 的 shadow-lg：0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05) */
+                );
                 box-shadow:
                     0 10px 15px -3px rgba(0, 0, 0, 0.1),
                     0 4px 6px -2px rgba(0, 0, 0, 0.05);
-
-                color: #ffffff; /* 保持文字/图标白色 */
+                color: #ffffff;
+                transform: translateY(-1px);
             }
 
             .footer {
@@ -135,17 +153,13 @@
         </style>
     </head>
     <body>
-        <!-- 背景动画 -->
         <div class="rain-background"></div>
 
-        <!-- 内容区 -->
         <div class="container">
             <h1>404 - Page Not Found</h1>
             <p>The page you're looking for doesn't exist or has been moved.</p>
 
-            <div
-                class="flex flex-col sm:flex-row flex-wrap sm:flex-nowrap justify-center items-center gap-4 px-4 py-4"
-            >
+            <div class="button-row">
                 <a
                     href="https://hollowlib.top"
                     class="btn"
@@ -155,10 +169,11 @@
                     <i data-lucide="home" class="w-5 h-5"></i> Home
                 </a>
                 <a
-                    href="https://docs.hollowlib.top"
+                    href="https://note.hlwdot.com"
+                    id="docs-link"
                     class="btn"
-                    title="Go to Database"
-                    aria-label="Blog"
+                    title="Go to Notes"
+                    aria-label="Docs"
                 >
                     <i data-lucide="book-open" class="w-5 h-5"></i> Docs
                 </a>
@@ -186,11 +201,23 @@
             <div class="footer">Designed by Hollow Dobt</div>
         </div>
 
-        <!-- 跳转脚本 -->
         <script>
             lucide.createIcons();
 
-            // 倒计时并自动跳转
+            const pathSegments = window.location.pathname
+                .split("/")
+                .filter(Boolean);
+            const siteRoot =
+                window.location.hostname.endsWith("github.io") &&
+                pathSegments.length > 0
+                    ? `/${pathSegments[0]}/`
+                    : "/";
+
+            const docsLink = document.getElementById("docs-link");
+            if (docsLink) {
+                docsLink.href = siteRoot;
+            }
+
             let countdown = 5;
             const timerEl = document.getElementById("timer");
             const interval = setInterval(() => {
@@ -198,7 +225,7 @@
                 timerEl.textContent = countdown;
                 if (countdown <= 0) {
                     clearInterval(interval);
-                    window.location.href = "/";
+                    window.location.href = siteRoot;
                 }
             }, 1000);
         </script>

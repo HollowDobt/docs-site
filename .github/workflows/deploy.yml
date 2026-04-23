@@ -42,6 +42,7 @@ jobs:
       - name: Build the site
         run: |
           mkdocs build
+          touch site/.nojekyll
           if [ -f site/static/404.html ]; then
             cp site/static/404.html site/404.html
           fi

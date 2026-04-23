@@ -1,167 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://docs.hollowlib.top/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/ZJU-Courses-Notes/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/AIBasic%28A%29/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/ZJU-Courses-Notes/A/AIBasic%28A%29/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/Calculus%28A%29II/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/ZJU-Courses-Notes/A/Calculus%28A%29II/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/NorCheT%28B%29/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/ZJU-Courses-Notes/A/EngineeringMaterial/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/BigData/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/ZJU-Courses-Notes/A/NorCheT%28B%29/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/BigData/GameTheory/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/ZJU-Courses-Notes/A/Electron/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/BigData/LinearProgram/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/ZJU-Courses-Notes/A/PhysicsII/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/BigData/armodel/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/ZJU-Courses-Notes/A/TheoreticalMechanics/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/Electron/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/algorithm/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/Electron/BaseDivi/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/algorithm/cf/stencil/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/Electron/CircuitAnalysisBasics/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/algorithm/cs61b/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/Electron/Circuitsandelectroniccomponents/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/algorithm/cs61b/2048/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/Electron/DigitalCircuits/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/algorithm/cs61b/dastru/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/Electron/InteOperaAmpl/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/algorithm/cs61b/iai/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/Electron/powercontrol/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/algorithm/cs61b/others/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/Electron/review/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/algorithm/cs61b/tdd/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/Electron/sincos/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/algorithm/cs61b/ttrct/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/PhysicsII/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/algorithm/csapp/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/PhysicsII/Constantcurrentmagneticfield/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/others/music/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/PhysicsII/Electrostaticfield/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/programlang/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/PhysicsII/InterferenceandDiffractionofLight/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/programlang/CMake/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
     <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/PhysicsII/Magneticfieldinamedium/</loc>
-         <lastmod>2026-01-16</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/TheoreticalMechanics/</loc>
-         <lastmod>2026-01-16</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/TheoreticalMechanics/AxiomsofStatics/</loc>
-         <lastmod>2026-01-16</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/TheoreticalMechanics/combinationmove/</loc>
-         <lastmod>2026-01-16</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/TheoreticalMechanics/forcetheory/</loc>
-         <lastmod>2026-01-16</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/TheoreticalMechanics/planeforce/</loc>
-         <lastmod>2026-01-16</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/TheoreticalMechanics/pointmove/</loc>
-         <lastmod>2026-01-16</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/TheoreticalMechanics/rigidbodyinflat/</loc>
-         <lastmod>2026-01-16</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.hollowlib.top/ZJU-Courses-Notes/A/TheoreticalMechanics/rigidbodymove/</loc>
-         <lastmod>2026-01-16</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.hollowlib.top/ai/</loc>
-         <lastmod>2026-01-16</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.hollowlib.top/algorithm/</loc>
-         <lastmod>2026-01-16</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.hollowlib.top/algorithm/DBAA/</loc>
-         <lastmod>2026-01-16</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.hollowlib.top/algorithm/DBAA/appendix1/</loc>
-         <lastmod>2026-01-16</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.hollowlib.top/algorithm/DBAA/appendix2/</loc>
-         <lastmod>2026-01-16</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.hollowlib.top/algorithm/DBAA/array/</loc>
-         <lastmod>2026-01-16</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.hollowlib.top/algorithm/cf/stencil/</loc>
-         <lastmod>2026-01-16</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.hollowlib.top/programlang/</loc>
-         <lastmod>2026-01-16</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.hollowlib.top/programlang/CMake/</loc>
-         <lastmod>2026-01-16</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.hollowlib.top/programlang/C%2B%2B/C%2B%2BOOP/</loc>
-         <lastmod>2026-01-16</lastmod>
+         <loc>https://note.hlwdot.com/programlang/Kalmanfilter/</loc>
+         <lastmod>2026-04-23</lastmod>
     </url>
 </urlset>

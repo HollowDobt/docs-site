@@ -7,9 +7,11 @@
 @import url("https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-web/style.css");
 
 :root {
+    /* 增加安全回退字体 sans-serif 和 monospace 防止 CDN 加载失败时排版崩溃 */
     --md-text-font: "Spectral", "LXGW WenKai Screen", sans-serif;
     --md-code-font: "Noto Sans Mono", "LXGW WenKai Mono Screen", monospace;
 
+    /* 桌面端字号保持稳定，不再用屏幕宽度猜设备大小 */
     --custom-base-size: .88rem;
     --custom-code-size: .76rem;
     --custom-footnote-size: .75rem;
@@ -48,15 +50,9 @@
  */
 
 /* Title Font Size h1-h3 */
-.md-typeset h1 {
-    font-weight: 900;
-}
-.md-typeset h2 {
-    font-weight: 700;
-}
-.md-typeset h3 {
-    font-weight: 600;
-}
+.md-typeset h1 { font-weight: 900; }
+.md-typeset h2 { font-weight: 700; }
+.md-typeset h3 { font-weight: 600; }
 
 /* Code Font Size */
 .md-typeset { font-size: var(--custom-base-size); }
@@ -64,6 +60,7 @@
 .md-typeset code { font-size: var(--custom-code-size); }
 .md-typeset .linenodiv { font-size: var(--custom-code-size); }
 
+/* --- 核心修复区：强制 Admonitions/Details 的各个层级字体大小与正文保持绝对一致 --- */
 .md-typeset .admonition,
 .md-typeset details,
 .md-typeset .admonition-title,
@@ -84,7 +81,7 @@
     padding-left: var(--custom-base-size);
     counter-increment: li;
     word-break: break-all;
-    font-size: var(--custom-footnote-size);
+    font-size: var(--custom-footnote-size); /* 确保覆盖上方可能的列表样式污染 */
 }
 .footnote li::marker {
     content: counter(li);
@@ -111,6 +108,7 @@
 .md-tabs__link { font-size: var(--custom-nav-size); }
 .md-header__title {font-size: var(--custom-header-size);}
 
+/* MathJax (由于使用的是 em，它会自动相对于父元素 var(--custom-base-size) 进行等比缩放，无需改动) */
 .md-typeset mjx-container:not([display]),
 .md-typeset mjx-container[display="false"] {
   font-size: 1em !important;
