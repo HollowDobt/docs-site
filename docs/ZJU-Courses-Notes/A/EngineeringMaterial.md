@@ -20,11 +20,12 @@
 
 工程材料 ppt 上的图:
 
-![280](https://bed.hlwdot.com/d/SJp0no9R2sIfCKH9zq1cjcjr2fqmeKXw)
+
+![280](https://img.hlwdot.com/d/zCa9WjFnIF)
 
 材料力学 ppt 上的图(更准确, 事实上期末考试使用的图更接近这张图):
 
-![](https://bed.hlwdot.com/d/B0Jfjk4PPDRDuCqtkwxf9s4TUkJeyKMe)
+![](https://img.hlwdot.com/d/DoufmePYZ4)
 
 - $\sigma_b$: 抗拉强度, 指材料在被拉断前所能承受度的最大应力值(BREAKING)
 - $\sigma_s$: 屈服强度, 指材料从弹性形变转入塑性形变的临界应力值. 可以诙谐为*奴隶(SLAVE)*
@@ -177,7 +178,7 @@
 
 ---
 
-![](https://bed.hlwdot.com/d/JZTZuE2sDwftnUhGx5C9NJCaeQeUEYTS)
+![](https://img.hlwdot.com/d/q7ODO3PCli)
 
 !!! note
 	铁碳相图铁碳相图, 那么什么是相图? 字面上看当然是研究相而不是组织的图了. 但是实际使用的时候更常研究的却是组织, 实在令人费解呀~
@@ -291,7 +292,7 @@ $$
 
 ---
 
-![298](https://bed.hlwdot.com/d/XKWx82IIsAOICHLVloticldRYbAidLdO)
+![298](https://img.hlwdot.com/d/vj1X1BYwY3)
 
 ### 加热时的组织转变(和冷却时对比理解)
 
@@ -301,7 +302,7 @@ $$
 
 ### **共析钢过冷奥氏体的等温转变曲线**(C 曲线)
 
-![](https://bed.hlwdot.com/d/EosA2p8BFjuC3EQX3JKyYBqlrKOP6NAS)
+![](https://img.hlwdot.com/d/2O3ULMlJAs)
 
 - 标题就是一个必须记忆的重点.
 - **孕育期** 指的是转变开始线与纵坐标轴之间的距离. 孕育期的最小值位于 C 曲线的鼻尖处
@@ -320,7 +321,7 @@ $$
 - 只需要记住亚/过共析钢的等温转变曲线的最短孕育期(也就是鼻尖处到纵坐标轴的距离)比共析钢的短就行. 当然, 这也意味着二者的过冷奥氏体不如共析钢的稳定
 - 下面是连续转变曲线. 最大的区别是在珠光体转变区下面多了一条终止线. 下图中最重要的是**临界冷却速度** $V_k$, 这个速度表述的是获得全部马氏体组织的最小冷却速度
 
-![](https://bed.hlwdot.com/d/ER278UfE1Db4b6YzebYJ54sKS1uNFma1)
+![](https://img.hlwdot.com/d/k4tno8Iam8)
 
 ### 普通热处理
 
@@ -332,7 +333,7 @@ $$
 
 - 记住下面这张图即可
 
-![](https://bed.hlwdot.com/d/D7aSPujFtRkkN9Zju7ei4zJyhPzsqAuM)
+![](https://img.hlwdot.com/d/0g46Qw8wV6)
 
 - **扩散退火/均匀化退火** 长时间保持高温, 利用原子的充分扩散来消除化学成分不均匀
 - **去应力退火** 回复, 目的是消除内应力而不影响金属本身的硬度和强度
@@ -404,7 +405,7 @@ $$
 
 应该没有正常人背的下这张图. 把上面和前面提到的重要的几点理解就行了
 
-![](https://bed.hlwdot.com/d/gf72muMepXjWdksDSQa5K7QNlM66eheG)
+![](https://img.hlwdot.com/d/zYVl2Fhb2Y)
 
 ### 金属牌号总结
 
@@ -426,7 +427,7 @@ $$
 | v   | 1Cr13    | v   | 1Cr18Ni9Ti  |
 | v   | 9Mn2V    | -   | -           |
 
-![](https://bed.hlwdot.com/d/wR23EfsNGvRhZ1G6bbeWhveNgRyzEcn4)
+![](https://img.hlwdot.com/d/vkEfBbCUdW)
 
 !!! success
 	下面的记忆方式同样太过阴间, 感到可怕或者觉得我写的不好的请直接无视. 而且部分内容可能存在知识上的错误, 千万别被我骗了! 
@@ -560,4 +561,4 @@ $$
 !!! question
 	$\omega_C=3.0\%$ 的亚共晶生铁, 自液态冷却至室温, 组织发生了什么变化? 室温的组织是什么? 各组织组成物的质量分数分别是多少?
 
-![](https://bed.hlwdot.com/d/fnq5zjbQukMIKrdrRbI6EPtxyMViYIxB)
+![](https://img.hlwdot.com/d/eJlv8bofvt)

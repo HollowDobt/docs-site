@@ -38,7 +38,8 @@ comments: false
 
 ### 大二下
 
-- [ ] [§ 工程材料](A/EngineeringMaterial.md)
+- [x] [§ 工程材料](A/EngineeringMaterial.md)
+- [ ] [§ 材料力学](A/mm.md)
 
 ## 杂七杂八的资源
 
