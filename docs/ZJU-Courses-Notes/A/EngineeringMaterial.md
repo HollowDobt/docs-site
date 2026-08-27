@@ -20,11 +20,11 @@
 
 工程材料 ppt 上的图:
 
-![](https://img.hollow.ink/public/20260870584382060c3ccc8f7beb54a0570f3c.png)
+![](https://hollow.ink/s3/public/20260870584382060c3ccc8f7beb54a0570f3c.png)
 
 材料力学 ppt 上的图(更准确, 事实上期末考试使用的图更接近这张图):
 
-![](https://img.hollow.ink/public/20260813d8b0a1f6849556cfd406859a7def55.png)
+![](https://hollow.ink/s3/public/20260813d8b0a1f6849556cfd406859a7def55.png)
 
 - $\sigma_b$: 抗拉强度, 指材料在被拉断前所能承受度的最大应力值(BREAKING)
 - $\sigma_s$: 屈服强度, 指材料从弹性形变转入塑性形变的临界应力值. 可以诙谐为*奴隶(SLAVE)*
@@ -177,7 +177,7 @@
 
 ---
 
-![](https://img.hollow.ink/public/202608a31bd87036a32d3ba3eb16031013e6a7.jpg)
+![](https://hollow.ink/s3/public/202608a31bd87036a32d3ba3eb16031013e6a7.jpg)
 
 !!! note
 	铁碳相图铁碳相图, 那么什么是相图? 字面上看当然是研究相而不是组织的图了. 但是实际使用的时候更常研究的却是组织, 实在令人费解呀~
@@ -291,7 +291,7 @@ $$
 
 ---
 
-![](https://img.hollow.ink/public/2026087576cd3f62a72a190d0568308042ed26.png)
+![](https://hollow.ink/s3/public/2026087576cd3f62a72a190d0568308042ed26.png)
 
 ### 加热时的组织转变(和冷却时对比理解)
 
@@ -301,7 +301,7 @@ $$
 
 ### 共析钢过冷奥氏体的等温转变曲线(C 曲线)
 
-![](https://img.hollow.ink/public/202608791552f2cd1c4add509d30897613236f.png)
+![](https://hollow.ink/s3/public/202608791552f2cd1c4add509d30897613236f.png)
 
 - 标题就是一个必须记忆的重点.
 - **孕育期** 指的是转变开始线与纵坐标轴之间的距离. 孕育期的最小值位于 C 曲线的鼻尖处
@@ -320,7 +320,7 @@ $$
 - 只需要记住亚/过共析钢的等温转变曲线的最短孕育期(也就是鼻尖处到纵坐标轴的距离)比共析钢的短就行. 当然, 这也意味着二者的过冷奥氏体不如共析钢的稳定
 - 下面是连续转变曲线. 最大的区别是在珠光体转变区下面多了一条终止线. 下图中最重要的是**临界冷却速度** $V_k$, 这个速度表述的是获得全部马氏体组织的最小冷却速度
 
-![](https://img.hollow.ink/public/202608fc2a6982864d052130e04f34ce95d71a.png)
+![](https://hollow.ink/s3/public/202608fc2a6982864d052130e04f34ce95d71a.png)
 
 ### 普通热处理
 
@@ -332,7 +332,7 @@ $$
 
 - 记住下面这张图即可
 
-![](https://img.hollow.ink/public/2026082b231d719e9c95a019db8e3553933045.jpg)
+![](https://hollow.ink/s3/public/2026082b231d719e9c95a019db8e3553933045.jpg)
 
 - **扩散退火/均匀化退火** 长时间保持高温, 利用原子的充分扩散来消除化学成分不均匀
 - **去应力退火** 回复, 目的是消除内应力而不影响金属本身的硬度和强度
@@ -404,7 +404,7 @@ $$
 
 应该没有正常人背的下这张图. 把上面和前面提到的重要的几点理解就行了
 
-![](https://img.hollow.ink/public/202608bf692714b694badb6a1da6e67037ce82.png)
+![](https://hollow.ink/s3/public/202608bf692714b694badb6a1da6e67037ce82.png)
 
 ### 金属牌号总结
 
@@ -426,7 +426,7 @@ $$
 | v   | 1Cr13    | v   | 1Cr18Ni9Ti  |
 | v   | 9Mn2V    | -   | -           |
 
-![](https://img.hollow.ink/public/2026081dbeea4d830ad324cd44ac3d7c971ccb.png)
+![](https://hollow.ink/s3/public/2026081dbeea4d830ad324cd44ac3d7c971ccb.png)
 
 !!! success
 	下面的记忆方式同样太过阴间, 感到可怕或者觉得我写的不好的请直接无视. 而且部分内容可能存在知识上的错误, 千万别被我骗了! 
@@ -560,4 +560,4 @@ $$
 !!! question
 	$\omega_C=3.0\%$ 的亚共晶生铁, 自液态冷却至室温, 组织发生了什么变化? 室温的组织是什么? 各组织组成物的质量分数分别是多少?
 
-![](https://img.hollow.ink/public/2026083a06f4bbb269c9f6d3ac71474b06f54f.jpg)
+![](https://hollow.ink/s3/public/2026083a06f4bbb269c9f6d3ac71474b06f54f.jpg)
