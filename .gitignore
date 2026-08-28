@@ -2,6 +2,7 @@
 .obsidian
 **/.obsidian/
 **/.venv/
+.cache/
 .aux
 .log
 .out

@@ -1,0 +1,154 @@
+#!/usr/bin/env bash
+
+set -Eeuo pipefail
+
+readonly target_ref="refs/heads/main"
+readonly image_name="hollow-notes:latest"
+readonly container_name="hollow-notes"
+readonly listen_address="127.0.0.1"
+readonly listen_port="4902"
+readonly lock_file="/tmp/hollow-notes-deploy.lock"
+
+new_revision=""
+
+while read -r _ received_revision received_ref; do
+    if [[ "$received_ref" == "$target_ref" ]]; then
+        new_revision="$received_revision"
+    fi
+done
+
+if [[ -z "$new_revision" ]]; then
+    exit 0
+fi
+
+if [[ "$new_revision" =~ ^0+$ ]]; then
+    echo "notes: main was deleted; the running container was left unchanged" >&2
+    exit 0
+fi
+
+repository="$(git rev-parse --git-dir)"
+repository="$(cd "$repository" && pwd -P)"
+
+exec 9>"$lock_file"
+flock 9
+
+current_revision="$(git --git-dir="$repository" rev-parse "$target_ref")"
+if [[ "$new_revision" != "$current_revision" ]]; then
+    echo "notes: skipping superseded revision $new_revision" >&2
+    exit 0
+fi
+
+work_dir="$(mktemp -d /tmp/hollow-notes-deploy.XXXXXX)"
+candidate_name="${container_name}-candidate-$$"
+backup_name="${container_name}-rollback-$$"
+old_container_saved=0
+cutover_started=0
+deployment_complete=0
+
+cleanup() {
+    exit_status="$?"
+
+    docker rm --force "$candidate_name" >/dev/null 2>&1 || true
+
+    if ((cutover_started && !deployment_complete)); then
+        echo "notes: interrupted deployment; restoring the previous container" >&2
+        docker rm --force "$container_name" >/dev/null 2>&1 || true
+
+        if ((old_container_saved)); then
+            docker rename "$backup_name" "$container_name" >/dev/null 2>&1 || true
+            docker start "$container_name" >/dev/null 2>&1 || true
+        fi
+    fi
+
+    rm -rf -- "$work_dir"
+    exit "$exit_status"
+}
+trap cleanup EXIT
+
+unset GIT_DIR GIT_WORK_TREE GIT_INDEX_FILE GIT_OBJECT_DIRECTORY GIT_ALTERNATE_OBJECT_DIRECTORIES
+
+echo "notes: checking out $new_revision"
+git clone --no-local --quiet "$repository" "$work_dir/source"
+git -C "$work_dir/source" checkout --detach --quiet "$new_revision"
+
+echo "notes: building $image_name"
+docker build \
+    --pull \
+    --label "org.opencontainers.image.revision=$new_revision" \
+    --tag "$image_name" \
+    --file "$work_dir/source/deploy/Dockerfile" \
+    "$work_dir/source"
+
+runtime_options=(
+    --read-only
+    --tmpfs "/tmp:rw,noexec,nosuid,size=16m"
+    --cap-drop=ALL
+    --security-opt=no-new-privileges:true
+    --pids-limit=128
+    --log-opt=max-size=10m
+    --log-opt=max-file=3
+)
+
+wait_until_healthy() {
+    local name="$1"
+    local attempt status
+
+    for ((attempt = 1; attempt <= 30; attempt++)); do
+        status="$(docker inspect --format '{{if .State.Health}}{{.State.Health.Status}}{{else}}{{.State.Status}}{{end}}' "$name" 2>/dev/null || true)"
+        case "$status" in
+            healthy)
+                return 0
+                ;;
+            unhealthy | exited | dead)
+                return 1
+                ;;
+        esac
+        sleep 1
+    done
+
+    return 1
+}
+
+echo "notes: validating the new image"
+docker run --detach \
+    --name "$candidate_name" \
+    "${runtime_options[@]}" \
+    "$image_name" >/dev/null
+
+if ! wait_until_healthy "$candidate_name"; then
+    docker logs "$candidate_name" >&2 || true
+    echo "notes: image validation failed; the running container was left unchanged" >&2
+    exit 1
+fi
+docker rm --force "$candidate_name" >/dev/null
+
+cutover_started=1
+if docker container inspect "$container_name" >/dev/null 2>&1; then
+    docker stop --time 10 "$container_name" >/dev/null
+    docker rename "$container_name" "$backup_name"
+    old_container_saved=1
+fi
+
+echo "notes: publishing on $listen_address:$listen_port"
+if ! docker run --detach \
+    --name "$container_name" \
+    --restart unless-stopped \
+    --publish "$listen_address:$listen_port:8080" \
+    "${runtime_options[@]}" \
+    "$image_name" >/dev/null; then
+    exit 1
+fi
+
+if ! wait_until_healthy "$container_name"; then
+    docker logs "$container_name" >&2 || true
+    exit 1
+fi
+
+deployment_complete=1
+if ((old_container_saved)); then
+    docker rm "$backup_name" >/dev/null
+fi
+
+docker image prune --force --filter "label=ink.hollow.service=notes" >/dev/null || true
+
+echo "notes: deployed $new_revision successfully"

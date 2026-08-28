@@ -1,6 +1,6 @@
 # Hollow's Library ~
 
-> Hello? This is [my own data base](https://note.hlwdot.com). Nice to see you here!
+> Hello? This is [my own data base](https://hollow.ink/notes/). Nice to see you here!
 
 ## Talks: Dark History & Birght Future of this Data Base
 
