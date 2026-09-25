@@ -1,6 +1,7 @@
 # Analysis I
 
-
+!!! abstract
+	这是陶哲轩先生赫赫有名的 *实分析 I*. 限于本人水平(不论是数学还是英语), 下面笔记中许多证明之严谨性惨不忍睹. 但是其欲图表述之含义应当是点到了. 在看原著和问 AI 都无效时看看下面的证明等等或许有所帮助.
 
 ## "Natural Numbers"
 
@@ -20,4 +21,8 @@ The most incomprehensible and interesting axiom may be the fifth one: **Mathemat
 !!! success "Proof: Peano axioms (5) (Proposition $I$) $\Longleftrightarrow$ All natural numbers can be generated recursively starting from 0 using the successor operation (Proposition $M$)"
 	Now we denote the proposition of number $n$ as $P(n)$.
 	
-	(i) $M\Longrightarrow I$: Let $X$ satisfies Proposition $M$ ($x_0=0, x_1=x_0++,\dots$). We need to prove that *when the assumptions Proposition $I$ are all satified the proposition is true for all natural numbers*. The assumption 1 supposes that $P(x_0)$ is true. Then, the assumption 2 supposes that for any $n$ if $x_n$ is true, and $x_{n+1}$ is also true. Now $P(x_0)$ is true, and because any number in $X_n$ can be generated recursively starting from $0$ using the successor operation ($++$), which means $P(x_0++)=P(x_1)$ true, $P(x_1++)=P(x_2)$ true $\dots$ and thus $P_(x_n)$ is true for all $x_n$ in $X$. #
+	(i) $M\Longrightarrow I$: Let $X$ satisfies Proposition $M$ ($x_0=0, x_1=x_0++,\dots$). We need to prove that *when the assumptions Proposition $I$ are all satified the proposition is true for all natural numbers*. The assumption 1 supposes that $P(x_0)$ is true. Then, the assumption 2 supposes that for any $n$ if $x_n$ is true, and $x_{n+1}$ is also true. Now $P(x_0)$ is true, and because any number in $X_n$ can be generated recursively starting from $0$ using the successor operation ($++$), which means $P(x_0++)=P(x_1)$ true, $P(x_1++)=P(x_2)$ true $\dots$ and thus $P_(x_n)$ is true for all $x_n$ in $X$.
+	
+	(2) $I\Longrightarrow M$: (*For better understanding, a contradiction proof is used here.*) Suppose that $M$ is false when $I$ is true. The falsity of $M$ implies that at least one element cannot be generated recursively starting from 0 using the successor operation. So let $N=X\cup C$ where elements of $X$ can be generated recursively starting from 0 using the successor operation and elements of $C$ cannot. We suppose that $P(x)$ is true while $P(c)$ not. So $P(n_0)$($P(x_0)$) is true, and $P(n_0++)$($P(x_0++)$) $=$ $P(x_1)$, $\dots$ According to the axiom 5, $P(x)$ is true. However, $P(c)$ is not true. Therefore, when $I$ is true, $M$ must be true.
+	
+	In summary, Proposition $I$ and Proposition $M$ are equivalent. $\Box $
