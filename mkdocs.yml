@@ -149,6 +149,7 @@ nav:
     - "§ 理论力学(甲)": ZJU-Courses-Notes/A/TheoreticalMechanics/index.md
     - "§ 工程材料": ZJU-Courses-Notes/A/EngineeringMaterial.md
     - "§ 材料力学(乙)": ZJU-Courses-Notes/A/MaterialMechanics.md
+    - "§ 控制工程基础": ZJU-Courses-Notes/A/ControlEng.md
 
   - "Mathematics Notes":
     - mathematics/index.md

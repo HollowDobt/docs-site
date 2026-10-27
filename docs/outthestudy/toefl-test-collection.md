@@ -66,4 +66,69 @@
 - contrast "To contrast the approach with traditional product-development methods"
 - harsh "Offering shelter to migrating birds during harsh weather"
 - carbon emission "Producing fewer carbon emissions during the migration season"
-- 
+
+## 9.28
+
+Subject: Request for apartment repairs
+
+Dear Thompson,
+
+I am writing to ask for your help with some problems in my apartment. I moved in here last week and have noticed two issues.
+
+The heater in the bedroom makes loud noises at night and the ceiling light in the living room keeps flickering. These problems have made it difficult for me to sleep well and complete my homework.
+
+Could you please arrange for a technician to check and repair them this week? I would appreciate it if you could let me know when the visit can be scheduled. I am happy to provide any additional information you may need.
+
+Thanks for your time and help.
+
+Best regards.
+
+```Practice
+  You are a member of your university’s photography club. The club is planning a workshop for students who enjoy taking pictures but have little photography experience. You recently attended a talk by a local photographer, Ms. Davis, and would like to invite her to lead the workshop.
+  Write an email to Ms. Davis. In your email, do the following:
+  • Describe the workshop your club is planning and who will attend.
+  • Explain why you think she would be a good person to lead the workshop.
+  • Suggest an activity she could organize during the workshop and ask about her availability.
+```
+
+Dear Ms. Davis,
+
+I am writing to invite you to lead a workshop in my university.
+
+The photography club in my university planning a workshop and needs an expert to lead it. Students who enjoy taking pictures but are weak in photographing will attend this workshop.
+
+## 10.21
+
+Dear Editor,
+
+Hope this email finds you well.
+
+I read your poems collection on the magazine last month, and I cannot love them much more. So I really want to submit my poems here.
+
+I am writing to check if you have received my submissions because I met a problem when submitting my poems.
+Thirty minutes ago I tried to submit my poems on the site, however the browser crashed when I clicked the web page and I did not what happen. Then I refreshed my browser, and it crashed again.
+
+I will appreciate it if you could tell me if you have received the poems.
+
+Best regards,
+Tom
+
+## 10.23
+
+17:58 
+
+Dear Ms.Julia,
+
+I hope the email finds you well. I am writing to share my ideas for our orgnization's upcoming recycling and waste reduction awareness event.
+
+I think we can hold a book exchange activity. Students could bring their drink bottles and books to get money or other gifts. And if they share their friends this news and take them here, they will be award with more money.
+
+It is difficult to encourage students to recycle and reduce waste if we only tell them what it makes to the environment, so we need to let them know what conserving the environment means to ourselves. And making money will make students feel joys in recycling.
+
+I am also glad to help with activities. And if you agree with my advice, I am pleasure to implement these activities.
+
+I am looking forward to your reply.
+
+Best regards,
+
+Tim

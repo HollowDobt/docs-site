@@ -43,3 +43,7 @@ comments: false
 
 - [x] [§ 工程材料](A/EngineeringMaterial.md)
 - [ ] [§ 材料力学](A/MaterialMechanics.md)
+
+### 大三上
+
+- [x] [§ 控制工程基础](A/ControlEng.md)
